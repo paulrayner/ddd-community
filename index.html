@@ -5,28 +5,6 @@ author_profile: true
 
 {% include base_path %}
 
-
-
-<a class="twitter-timeline twitter-timeline-error" href="https://twitter.com/DDDesignNews" data-widget-id="305334852734033923" data-twitter-extracted-i1468878143616202256="true">Tweets by @DDDesignNews</a>
-<p>
-
-<a class="twitter-timeline twitter-timeline-error" href="https://twitter.com/search?q=%23dddesign" data-widget-id="305909063852621824" data-twitter-extracted-i1468878143616202256="true">Tweets about "#dddesign"</a>
-<p>
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-  
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts }}</h3>
 
 {% for post in paginator.posts %}
