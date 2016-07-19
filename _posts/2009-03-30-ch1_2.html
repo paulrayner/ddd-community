@@ -1,0 +1,545 @@
+---
+layout: post
+title: Chapters 1 & 2
+date: 2009-03-30 20:14:56.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '54'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=45
+  _edit_last: '3110'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<br />
+<h2>Silicon Valley Patterns Group</h2>
+<p> <span class="notesblock">18-Nov-2003<br />
+  Domain Driven Design (Evans), I.<br />
+ Notes by Jeff Miller</span></p>
+<p>This meeting revisits the final published form of a book that SVP reviewed<br />
+    in an earlier draft two years ago.</p>
+<p>Russ: (introduces Eric Evans as author). The group spent 9 weeks 2 years<br />
+    ago with an early draft of this book. It was already good, and has matured<br />
+    since, so we should have high expectations. Anything to say?</p>
+<p>Eric: I'd like to let it speak for itself. I found the group's input<br />
+    very valuable during the reading of the draft. It was very helpful to<br />
+    me. Now what I'd like to do is focus on what can you get out of the book<br />
+    and how can I give back to the group.</p>
+<p>Russ: We have some faces from the Thursday group, now that the Thursday<br />
+    group has finished their track through the Gang of Four patterns book.<br />
+    I know that there is some interest in starting a reprise track on Thursdays.<br />
+    There are some other<br />
+    interesting potentials for future readings, including new books and books<br />
+    in progress. Maybe we can talk about that up front later.</p>
+<p>Russ: So again, to open, remember we're focusing on getting information<br />
+    rather than providing help to the author. Do people have questions on<br />
+    the conversation at the beginning, the printed circuit board example?</p>
+<p>Robert: It feels pretty representative in terms of the level of congruence<br />
+    between the software guys and the domain experts.</p>
+<p>Eric: It seemed to me to convey... first, it was a domain that I knew<br />
+    nothing about, so it was an example where the software guy didn't know<br />
+    anything to speak of about the domain. It also had interesting behavior<br />
+    on the object side. I had another complete version of this with a different<br />
+    scenario, but some of the readers of the draft said that the objects were<br />
+    really a data structure, not too compelling as a first example.</p>
+<p>(discussion of drawings schematically representing the domain, some are<br />
+    more domain specific in style, see page 41)</p>
+<p>Eric: But eventually you want something that could represent the object<br />
+    model. From the early, domain-specific diagrams, I move toward UML. Domain<br />
+    experts can usually understand it without much trouble. But deciding whether<br />
+    something should be a class or a method, that is probably in the realm<br />
+    of the software developer rather than the domain expert. But the whole<br />
+    sequence of interactions should make sense to the<br />
+    domain expert.</p>
+<p>Charlie: Do you always start with boxes, to UML-style things?</p>
+<p>Eric: I jumped into the conversation at just about the point where I<br />
+    could start drawing boxes. But it also shows the way that we were communicating<br />
+    in a frustrating earlier period where we were trying to define common<br />
+    terms. So when I<br />
+    looked at all the use cases, they all mentioned nets. What's a net? It's<br />
+    something that connects several chips. So chips and nets became objects<br />
+    in the model. When the words and the pictures and the explanation all<br />
+    match up, for the simple cases that you can become confident about, and<br />
+    you can draw some simple UML models that the domain experts can understand,<br />
+    that's where you start. I stay away from the more<br />
+    complex UML, maybe as far as I go would be diamond for aggregation, or<br />
+    perhaps numbers on each sides of a line to describe how many instances<br />
+    might be associated.<br />
+    It's not enough at this point to build a system, but it's a step toward<br />
+   building a common language, partly visual, partly verbal.</p>
+<p>Jeffrey B: So what you're saying...when you have a conversation, and<br />
+    you draw boxes, and have the domain expert confirm that how you describe<br />
+    them is how they would<br />
+    describe them...</p>
+<p>(pause to finish ordering food, get coffee and salad)</p>
+<p>Eric: So on the subject of Figure 1.1, I don't want to emphasize UML.<br />
+    When I sketched the boxes ... eventually the layout person found a font<br />
+    that looked really hand-drawn.<br />
+    I didn't want to emphasize the diagrams by showing them rendered in this<br />
+    crisp, sharp way. That's why I show them as if they are roughly sketched.</p>
+<p>Tim: I've seen that people who have multiple names for the same things<br />
+    sometimes have trouble understanding UML. They make connections implicitly,<br />
+    and it takes a while to drag out that information. And they describe different<br />
+    connections under different preconditions.</p>
+<p>Eric: This sounds like you were getting into more sophisticated questions<br />
+    about modeling, rather than about notation.</p>
+<p>Tim: So I'd draw a representation, and they wouldn't understand that<br />
+    the diagram was trying to capture all the connections, all the information.<br />
+    They'd carry along their<br />
+    implicit knowledge of relationships.</p>
+<p>Jeffrey B: People with a background in OO, they understand about why<br />
+    you might break things up, to separate responsibilities. It can confuse<br />
+    people who don't have<br />
+    this background of analysis and design about why you would break things<br />
+    up a certain way.</p>
+<p>Jeff M: Q: to get a little phase-ist here, isn't this a question of the<br />
+    design phase rather than the analysis phase? You break things up when<br />
+    it becomes important to turn them into objects and collect groups of related<br />
+    responsibilities.</p>
+<p>(Eric makes a gesture of warding off evil re "phase-based"<br />
+    software development)</p>
+<p>Jeffrey B: I think that maybe the conversation here may go too quickly<br />
+    toward the design, rather than capturing information at a higher, summary<br />
+    level.</p>
+<p>Russ: So when you're drawing at a whiteboard, are you introducing more<br />
+    words to the language, or are the domain experts?</p>
+<p>Eric: I usually listen to them talk, and then draw and label boxes. It's<br />
+    rare that the domain expert will add something to the diagram. But even<br />
+    before the first diagram,<br />
+    there's a lot of talk. You never know where the initial discussions will<br />
+    take you, but it gives you a place to start. For the circuit board example,<br />
+    I learned early that a chip<br />
+   can connect to many nets, a net can connect to many chips.</p>
+<p>Tracy: So maybe you have some concept about chips, and wires, and nets.<br />
+    But do you really understand what they mean by these terms that you think<br />
+    you have in common?</p>
+<p>Eric: And in the other direction, there were cases where unfamiliar terms<br />
+    in the domain experts' vocabulary got turned into terms of more common<br />
+    use for the ubiquitous language. For example, they talked about "Ref-des"<br />
+    rather than <br />
+    "component", which was the word that the common language later<br />
+    settled on.</p>
+<p>Russ: How far down do you go in modeling?</p>
+<p>Eric: As far as is useful. That's how you make a judgment on a model,<br />
+    if it makes hard things easier. There's always more than one way to model<br />
+    things. Occasionally there may be two models which are equally useful.<br />
+    Like a mathematical iteration, you don't necessarily have to start out<br />
+    your model in a good place. With any sort of reasonable starting place,<br />
+    you will converge, following an iterative path. And you may<br />
+    converge on a different valid solution, a different useful model, than<br />
+    you would from a different starting place. For example, if I had started<br />
+    out with the Signal as an<br />
+    object rather than the Net, I would have ended up in a reasonably useful<br />
+    place. If you get down to a point where you've gone a long way down the<br />
+    path, and the model is <br />
+    not feeling like it's solving your problems, it's useful to pull back<br />
+   and ask if some of your initial assumptions were wrong.</p>
+<p>Russ: So if you started with wires and endpoints?</p>
+<p>Eric: I could have, but I imagine that I would pretty quickly find out<br />
+    that it was below the level of abstraction at which the printed-circuit<br />
+    designers are actually operating in<br />
+    creating their designs. Later on, talking about "deep modeling",<br />
+    with respect to the shipping model... you have cargos, ships, containers,<br />
+    places to pick them up and<br />
+    drop them off. But it ends up more useful, rather than thinking about<br />
+    ships, that thinking about a "voyage", about some cargo capacity<br />
+    available from point A to point B at a time, is the right way to think<br />
+    about planning and allocating cargo. And you find out that even though<br />
+    they may talk about a ship, the ship is not the thing they care about<br />
+    in making their plans. They could substitute a ship at the last moment.   </p>
+<p>Russ: So what would they say?</p>
+<p>Eric: That would often come from their side, the domain expert would<br />
+    ask, "why are you fixating on particular ships? We care more about<br />
+    voyages... " If a ship doesn't<br />
+    usually have a meaningful identity to them, if it fills a role of "cargo<br />
+    capacity provider", then perhaps ships are secondary to the model<br />
+    which helps the domain person the most. Later in the book I spend time<br />
+    talking about how to /listen/ to the<br />
+    domain expert. There's a difference between a model and a language, but<br />
+    they are tightly bound, and it helps to listen very closely to how the<br />
+    domain experts would<br />
+    naturally like to express their concepts. If the domain experts are tripping<br />
+    over the language of the model, perhaps the model needs refinement. Or<br />
+    perhaps they're not<br />
+    quite familiar with how the model is expressing the concepts in the domain.<br />
+    I don't believe you should have an important abstraction in the domain<br />
+    part of your design<br />
+    that your domain experts don't understand. It comes up all the time because<br />
+    software developers are good at abstraction, often better than the domain<br />
+   experts.</p>
+<p>Russ: I'm wondering if you have any rules for words that you might hear<br />
+    in describing the domain, or the design, that indicate a need to dig deeper.<br />
+    My "watchwords" for "needs more information": "thing",<br />
+    "stuff"</p>
+<p>Charlie: "activity"</p>
+<p>Tim: "manager" (an object which is a "cargo-manager",<br />
+    perhaps).</p>
+<p>John: When you see their arms waving off into space, or in CRC card design,<br />
+    pointing to a blank card as an actor in the design.</p>
+<p>Patrick: When is a noun used to describe the domain not an object in<br />
+    the model? <br />
+    When it's too vague or abstract.</p>
+<p>Russ: Or when it's over-concrete, like the wires in the printed circuit<br />
+    design.</p>
+<p>Eric: I find that "nouns=objects, methods=verbs," is often<br />
+    a better way of explaining OO programming rather than a way of doing it.<br />
+    I would lay aside that whole thing.</p>
+<p>Russ: Do you have rules-of-thumb for the early stage, for retaining meaty<br />
+    pieces of information that will make it into the eventual domain model?<br />
+    How do you keep yourself from going out too far into the woods on irrelevant<br />
+    detail?</p>
+<p>Eric: Well, it's sort of a question of use cases. In the printed circuit<br />
+    board example, we started with a use case that ended up as a "nice-to-have".<br />
+    The objects and concepts that came out of it weren't all retained in the<br />
+    domain model created with the application. But it ended up being valuable<br />
+    in developing understanding of the model in depth. I would rather end<br />
+    up going down a path where we threw some stuff away,<br />
+    as long as we chose a use case that had some behavioral meat on it, not<br />
+    too far off the mainstream things to do, but related to the core objects<br />
+    of the system.</p>
+<p>Tim: Would you ever pick something smaller to try and get the communication<br />
+    dynamic with the domain experts going? So, assuming you have some idea<br />
+    of the system, might you pick up a well-contained chunk that neither you<br />
+    nor they think is<br />
+    the most complex, but it would help to get into the give-and-take pattern<br />
+    of crunching knowledge?</p>
+<p>Eric: It might in some cases be useful to start out off on the side,<br />
+    but I really advise people to start out close to the core domain. For<br />
+    this PCB example, the use case we<br />
+    chose really allowed us to explore the domain well, even if we didn't<br />
+    implement it as a story in the end.</p>
+<p>Carlos: Do you delay putting things down on paper or on a whiteboard<br />
+    to avoid steering the conversation into premature concreteness, to avoid<br />
+    fixating on early things?</p>
+<p>Eric: I haven't found this too much of a problem. Usually I can get people<br />
+    un-fixated. You don't want to do it too early, you need enough background<br />
+    to find a starting place. By the time I describe, entering the printed<br />
+    circuit conversation, we've had<br />
+    maybe a couple of days of discussing use cases.</p>
+<p>Carlos: When do you start writing things down for the model?</p>
+<p>Eric: Whenever it feels like it's time. But if it doesn't feel useful,<br />
+    you stop and go back to the use cases. There's a tremendous amount of<br />
+    trial and error in the process,<br />
+    brainstorming and experimenting. You'll have a lot more bad answers than<br />
+    good answers. You have to keep throwing up more models, more variations,<br />
+    more possibilities, and going round and round, back to the use cases if<br />
+    you need to ground<br />
+   yourself.</p>
+<p>Charlie: For use cases, do you prefer them to be verbal descriptions?<br />
+    Or in some particular format?</p>
+<p>Eric: I wouldn't be too prescriptive, a lot of things work. I'd rather<br />
+    just say that any form would work, as long as it's pretty concrete, really<br />
+    talking about what is the system doing for the user that is useful to<br />
+    the user, not just the user interacting with the UI. More like the Cockburn<br />
+    trimmed-down sort of use case. Not as high-level as, say, "book a<br />
+    cargo".</p>
+<p>Jeff M: Sounds similar to Larry Constantine's "essential use cases",<br />
+    especially the focus on value to the user.</p>
+<p>Russ: I like this phrase, "powerful new features emerge as corollaries<br />
+    to existing features" as a benefit of a good domain model. Will we<br />
+    read more about that?</p>
+<p>Eric: I hope so. If you think about software as changing and evolving,<br />
+    I've seen several paths it can take. Either, it's typical, it changes<br />
+    quickly to start, then slows <br />
+    down, then slows to a point at which it's considered "legacy"<br />
+    and continues to run, but changes little. Or sometimes the code starts<br />
+    slowly, but can accelerate in <br />
+    development at a certain point.</p>
+<p>John B: So is refactoring more about preventing the progress from slowing<br />
+    down, and deep modeling about enabling acceleration of progress?</p>
+<p>Eric: Yes.</p>
+<p>Shiva: How do you avoid analysis paralysis?</p>
+<p>Eric: Don't separate analysis phase from design. Code up a prototype<br />
+    that you can demonstrate and play with to help discuss what was needed.<br />
+    If you get a wrong<br />
+    answer, then it helps the domain experts catch an issue, discuss it with<br />
+    you, clarify it. </p>
+<p>Until you get through a full circle, use case, design, and prototype,<br />
+    you're not really firing on all cylinders. Analysis and design are really<br />
+    based on each other, fused together, which is another reason why it's<br />
+    important to have a running prototype early, based on the model.</p>
+<p>(Ubiquitous Language, p. 24)</p>
+<p>Russ: Do you have some thoughts about, to name a couple of examples,<br />
+    "toast and dumptrucks", programmers' metaphors that don't communicate<br />
+    with the domain experts.</p>
+<p>Eric: Perhaps you could model the system that way. For example, you could<br />
+    model creating a shipping route as a parse tree, or an interpreter. But<br />
+    that's not part of the<br />
+    domain model. You could have a component which provides a routing service<br />
+    that uses these computer-science metaphors, and it may be the most useful<br />
+    way of<br />
+    handling the problem of constructing a route for a cargo. So when people<br />
+    talk about wacky metaphors, you may abstract a descriptive pattern or<br />
+    map of what the system<br />
+    is doing, but you have not captured the meaning of what it is doing. A<br />
+    metaphor or model defined in colorful terms can simplify your entry into<br />
+    a complex body of code,<br />
+   but it doesn't really help you see the purpose of the complex activity.</p>
+<p>Robert: So... why do you think "regular" software development,<br />
+    often lacking a good domain model, works at all?</p>
+<p>Eric: I don't know. Victorian machines certainly worked. They were complicated<br />
+    things, looms driven with programs punched on cards. The end result is<br />
+    whatever the machine is intended to produce, but if you all those moving<br />
+    parts, they have no<br />
+    meaning in isolation. That meaningless intricacy, the endless detail...it's<br />
+    what you might see in a movie to convey the bewildering feeling of being<br />
+    caught in the gears of a machine. Modern machinery tends to be simpler<br />
+    to the eye because the control has been extracted from the machinery.</p>
+<p>Russ: So, to those of us who haven't worked in enough dysfunctional shops,<br />
+    maybe you could outline what you're contrasting it with?</p>
+<p>Tim: I've got a few examples. With a few previous failures, management<br />
+    stops thinking of products as members of a product line... "just<br />
+    kick it out the door, we'll fix it later" and "oh, that one<br />
+    didn't work? Let's start over." No attempt at capturing or identifying<br />
+    the domain, or understanding the connections to the problem. We ended<br />
+    up having to add more special cases, more exceptions, more conditions.<br />
+    We never have the case where a new feature was, "aha, we can drop<br />
+    that in quickly, right there, there's a space for it!". The most<br />
+    successful managers at dysfunctional companies leave right before the<br />
+    inflection point.</p>
+<p>John B: Mozilla is a good example. The Netscape code was running fast<br />
+    from 1994 to about 1997, and the code got more brittle and harder to work<br />
+    with over time. You could look at the CVS tree.</p>
+<p>Eric: I'd contrast a domain-based approach with conditional logic...pages<br />
+    and pages of four-deep nested ifs, elses, whiles. No abstraction.</p>
+<p>Eric: It's hard to recover once you've gone down that path too far. I<br />
+    recall with one client, there was a chunk of business logic. And then<br />
+    in the middle of all that was a subroutine that checked for dangerous<br />
+    Javascript. So I thought that at least they could move it out into a utility<br />
+    class. I looked to see if it was used. And I saw that it wasn't used at<br />
+    all. But the same method signature was implemented 4 times in different<br />
+    places, looking like copies of one another. The point is that once you've<br />
+    got a big system that's built like that, it's really hard to get out of<br />
+    it. </p>
+<p>(some discussion of "who's left the dead code in there?", "who's<br />
+    made the copy?")</p>
+<p>Charlie: In software I worked on, developed by a small team quickly,<br />
+    there ended up being the same fields, essentially, called by three different<br />
+    sets of names in the database, the domain layer, and the UI.</p>
+<p>Eric: Even in dysfunctional groups, where there isn't a ubiquitous language,<br />
+    you end up having little groups each using their own terms, and they you<br />
+    have a couple of the<br />
+    best developers translating between the terms used by one group and those<br />
+    used by another -- the database, the UI, the other parts. It's easier<br />
+    just to translate than to<br />
+    try to bring the language back together.</p>
+<p>Eric: Do I emphasize speech enough? I feel that the speech center of<br />
+    our brain is one of the best modeling tools. You can say, "a net<br />
+    connects chips". You can draw diagrams, but they are often hard to<br />
+    relate to what we can describe in speech.</p>
+<p>Debbie: So even written language may not be a good substitute. In written<br />
+    language we tolerate more complexity, as we spend more time in writing<br />
+    and reading.</p>
+<p>Eric: But it's not as fluid. In speech, we could go through a hundred<br />
+    variations of a model in an hour. You really need that. Tweaking the little<br />
+    pieces, changing the nature of a relationship, dropping an object, it<br />
+    makes things a little better. When I'm really working with a domain expert,<br />
+    I need to move quickly and fluidly.</p>
+<p>Robert: So in a traditional project, you might have that cycle once a<br />
+    year.</p>
+<p>Debbie: So if you don't have a real domain expert, or the domain expert<br />
+    is busy with their other responsibilities...they might want to send off<br />
+    their requirements.</p>
+<p>Eric: You can do this to some extent with a set of developers, to talk<br />
+    with one another, to refine their understanding.</p>
+<p>Carlos: Speaking exposes awkward terms in a way that writing doesn't.</p>
+<p>Eric: Even reading out loud is enough like speaking that it picks up<br />
+    these things. I don't want to overstate these things, because a software<br />
+    model requires you to be much more structured, more restrictive than in<br />
+    a natural language.</p>
+<p>Jeffrey B: I often feel like I wish I could roll back something I said<br />
+    in a discussion, to capture the words I just spoke which were the perfect<br />
+    way to express something.</p>
+<p>Russ: We need to Tivo ourselves.</p>
+<p>Eric: Like those people who wear cameras everywhere they go.</p>
+<p>Russ: When you mention "pidgin", not sure why you're ringing<br />
+    it up here. Isn't the ubiquitous language a subset of the domain experts'<br />
+    language?</p>
+<p>Eric: No! You're not trying to shield the domain experts from the process<br />
+    of development, since the model, the terms of the ubiquitous language,<br />
+    needs to be useful in designing a software system. The way domain experts<br />
+    would be happiest to describe a problem is not a way that you could use<br />
+    to program a solution for them. That's why I introduce pidgin as a metaphor<br />
+    for the ubiquitous language for modeling the domain and the application.
+   </p>
+<p>p. 34, Venn diagram of overlapping ovals, the center overlap is the realm<br />
+    of the ubiquitous language.</p>
+<p>Russ: Is the pidgin in there? (pointing to the center)</p>
+<p>Eric: Yes, there is some of that. And you do learn some things in the<br />
+    right side, the business terms and context that may not appear in the<br />
+    model.</p>
+<p>Russ: What part of the technical side shows up in the overlap?</p>
+<p>Eric: Objects. But the domain experts' world is probably not broken into<br />
+    objects in the same way a software model would break things into objects.<br />
+    For example, a "voyage" may be an object in the model, where<br />
+    they consider it something that <br />
+    happens. And I didn't mean that you couldn't invent an abstraction that<br />
+    the domain experts hadn't already created. You might break a piece off<br />
+    one of their abstractions<br />
+    and re-cast it in a way useful for the system.</p>
+<p>Russ: Though in terms of the vocabulary of the ubiquitous language, it<br />
+    sounds more like a subset of the terms used in the business arena rather<br />
+    than incorporating technical language.</p>
+<p>Eric: You don't want to introduce purely technical concepts, but the<br />
+    way we break things down for software purposes shows up in the structure<br />
+    of the ubiquitous language. If you just brought a panel of shipping experts<br />
+    together, they could create a model of their industry, but it wouldn't<br />
+    be an /object model/. That's the technical aspect which shows up the most.<br />
+    There's a /thing/, and a /thing/, and a connection between them, and there<br />
+    are actions that can be taken on them.</p>
+<p>Russ: So would a rule be something like that, a layout rule, a way of<br />
+    expressing what they're doing that the domain expert might not have thought<br />
+    of?</p>
+<p>Eric: Yes, perhaps the overbooking rule. If you ask an expert, "is<br />
+    an overbooking policy a separable thing", they will answer "yes",<br />
+    but they won't have the OO point of view of thinking of it as the same<br />
+    order of concept as a ship or a voyage or a cargo.</p>
+<p>Mark: People think about what happens, not necessarily breaking it down<br />
+    into the terms of objects and responsibilities.</p>
+<p>Eric: You could apply probably half of the book in a non-OO context,<br />
+    though that is what I'm most familiar with. Getting knowledge from your<br />
+    domain experts, "grinding it down" until you have what you need<br />
+    for your model, these would be common factors.</p>
+<p>Patrick: Does OO frame of mind bias you toward creating more objects<br />
+    than you might need?</p>
+<p>Eric: Since everything is an object in OO development, you are forced<br />
+    to express everything as an object in one way or another.</p>
+<p>Patrick: But does that impede communication with your domain experts?<br />
+    Having too many objects?</p>
+<p>Eric: Then you may need to pare down your model.</p>
+<p>Russ: Objects are a nice way of breaking down many problems.</p>
+<p>John B: Not something that's primarily rules-based, for example.</p>
+<p>Mark: Yes, people tend to think about business rules, usual flows of<br />
+    work and exceptional cases, it's hard to translate that into object-speak.</p>
+<p>Eric: And mathematically oriented models are also not so naturally matched<br />
+    to objects.</p>
+<p>John B: Or classic E-R relationships, in a database context.</p>
+<p>Tracy: Eric, I think you and I have both have an experience like this.<br />
+    When you discover a new insight, and all of a sudden see that what you<br />
+    have isn't quite <br />
+    matching what you really need for your model, what often happens is that<br />
+    the model collapses down into a finer, more perfect example. And a lot<br />
+    of objects just go away<br />
+    in the better-matched model. Russ and I had an experience with this happening.</p>
+<p>    The new model was so simple that it was almost embarrassing to present,<br />
+    but if you looked at it, you wondered if you could have done it any other<br />
+    way.</p>
+<p>Eric: If you find that you can compose your model components in flexible,<br />
+    powerful ways, often your application logic will get much, much simpler.<br />
+    Or you probably haven't got it. That's what you're going for. I relate<br />
+    model and language on a lot of<br />
+    different levels. Your application code is /saying things/ in terms of<br />
+    the model language. And when you really get it right, not that your domain<br />
+    experts will be able to read Java, but you could sit there with the domain<br />
+    experts, and translate it line-by-line into how they would express it<br />
+    in terms of the model.</p>
+<p>Russ: A lot of people report that their domain experts can read their<br />
+    unit tests.</p>
+<p>Eric: When you design for testability, you are also designing for something<br />
+    that is easy to manipulate, and easy to explain.</p>
+<p>[Some discussion of the shipping example, the "overbooking allowance<br />
+    of 10%" re the code sample on p.19... when to change "*1.1"<br />
+    to put in an explaining variable for    "1.1", or perhaps "overbooking allowance = 0.1, compare<br />
+    voyage capacity * (1+overbooking allowance) to the booked cargo size.]</p>
+<p>[some discussion of 0.1 as a non-terminating binary fraction which might<br />
+    cause a rounding issue; discussion of accounting for pennies in a banking<br />
+    context]</p>
+<p>Russ: I liked what you said about documentation. (p.37-40). About XP<br />
+    focusing on the running, functional aspects of code. Though there are<br />
+    aspects of code that can<br />
+    get out of date, like naming conventions.</p>
+<p>Tracy: We had an experience where the domain experts had decided they<br />
+    needed to change a name to make it more clearly express what they meant.<br />
+    We had to translate<br />
+    for a while since the code had the old name, and it was uncomfortable.</p>
+<p>Russ: And it was pretty tedious to change all of the names of the places<br />
+    it was referenced.</p>
+<p>[...]</p>
+<p>Eric: I feel that in Java, where you've already had to declare the type<br />
+    of something three times, if you can find a name for the variable reference<br />
+    that expresses something more, it's best to do so. Something like "nextDepartingShip"<br />
+    rather than<br />
+    aShip.</p>
+<p>Jeff M: So it may be better to find a way to express a reference name<br />
+    as a role, perhaps, rather than anInstanceOfSomething.</p>
+<p>(some return to naming discussion re overbooking allowance)</p>
+<p>Debbie: The biggest missed opportunity I see for local variables is to<br />
+    name one "result". I often have to read back to the beginning.<br />
+    I prefer something like, say, matchingEmployee" rather than "result".</p>
+<p>Charlie: I have conventions for naming return values.</p>
+<p>Eric: Maybe we've drifted a little off the topic, but I feel it expresses<br />
+    something about this style of coding -- that naming instance variables<br />
+    within a method is tying it to<br />
+    the model, the ubiquitous language reaching down into the finest grain.<br />
+    That's why<br />
+    it's important, I think. In other modeling books, we'd be talking about<br />
+    high<br />
+    abstractions, and here we're talking about the details of practice that<br />
+    make things<br />
+   work.</p>
+<p>Charlie: As I've worked, I've found it more and more important that you<br />
+    choose the<br />
+    best name.</p>
+<p>(discussion of object-relational interface as a place where changes in<br />
+    the model may<br />
+    be slow to propagate, or the cost of change may be a deliberate choice;<br />
+    domain layer<br />
+    and UI is another possible interface where you may have to work to maintain<br />
+    a<br />
+   ubiquitous language)</p>
+<p>(discussion of "watershed moments" in losing agility -- first,<br />
+    where you have a <br />
+    database; then, when you have data you can't just throw away but have<br />
+    to migrate/<br />
+    preserve)</p>
+<p>(discussion of comments, commenting styles, limits of translating comments<br />
+    into <br />
+    self-expressive code, usefulness of explanatory comments)</p>
+<p>Charlie: There are some books we've read that seemed a little rough,<br />
+    but were too<br />
+    close to publication for our comments to make a lot of difference. It's<br />
+    really <br />
+   gratifying to see how good this book is, in its final version. </p>
+<p>Eric: I'm glad the work shows.</p>
+<p>Tracy: I think the addition of the examples really adds a lot. And the<br />
+    explanation of<br />
+    the back-and-forth, so that we see you learning as you go. I think it's<br />
+    going to be a<br />
+   classic.</p>
+<p>Jim: I've been reading and re-reading these first three chapters. This<br />
+    is great stuff,<br />
+    and if people really read it, they will make better programmers.</p>
+<p>   <!-- InstanceEndEditable --></p>
+<p> <!-- InstanceBeginEditable name="SideBar" --></p>
+<h2>Attending:</h2>
+<p>     Tim Huske<br />
+      Carol Thistlethwaite<br />
+      Patrick Manion<br />
+      Walter Vannini<br />
+      Wayne Vucenic<br />
+      Mark Taylor<br />
+      Robert Benson<br />
+      Russ Rufer<br />
+      Debbie Utley <br />
+      Jeffrey Blake<br />
+     Ken Scott-Hlebek<br />
+      Carlos Sepulveda<br />
+      Shiva JayaramanBatman/Tao<br />
+      Tracy Bialik<br />
+      Jeff Miller<br />
+      Chris Lopez<br />
+      Charlie Toland<br />
+      John Brewer<br />
+      Azad Bolour<br />
+      Jim Sawyer</p>
+<p></p>

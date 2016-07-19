@@ -1,0 +1,375 @@
+---
+layout: post
+title: Chapters 16 & 17
+date: 2009-03-30 20:21:48.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '60'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  U_S_C_message: ''
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  _bitly_trim: http://dddcommunity.org/?p=51
+  _edit_last: '3109'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p>&nbsp;</p>
+<p><span class="notesblock">Domain Driven Design Final Session</p>
+<p>Chapter 16 + Chapter 17</p>
+<p>February 3, 2004</p>
+<p>Guest author: Eric Evans</span></p>
+<p>Russ: p. 442, "large-scale structure can save a project?"</p>
+<p>Eric: Yes, but the read the rest of the sentence -- "... an ill-fitting<br />
+structure can severely hamper a project." Throughout this chapter<br />
+I express skepticism about the large-scale structure, and point out how<br />
+it's less important than some of the other concepts in this book. Say<br />
+the model context issues in Chapter 14. And you desperately need to distill<br />
+out the part of the system that gives you the most value. And refactoring<br />
+toward deeper insight, those things in Part III, that's what really rewards<br />
+your use of a model. And you really need to bind the application and model<br />
+together using the techniques of Part II. ANd you need to cultivate a<br />
+ubiquitous language. So now we come to Chapter 16, and large-scale structure.<br />
+And it is less important than any of those things.</p>
+<p>Eric: It's better to have no large-scale structure than one that doesn't<br />
+fit.</p>
+<p>Azad: I came into a project rather late. There were clear layers in place,<br />
+and there wasn't much to be done about the large-scale structure at that<br />
+point. If you have 100 people working on it, there's not much scope for<br />
+change.</p>
+<p>Eric: 100 people can certainly decide to stop honoring the layers, the<br />
+software structure.</p>
+<p>Dave: But getting consensus for change is very, very, hard.</p>
+<p>Eric: If you can't get the key people in a room, you shouldn't be doing<br />
+trying to pull off strategic design.</p>
+<p>Scott: Is the workflow of an application, the overall business process...<br />
+is that a large-scale structure? I worked on some applications where that<br />
+became a constraint on the design.</p>
+<p>Eric: Yes, I guess that would be. I haven't seen that, but I could believe<br />
+it as a large-scale structure. Did it help?</p>
+<p>Scott: No, it hurt.</p>
+<p>David: Often you need a pretty serious crisis to break out of an existing<br />
+large-scale structure.</p>
+<p>Sam: Isn't it easier to start from some large-scale structure and refactor<br />
+the solution to better meet the needs of a business?</p>
+<p>Eric: I do find it easier to move from one structure to another, that's<br />
+true.</p>
+<p>Russ: Sam has an important point here. Is it always true that having<br />
+some large-scale structure is better starting point for getting to a good<br />
+structure than having none?</p>
+<p>Eric: But clinging to a bad structure...that's not a good idea. When<br />
+I say it's easier to transform one structure to another, I don't mean<br />
+just any structure. If it was a structure that was valuable in the past.</p>
+<p>Russ: And minimal.</p>
+<p>Eric: And minimal. If it was based on a valuable structure, then it provides<br />
+some useful organization to base a new structure on. If something is unstructured,<br />
+or badly structured, forced into an unnatural shape, it provides you no<br />
+guidance, or worse, is misleading.</p>
+<p>John B: If you're having large-scale structure problems, those are good<br />
+problems to have. It means your system has grown to the point where it<br />
+has a large-scale.</p>
+<p>Scott: I had an insight when I was reading this. We were trying to layer<br />
+our applications -- architecture and infrastructure. On our web server<br />
+application, the layering was fine. The web application server. Now I<br />
+can see different ways to structure the domain layer.</p>
+<p>Eric: Because you have a distinct domain layer, you can consider developing<br />
+a strategic design for that part of the system. And probably the web service<br />
+is a newer system than the others, it's less of a mess.</p>
+<p>Russ: In response to Robert's question...how small a system would these<br />
+issues, large-scale structure -- at what point of smallness would it be<br />
+meaningless?</p>
+<p>Eric: At some level this would degenerate down to a point where there<br />
+was no distinction between the domain objects and the large-scale structure.<br />
+Let's think about the XP concept of a System Metaphor. That's a large-scale<br />
+structure aimed at relatively small systems.</p>
+<p>John B: What forces drive you toward a large-scale structure?</p>
+<p>Eric: "Developers cannot see the forest for the trees". If<br />
+you can look at a small system, maybe look at the 10 objects of the system<br />
+and understand the whole thing, you may not need any other structure.<br />
+But with 500 objects, it helps having a structure to describe the significant<br />
+relationships of groups of objects. But if you group things wrongly, it's<br />
+worse than no structure.</p>
+<p>Eric: Nobody seemed to complain about my discussion of the System Metaphor<br />
+as part of large-scale structure. I was expecting more criticism.</p>
+<p>Russ: We had some heated discussions on this in an earlier draft.</p>
+<p>Jeff: I'm not convinced that "Firewall" is a developer's metaphor.<br />
+It doesn't describe the structure and components of what goes into it.<br />
+Maybe it's a marketecture metaphor, or a network administrator's metaphor.</p>
+<p>John B: There was a certain point in the development of firewalls at<br />
+which the metaphor hit a wall. It used to be that you'd "punch a<br />
+hole" for port 80, for port 25. Active firewalls no longer match<br />
+this metaphor of holes, in the same sense. They have to understand the<br />
+context of a network conversation to allow protocols like File Transfer<br />
+Protocol to operate.</p>
+<p>Russ: I'm trying to learn something about System Metaphor. For the C3<br />
+project, it helped them decide how to structure and name their domain<br />
+objects and methods. Your firewall example does not exactly match up with<br />
+this usage.</p>
+<p>John B: It's not a system metaphor in the XP sense. Maybe a system metaphor<br />
+for a system of machines on a network.</p>
+<p>Eric: When I asked Ward Cunningham about it, this was the example that<br />
+really gave me that 'aha'. And since its development, the structure of<br />
+the security products available has been shaped by the metaphor of the<br />
+firewall.</p>
+<p>John B: I've heard Ward use "Raincoat" as an alternate metaphor.<br />
+I like "Doorman", because it implies some understanding of context.</p>
+<p>Scott: The fact that you can have this discussion proves the effectiveness<br />
+of the metaphor. But I don't understand the applicability to actual application<br />
+development.</p>
+<p>John B: When someone asks me what "System Metaphor", I tell<br />
+them to forget what they've learned, point them to Eric's book and say,<br />
+"read <cite>Domain-Driven Design</cite>".</p>
+<p>Russ: The POSA architectural structures are examples of large-scale structure?</p>
+<p>Eric: Yes, Pipes and Filters especially.</p>
+<p>John B: One of the things that the firewall metaphor implied was "inside"<br />
+and "outside". "Outside" was dangerous, exposed. "Inside"<br />
+was protected.</p>
+<p>John C: So to get inside, there were Trojan horses.</p>
+<p>John B: And since not so much has been done about (nodding to John C)<br />
+capability-based security, once something bad gets in, it has a free hand.</p>
+<p>Eric: (Layers) I'm talking about just the domain layer, as opposed to<br />
+architectural layering. Organizing the domain layer in terms of broad<br />
+responsibilities. All of the usual layering rules apply.</p>
+<p>Scott: I don't know if you intended this... you went from Responsibility<br />
+Layering to Knowledge Levels to Pluggable Component Framework. I'm not<br />
+sure how you would get to a Pluggable Component Framework without perhaps<br />
+putting the interfaces at the boundaries of Responsibility Layers.</p>
+<p>Eric: I don't define a navigation between these distinct large-scale<br />
+structures.</p>
+<p>Scott: But as I was reading your examples... say the Policy layer in<br />
+Responsibility Layering... I could see how you'd decouple that through<br />
+an interface and make that a pluggable component.</p>
+<p>Eric: In Chapter 17, say Figure 17.3 or 17.4 p. 487, there's a picture<br />
+of combining these structures with bounded contexts, some of which might<br />
+span layers. Maybe that is relevant to some of what you're talking about.</p>
+<p>Russ: Configuration of a pluggable component -- actually realizing an<br />
+instance of an application -- is a difficult part of the story. There<br />
+are a lot of ways to put these things together.</p>
+<p>Eric: I wanted to give a picture of how bounded contexts might align<br />
+with development teams, with layers and components. If you were to take<br />
+it another step from this point (layers and contexts), you might make<br />
+it pluggable.</p>
+<p>Scott: Figure 16.8, one of the things I find compelling as a developer,<br />
+is that the layers of objects would be apt to change independently. I<br />
+appreciate your name of "Responsibility Layers", making that<br />
+distinction in the summary.</p>
+<p>Eric: I do, actually, mean to maintain all the rules of layering, of<br />
+references only in one direction. I don't want to create any confusion.<br />
+The concept of layers is simple and valuable in many contexts. Perhaps<br />
+you mean where I am talking about Knowledge Levels -- they aren't layers.<br />
+There are references in both directions in Knowledge Levels.</p>
+<p>John B: Where did "Cargo Repository" come from and why?</p>
+<p>Eric: It replaced a bidirectional association between Customer and Cargo,<br />
+to support the layering. For a customer to say "I have these cargoes"<br />
+is to violate the layering.</p>
+<p>John B: And why is this a good idea?</p>
+<p>Russ: Customers don't really need to know about cargoes, in terms of<br />
+their responsibilities.</p>
+<p>Eric: In this case, what I'm trying to say is that when you impose a<br />
+large-scale structure, that it will affect how you make detailed design<br />
+decisions. It helps people understand the system, and causes them to make<br />
+decisions that will conform to the structure (for better or for worse).</p>
+<p>Scott: Either having the line with the layers shown, or carrying that<br />
+drawing to the next... put a line in 16.5 . When you explain it, it's<br />
+clear, but I had to think harder when I was studying the diagrams by myself.</p>
+<p>John B: Why is the layering between Operations and Capability important?</p>
+<p>Eric: It's something you learn from experience as the project goes along.<br />
+If you are working on a larger system, maybe 500 objects rather than 5,<br />
+you may find a natural stratification of concepts that give you layers<br />
+which are useful for design. It can help you make sense of a system you<br />
+can't otherwise absorb at a glance.</p>
+<p>Sam: I kept the 7 +/- 2 rule in my head in the time, as I was working<br />
+on a growing system. When I started hitting the limit, I applied some<br />
+organization, by putting in organizing principles to structure the system.</p>
+<p>Eric: Yes, you get pressed into these things. You don't seek large-scale<br />
+structure in a 6-object model. But when you have a 600-object model, you<br />
+desperately need ways of understanding it as a whole. All the strategic<br />
+design techniques help with this problem, but the large-scale structure<br />
+directly addresses it.</p>
+<p>Robert: Or when you have the need to distribute the system? Then large-scale<br />
+application structure can be very important.</p>
+<p>Eric: That's a different motivation than what I describe. What I'm talking<br />
+about here is conceptual organization, being able to understand the domain<br />
+objects of the application.</p>
+<p>Russ: How did the "Knowledge Levels" discussion come across<br />
+to people?</p>
+<p>Sam: That turned out to be the exact pattern I was looking for. I could<br />
+relate to it, the dead-on solution for what I needed.</p>
+<p>Eric: Who's read Analysis Patterns?</p>
+<p>(Russ, Tracy have)</p>
+<p>Russ: A long time ago. I recall it was more likely to be composition<br />
+rather than inheritance.</p>
+<p>Eric: That is a mistake in the diagrams, those are intended to be object<br />
+references rather than type derivations. [An aside, urging people to report<br />
+errata <a href="http://dddcommunity.org/case-studies/errata/">here</a><br />
+when they find it.]</p>
+<p>Sam: The interaction diagrams really helped make sense of it.</p>
+<p>Eric: More trouble than I intended to put people to, to understand. This<br />
+pattern, and especially this example, was rather late to go into the book.<br />
+So not as many people looked at the diagram before it went to press.</p>
+<p>[...]</p>
+<p>Eric: Russ, as you said, minimalism...less is more is a good principle<br />
+to apply in large-scale structure. If you try to be too comprehensive,<br />
+it'll just be a dead, suffocating blanket over the whole project.</p>
+<p>Russ: p. 481, for a second printing, if you could reword the first paragraph<br />
+in the refactoring section. It seems to claim that if you have a good<br />
+understanding of your domain, you could impose the structure in advance.</p>
+<p>Eric: If you really understand it in depth, and in the context of your<br />
+system.</p>
+<p>Russ: I was worried that a banking analyst writing a banking system would<br />
+mistakenly conclude that their deep domain knowledge would let them go<br />
+ahead and do detailed design up front.</p>
+<p>Eric: But if you're on your fourth banking system, you could probably<br />
+get away with it. I don't think it's so important a point. The point is<br />
+really, don't do it up front! Don't do it up front! Don't do it up front!</p>
+<p>Sam: So, someone who has written 3 systems... I beg to differ. If they<br />
+were 3 procedural systems. Or 3...</p>
+<p>Eric: OK. I'll just repeat "Don't do it up front!"</p>
+<p>Eric: Chapter 17 is short, but it's quite important.</p>
+<p>Robert: You make the case for not doing these things up front. It all<br />
+makes sense. But what do you say to managers who need some predictability.</p>
+<p>Eric: When I first encountered XP, XP's honesty was refreshing. "We<br />
+can promise you a date, but not a feature set, though we will promise<br />
+you that it will do something useful." People need to face facts,<br />
+to recognize unknowns. You make a plan, you make a prediction perhaps,<br />
+but your business plan needs to be able to deal with disappointments.<br />
+What's more, you haven't set up a process in your company that <em>prevents</em><br />
+you from taking advantage of opportunities. You can't eliminate all downside<br />
+risk, but software development projects frequently use methodologies which<br />
+completely eliminate the upside potential. How's that for a business plan?</p>
+<p>John C: Although "lucky accidents" -- features which are easy<br />
+to develop, by surprise -- sometimes raise issues with the cost to document,<br />
+train, test, and maintain.</p>
+<p>(discussion of diagram on p. 487, related to "anticorruption layer"<br />
+in Figure 17.4).</p>
+<p>John B: So if you have a legacy system straddling two layers, like in<br />
+17.4, is that a motivation for the anticorruption layer?</p>
+<p>Eric: It adds to the badness [that the legacy system doesn't conform<br />
+to the large-scale system you want to apply]. It probably wouldn't be<br />
+the only motivation for the anticorruption layer.</p>
+<p>John B: Is 17.6 an example of a HIGHLIGHTED CORE?</p>
+<p>Eric: It's actually more a SEGREGATED CORE. I've moved the core code<br />
+into its own packages. A HIGHLIGHTED CORE might have core classes scattered<br />
+among a number of packages.</p>
+<p>Russ: So there are BOUNDED CONTEXTS and there are RESPONSIBLITY LAYERS.<br />
+The BOUNDED CONTEXTS are areas between which you need to limit their references<br />
+and contacts, because you are speaking different languages in these different<br />
+contexts, and need to negotiate the common terms.</p>
+<p>Eric: Yes, these are two orthogonal concepts.</p>
+<p>Russ: I'm a little surprised you talk about tight integration within<br />
+a BOUNDED CONTEXT. What would you call a tightly cohesive group of classes<br />
+within a context?</p>
+<p>Eric: If the clustering is really close, I'd call it a MODULE.</p>
+<p>Russ: I really appreciate having the vocabulary for BOUNDED CONTEXT.<br />
+We did this before we had the terms, and we really had to fumble around,<br />
+we would say, "let's draw a line around this set of classes here,<br />
+and this set here."</p>
+<p>Eric: I think BOUNDED CONTEXT is my really original contribution in this<br />
+book. It's something that I think successful teams have worked effectively<br />
+with for some time, but didn't have a word for. Probably the existing<br />
+word was "scope", but this is such an overloaded term, and it<br />
+most often is used at a much smaller scale/finer grain.</p>
+<p>Patrick: That'll be your middle name, Eric "BOUNDED CONTEXT"<br />
+Evans.</p>
+<p>(Six Essentials for Strategic Design Decision Making)</p>
+<p>Russ: What will you do... what can you do if you have a team that doesn't<br />
+necessarily feel ready to be generalists, to operate in all the roles<br />
+you describe?</p>
+<p>Eric: All of these are essentials, each of them based on observed lacks<br />
+in projects in my experience. If you are missing any of these essentials,<br />
+you can go ahead and develop and produce software, but you will not have<br />
+effective strategic design.</p>
+<p>Scott: (describes a problem with a bi-located development group)</p>
+<p>John Brewer: This sounds like a team problem, not really a design problem.</p>
+<p>Eric: I agree with John basically. Strategic design does give you some<br />
+options to help deal with it. The pure design solution would be to separate<br />
+the two teams' parts of the domain, to create separate BOUNDED CONTEXTS<br />
+which are related via customer-supplier or other relationships.</p>
+<p>Russ: Or sharply defining what's inside and outside the SHARED KERNEL.</p>
+<p>Eric: Do you have a UBIQUITOUS LANGUAGE that everyone uses to communicate<br />
+changes during your daily phone calls? To introduce new terms if necessary?<br />
+But that requires conversations.</p>
+<p>Scott: We capture some of that via code, some via conversation. We have<br />
+a Wiki, but it's less useful than we'd hoped.</p>
+<p>Eric: You may wish to look at p. 37-38 on what makes a design document<br />
+useful.</p>
+<p>Dave: We've effectively used a digital snapshot dropped as a picture<br />
+onto the project Wiki to keep design documents up to date with little<br />
+effort.</p>
+<p>Russ: Are there cubes? Offices? Shared workspace?</p>
+<p>Scott: Both. Mostly people work in the shared space.</p>
+<p>John B: Maybe you should spring for two Polycom speaker phones and keep<br />
+an open phone connection throughout the day, to keep communication going..</p>
+<p>Eric: So, for the case of technical framework development, I added one<br />
+more principle, which I wanted to emphasize: "Don't write frameworks<br />
+for dummies!"</p>
+<p>Russ: Anything you'd like to leave us with?</p>
+<p>Eric: from the conclusion, the section called "Looking Forward"<br />
+[short reading from page 505]. I want to point out that working in the<br />
+domain layer has significant, interesting technical challenges. There<br />
+are a hundred little tricks of the trade, and if you master them, you<br />
+can move into new areas, and you have these tools in hand, you can rapidly<br />
+learn the new area and create supple, useful models. Domain-driven development<br />
+is a specific skill that has value, and a discipline that people can learn<br />
+to be better at. And people should be selecting and hiring for it.</p>
+<p>Russ: Then we can bring in some infrastructure geeks...</p>
+<p>Eric: Yes, and some electricians to make sure there is good lighting<br />
+in the workspace.</p>
+<p>Eric: The core, the heart of the system is that domain layer. People<br />
+who know how to create that stuff should be the most valuable people on<br />
+the project.</p>
+<p>John B: I think it's the third big O-O book, after Design Patterns and<br />
+Refactoring.</p>
+<p>Charlie: Maybe the second.</p>
+<p>John B: Chronologically speaking.</p>
+<p>Eric: I'm curious, I almost wanted to ask for a secret ballot... sometimes<br />
+when I go to a discussion group, I've had a chance to read the material,<br />
+sometimes I haven't. To satisfy my curiousity, perhaps if people could<br />
+write down a percentage of how much of the book they've read.</p>
+<p>(Tracy carries Jeff's hat around collecting scraps of paper for Eric<br />
+to count and satisfy his curiosity on this point)</p>
+<p>John B: I wanted to say some good things about p. 479, the AIDS Quilt<br />
+example. It's a large-scale structure where you're really strict about<br />
+a few things and very lax about others. It enables the whole thing to<br />
+work well.</p>
+<p>???: But quilt pieces can be anything. I don't see any large-scale design.</p>
+<p>Eric: Each piece has to be a precise size, it has to be edged a certain<br />
+way, and it has to be foldable. It is a minimal set of rules that makes<br />
+it possible to take all those independently created quilt pieces and fit<br />
+them together in any arrangement.</p>
+<p><!-- InstanceEndEditable --></p>
+<p><!-- InstanceBeginEditable name="SideBar" --></p>
+<h2>Attending:</h2>
+<p>John Corbett</p>
+<p>John Brewer</p>
+<p>Dave Smith</p>
+<p>Azad Bolour</p>
+<p>Darlene Wallach</p>
+<p>Ken Scott-Hlebek</p>
+<p>Robert Benson</p>
+<p>Tim Huske</p>
+<p>Wayne Vucenic</p>
+<p>Russ Rufer</p>
+<p>Charlie Toland</p>
+<p>Tracy Bialik</p>
+<p>Carol Thistlethwaite</p>
+<p>Jeff Miller</p>
+<p>Patrick Manion</p>
+<p>Walter Vannini</p>
+<p>Sam</p>
+<p>Scott</p>
+<p>Kevin</p>
+<p>&nbsp;</p>

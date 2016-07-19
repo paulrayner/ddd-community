@@ -1,0 +1,40 @@
+---
+layout: post
+title: Registration Oasis
+date: 2003-11-01 19:53:15.000000000 -07:00
+type: post
+published: true
+status: publish
+categories:
+- Case Studies
+tags: []
+meta:
+  _gcid: '47'
+  _edit_last: '3110'
+  _wp_page_template: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  _intro_text: default
+  U_S_C_message: ''
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _bitly_trim: http://dddcommunity.org/?p=38
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p>
+<span class="articleauthor">by Bruce Gordon</span></p>
+<p>At at large university I was brought in to work on a web based student registration system that interfaced to their mainframe system. The systems was to be deployed using WebSphere and EJBs. The existing mainframe system was to be reused and interfaced to by the new system. </p>
+<p>I didn't know much about Session beans, or using the a web layer. I also didn't know much about the domain, though it is one we're usually familiar with at the surface: courses, sections, schedules, conflicts, registering, etc... There had been no work done modeling the application, or doing a UI. There had been work done on how to technically interface with the mainframe. </p>
+<p>I sat down with my domain experts (mostly developers that had worked on systems there for many years. Occasionally I also talked to a systems analyst). From those talks I created a domain layer populated with appropriated classes – SectionLists, Sections, etc... I decreed that the middle tier would largely deal with this sane set of objects. </p>
+<p>I made extensive use of the command pattern to deal with the distributed nature of the architecture. Those commands could then flow through the system. For example, there was a command to register a student for a particular section of a course. The UI layer could create this command and pass it to the mid tier. It would then be turned into an appropriate command for the mainframe host, processed, and finally the command result would be returned to the UI. </p>
+<p>By making use of the model layer, and mocking up the host layer, the entire infrastructure could be tested with JUNIT. When the host interface portion was working, this could then be tested via JUNIT as well. It wasn't till the end of the project that the commands were slipped into the ultimate<br />
+ UI/EJB framework. I had many talks with the UI developer who challenged that the various layers were working. Since the commands all worked via JUNIT, it was almost always a case of improperly using them, or of improper environment setup. </p>
+<p>By using a common set of objects, across the tiers (except the host), all layers could reuse the objects, the common vocabulary, and the behavior and constraints of the objects. (For example, instead of having simply a collection of Sections, a SectionList could prohibit duplicates, or enforce other application rules). </p>
+<p>The effort was a prototype. I left the project but later learned that virtually the entire set of commands and domain objects went intact into the final version.</p>
+<p> ©2003, Bruce Gordon</p>
+<p></p>

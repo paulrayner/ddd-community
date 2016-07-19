@@ -1,0 +1,496 @@
+---
+layout: post
+title: Chapter 14
+date: 2009-03-30 20:20:59.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '59'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=50
+  _edit_last: '3110'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">Notes 20 January 2004<br />
+   Domain Driven Design (VIII)<br />
+   Guest Author: Eric Evans</span></p>
+<p> Russ: Let's start with Strategic Design (Part IV) -- what do we need<br />
+    it for? How about considering the ways to get in trouble on the extremes.<br />
+    How do you look at a system and understand whether we're doing what Eric's<br />
+    doing, or one of the bad alternatives he discussed. (p. 328, halfway down).<br />
+    The more systems I see, the more surprised I am by the range of systems<br />
+    I see. Some of it's really good, some of it's kind of scary. This was<br />
+    a good way of describing a large class of the problems, so I thought it<br />
+    was a good way of introducing tonight's topic.</p>
+<p>(Russ referred to text in second half of second paragraph p. 328, "monolithic"<br />
+    vs. "ad-hoc", avoiding extremes).</p>
+<p>Dave: Systems glued together out of lots of pieces are also often full<br />
+    of contradictions, an unresolved argument about the system.</p>
+<p>John B: Like Unix command-line tools, having varying views of the world?</p>
+<p>Russ: Is it ad-hoc components, or ad-hoc interfaces?</p>
+<p>Mike: the alternative being an enterprise-wide bus, a common interface<br />
+    for things to plug into, that tries to be everything to everybody. It's<br />
+    hard to get systematic designs through, because you have many sponsors<br />
+    and many forces.</p>
+<p>John B: And you have to actually establish the protocols, how to get<br />
+    things to communicate.</p>
+<p>Mike: My company has tried for the system-wide bus, and it seems to address<br />
+    the needs of only a small number of the people who want software.</p>
+<p>Russ: The author is talking about more than just the technical breakdown<br />
+    of the system, but about the model, the vision of the system. </p>
+<p>Eric: Dave said an interesting thing about small pieces composed together<br />
+    being sort of a dialogue or debate about world views of the system. That<br />
+    is very much about what Chapter 14 is about.</p>
+<p>Phil: A middle approach to bridging the extremes is to compose the pieces,<br />
+    then to look at what you have, and refactor the composition into the thing<br />
+    it needs to become.</p>
+<p>John B: I see on p. 389, there's a discussion about refactoring to Shared<br />
+    Kernel from Separate Ways,</p>
+<p>Eric: Refactoring is the *means* by which you change strategies, rather<br />
+    than the strategy you use.</p>
+<p>Phil: Refactoring as using the code to change your ideas, you don't see<br />
+    that as well as refactoring as a mechanism?</p>
+<p>John B: Eric has listed all the ways to evolve and change the implementation<br />
+    of the model that he can think of, rather than the actual change of the<br />
+    model as ideas.</p>
+<p>Eric: All the ones I wanted to recommend.</p>
+<p>Tracy: If I understand, Phil, you're talking about refactoring as a process<br />
+    of understanding.</p>
+<p>Phil: Yes, learning, and eventually you get to a global view, a similar<br />
+    result. The code is telling you what the model has to be.</p>
+<p>Eric: I'd like to shift rails a bit, I start from a more fundamental<br />
+    premise. I start from an observation that on any large project, with more<br />
+    than 10 people, you will have more than one conception of the domain that<br />
+    the system is based on. More than one conception means more than one domain<br />
+    model, and that will affect choices about design. You can just plunge<br />
+    ahead not realizing that, and not realize when one person's concept was<br />
+    controlling the design and when another person's different concept was.<br />
+    So that's where BOUNDED CONTEXT comes in. You would like to have a sense<br />
+    of which model applies in what part of a larger process. There is sometimes<br />
+    a very clear situation, where you have smaller subsystems worked on by<br />
+    different people, and each can be its own model, its own context. But<br />
+    with a large subsystem, you're more likely to end up with multiple inconsistent<br />
+    views. This chapter is about understanding that there are different points<br />
+    of view, and different ways to describe things, and that becoming aware<br />
+    of these different perspectives is important in dealing with larger systems.<br />
+    The "Blind Men and the Elephant" story would be less interesting<br />
+    if each blind man knew that he had a separate point of view on the same<br />
+    thing. And we want things to be less interesting in this case, with software<br />
+    development. So you want to start out by mapping out the territory as<br />
+    it exists, before making changes. So tactics like CONTINUOUS INTEGRATION<br />
+    support the decision to have a unified model within a single BOUNDED CONTEXT.<br />
+    This sort of CONTINUOUS INTEGRATION is the code, *plus* people consciously<br />
+    synchronizing their concepts with one another through exercise of the<br />
+    UBIQUITOUS LANGUAGE. But there are other successful ways of connecting<br />
+    things.</p>
+<p>John B: System model vs. domain model? Most of these patterns, to me,<br />
+    seem like ways to integrate a system rather than a domain.</p>
+<p>Eric: Usually people think of system integration as connecting a set<br />
+    of distinct programs. But you could create two systems based on the same<br />
+    domain model. Or you could create a program which was internally split<br />
+    between two domain models. You'd prefer to split your components along<br />
+    the boundary of the variant models. But I've seen components and subsystems<br />
+    (even classes!) with multiple models reflected in their implementation.</p>
+<p>John B: Is Extreme Programming's continuous integration a different concept<br />
+    from yours?</p>
+<p>Eric: I think it is the same thing. The XPers are exactly correct about<br />
+    continuous integration with a context, within a single model conception.<br />
+    If you need it to interoperate, you need continuous integration of the<br />
+    *code*, and also of the *model*.</p>
+<p>John B: They're fumbling that direction with the System Metaphor.</p>
+<p>Eric: And co-location.</p>
+<p>Phil: And pairing.</p>
+<p>Russ: I've seen a single developer with 3 different bounded contexts<br />
+    with name clashes in the same source file.</p>
+<p>Eric: Three *unbounded* contexts.</p>
+<p>Russ: Intermingled contexts.</p>
+<p>Eric: If they had bounded those three, they would have been in good shape<br />
+    since they would have been separate; or more likely they would have unified<br />
+    them to remove the contradictions. But knowing what the practices help<br />
+    you achieve, knowing *why*, allows you to adjust to situations, to know<br />
+    where you are at. And knowing when to stop. You can't CI a whole company,<br />
+    you can't co-locate everyone. And at a certain scale, the overhead of<br />
+    continous integration in a large system becomes too much. So by making<br />
+    a context map, you tell yourself, your teams, where you are making CI<br />
+    work, where you can run XP full-out within a single bounded context, and<br />
+    where you want to establish a boundary.</p>
+<p>Russ: There are two very different notions going on here. 1: You and<br />
+    I have different models of a system, with shared understanding of a subsystem,<br />
+    and no assumptions about the non-overlapping parts -- two separate but<br />
+    possibly overlapping models. Vs. 2, if you and I were working on things,<br />
+    and there was an overlap of concepts which were not part of the shared<br />
+    kernel, but were in conflict. It's an interesting distinction to talk<br />
+    about.</p>
+<p>Eric: Yes, that's a very instructive example. So in the first case, let's<br />
+    say there *is* a shared set of concepts. What I call SHARED KERNEL. That's<br />
+    both concepts and code.</p>
+<p>Russ: So if you were working on the dessert and I were working on the<br />
+    floor wax, we wouldn't have to interact on those distinct parts of the<br />
+    system.</p>
+<p>Chris: Until someone comes up with a product which is both dessert and<br />
+    floor wax.</p>
+<p>Eric: So in this case, you might subclass the thing we've already got<br />
+    in hand, say for me working on the dessert, I'd say a floor wax is a special<br />
+    kind of dessert, and you with the floor wax, you'd say a dessert is a<br />
+    special kind of floor wax.</p>
+<p>John B: Elephant is a subclass of wall, floor, snake, tree, and rope.<br />
+    (p. 379)</p>
+<p>Eric: The blind men were lucky, that they were each looking at a single<br />
+    part of a larger system. But with desserts and floor waxes, the systems<br />
+    are more complex. At first we might not have any problem. One way is we<br />
+    can say we go with your model, one way is to go with my model, or one<br />
+    way is to come up with a new model that meets everyone's needs. Let's<br />
+    say we introduce a new abstraction.</p>
+<p>John: They're both Sprayables.</p>
+<p>Eric: So we've discovered both the dessert topping and the floor wax<br />
+    are sprayables.</p>
+<p>Dave: It opens up new product opportunities because you could make something<br />
+    that's a floor wax, dessert topping, and bug spray.</p>
+<p>Eric: I think the marketing department would have trouble with that last<br />
+    one.</p>
+<p>Jeff: Maybe lip gloss as something in the same unified space as floor<br />
+    wax and dessert toppings.</p>
+<p>Russ: How are we making these trade-offs to decide how much of the system<br />
+    should be unified?</p>
+<p>Eric: It's not always unification. you might have a system that's grown<br />
+    to the point where integration has become burdensome, so you decide to<br />
+    split things off and go separate ways.</p>
+<p>Dave: As things scale, I've never seen it be easy to abstract a core.</p>
+<p>Chris: Could you abstract out a framework?</p>
+<p>Eric: I'm not talking about a huge company with a "chief architect"<br />
+    someplace dictating to everyone in the company "these are the objects<br />
+    you'll use."</p>
+<p>Phil: During the development of J2EE at Sun, different groups had a concept<br />
+    of "qname" that was slightly diffferent. We got everyone in<br />
+    the same room and agreed on a common interface that everyone could use,<br />
+    and we created a JAR with just qname in it that everyone could use.</p>
+<p>Eric: That's a Shared Kernel.</p>
+<p>Phil: Right, and it's a little thing, not a big one.</p>
+<p>Dave: What was the overhead involved in getting all the interested party<br />
+    together in a room to make that decision?</p>
+<p>Phil: You have no idea.....</p>
+<p>[...]</p>
+<p>Eric: The first thing is to have contexts that are bounded. And have<br />
+    a map so you can say, "This thing belongs to this context."</p>
+<p>John C (?): What about the tragedy of the commons problem, since the<br />
+    shared parts...?</p>
+<p>Eric: But all we're agreeing on is the _boundaries_.</p>
+<p>John B: "Good fences make good neighbors."</p>
+<p>Jeff: Get that down.</p>
+<p>Eric: You want to know, "Am I in my own context, where I can go<br />
+    my separate way, or am I in a shared context where I need to integrate<br />
+    with someone else?"</p>
+<p>John C: I'm thinking of a company where there are two products, one of<br />
+    which is a big revenue producer, and another that gets less resources.<br />
+    The one that makes a lot of revenue basically gets to disregard the needs<br />
+    of the other one.</p>
+<p>Eric: That sounds like a case for Conformist, because of the power differential.</p>
+<p>Eric: I'm not saying the company has some global enterprise-wide context<br />
+    map. I'm just saying for your own project, identify the different contexts<br />
+    there.</p>
+<p>Eric: Even in a one-person project, you'll have multiple contexts, like<br />
+    "current understanding", vs. "last years understanding".<br />
+    (The code you wrote last year, but haven't had a chance to refactor to<br />
+    your latest insight.)</p>
+<p>???: What about upstream/downstream suppliers where one is stuck with<br />
+    a supplier.</p>
+<p>???: "Ball and chain" pattern.</p>
+<p>(Mike: discussion of a protocol with a large installed base with messaging<br />
+    to distributed clients -- difficulties with changing the protocol to enrich<br />
+    the service.)</p>
+<p>Eric: So your clients have a presumption, a model for what the messages<br />
+    in the protocol mean. And how they handle the messages reflects that model.<br />
+    If they get back a response message in a different format than the one<br />
+    they asked for, then they have to handle that. They have to handle the<br />
+    fact that the variations in the new model are exposed by the new protocol.<br />
+    So what made this hard is that within your context, you changed your domain<br />
+    model, but the other systems at the boundary are related to you via an<br />
+    OPEN HOST SERVICE. The interface expresses a frozen model.</p>
+<p>Mike: Because so many groups are connected to it.</p>
+<p>Eric: And part of the problem was a change in the model as expressed<br />
+    in the protocol. If you had just made a slight re-arrangement of the same<br />
+    information, it would be no means as difficult. There's a technical dimension<br />
+    to the problem, but there is importantly, a conceptual one. And the conceptual<br />
+    difference is what it makes it hard.</p>
+<p>John B: Sounds more like ANTICORRUPTION LAYER rather than OPEN HOST SERVICE.</p>
+<p>Mike: We have an invariant API.</p>
+<p>John B: If you had an ANTICORRUPTION LAYER, you would be able to fold<br />
+    the new protocol into the old one.</p>
+<p>Eric: But let's say he is getting his message data from somewhere else,<br />
+    a legacy system. So what he does is set up an ANTICORRUPTION LAYER to<br />
+    translate the old stuff into the new, enhanced model. But it's the client-facing<br />
+    side, he's got clients who are asking for stuff. There might be a few<br />
+    with ANTICORRUPTION LAYERs because they need to express the concepts of<br />
+    the message internal in unusual ways, but most of them use CONFORMIST,<br />
+    expressing his message stream in the same terms. </p>
+<p>Mike: We want to enrich the service without affecting the clients who<br />
+    are not interested in / capable of dealing with the information in the<br />
+    new protocol.</p>
+<p>Eric: They've always had Sweet 'N Low before, but you want to give them<br />
+    sugar.</p>
+<p>Russ: You can give them more feeds, by establishing a an upstream message<br />
+    feed that you can translate into Sweet N' Low for the old clients, and<br />
+    to Splenda for the new clients. (Arranges two diverging lines of pens<br />
+    and flatware with a pink paper packet in one line of the V, and a yellow<br />
+    one in the other line).</p>
+<p>Eric: OK, so I understand you have a TRANSLATION LAYER which takes the<br />
+    new, enriched internal format and emits a message feed in the old format<br />
+    for your established customer base.</p>
+<p>Eric: There's a stress point on the OPEN HOST SERVICE pattern. If you<br />
+    have two sets of clients who want different services, it's somewhat difficult.<br />
+    OPEN HOST SERVICE says that everyone gets the same thing, everyone can<br />
+    accept the same protocol. So if your situation is that each customer wants<br />
+    little, extra bits on the service, perhaps you want a bunch of one-off<br />
+    translators, one-off versions for the different groups, to keep the primary<br />
+    protocol simple and clean. Now we end up with more of a classic CUSTOMER-SUPPLIER<br />
+    relationship for the custom parts of the protocol. That frees most of<br />
+    the clients from dealing with the special interfaces, and the individual<br />
+    special needs can be managed without changing anything about the common<br />
+    assumptions. </p>
+<p>John B: You have an off-the-rack interface, and then a set of tailor-made<br />
+    ones.</p>
+<p>Eric: But you want it recognized that that's what you're doing, that<br />
+    there is a decision process being made. </p>
+<p>Chris: The more I'm listening to this is more like a pattern I applied<br />
+    in a system I worked on. In this case, the requester specifies the format.<br />
+    If they didn't specify, you got the old format. If you needed something<br />
+    new, something else offered by the current system, the client would change<br />
+    their format specifier.</p>
+<p>Charlie: Do some of the specializations, some of the customizations really<br />
+    belong on the client side?</p>
+<p>Eric: If you're using OPEN HOST SERVICE, you need to keep it simple and<br />
+    consistent for you as the maintainer. For variations, you may choose to<br />
+    make a special adaptation, negotiating it one at a time based on company<br />
+    priorities or revenue, etc. If you have a custom protocol that only *one*<br />
+    customer can use, you can change the interface as often as your two groups<br />
+    agree to. Once there are multiple clients of the protocol, it's far, far<br />
+    harder. It's the OPEN HOST SERVICE situation, where the interface is frozen<br />
+    in place.</p>
+<p>Darlene: At what point might you go toward a general solution, a new<br />
+    protocol with the space to accommodate a new set of variations? Rather<br />
+    than maintain half a dozen variations on the common protocol?</p>
+<p>Russ: Maybe we should define ANTICORRUPTION LAYER, we've used it several<br />
+    times.</p>
+<p>(p. 364, ANTICORRUPTION LAYER: picture of the Great Wall of China)</p>
+<p>John B: I'm seeing this adapter-service thing, that's a lot like...</p>
+<p>Eric: I use the terms TRANSLATION LAYER and ANTICORRUPTION LAYER. An<br />
+    ANTICORRUPTION LAYER is certainly a TRANSLATION LAYER. It's the difference<br />
+    in intent, in posture, that makes the difference. An ANTICORRUPTION LAYER<br />
+    defends your system from having to adapt to a divergent external model.<br />
+    I don't think you could mechanically tell the difference. But it's the<br />
+    difference between a wall and a bridge, almost. A bridge is like a regular<br />
+    TRANSLATION LAYER, where one side is reaching out to the other, or both<br />
+    to each other. An ANTICORRUPTION LAYER is protected, a wall, a moat, and<br />
+    a gate. You don't have an ANTICORRUPTION LAYER separating you from a protocol<br />
+    that you designed.</p>
+<p>Russ: Maybe a protocol you designed in the past, that you don't want<br />
+    to work with any more.</p>
+<p>Eric: With ANTICORRUPTION LAYER I make stronger statements about why<br />
+    you're doing it. It's that you are protecting your model from the concepts<br />
+    on the other side. The concepts on the other side of the wall will mess<br />
+    you up if you have to try and deal with them. </p>
+<p>John B: Not just corrupting data, corrupting your model.</p>
+<p>Eric: Your way of thinking. There isn't a functional distinction between<br />
+    the two.</p>
+<p>Mike: The OO-SQL translation layer as one example of trying to bridge<br />
+    the gap.</p>
+<p>Eric: An ANTICORRUPTION LAYER is one-sided, built by one side to protect<br />
+    itself. Vs. the Chunnel, a cooperative effort by the British and French<br />
+    to bring each other together.</p>
+<p>Mike: You could think of an O-R persistence layer as an ANTICORRUPTION<br />
+    LAYER if you have to adapt to an organizational standard which interferes<br />
+    with how you can deal with things.</p>
+<p>John C: A Cartesian to radial coordinate translation.</p>
+<p>Eric: More like where you have Cartesian coordinates on one side and<br />
+    on the other, a tribal society which describes how to find things by how<br />
+    many days' walk between locations, considering weather conditions, and<br />
+    refers to locations by their historical association. You would want to<br />
+    protect the clean, simple Cartesian model from the complex expression<br />
+    of locations on the other side.</p>
+<p>John B: So let's say you have an RDBMS with transaction scripts talking<br />
+    to a database. That's where you might put a translation layer to protect<br />
+    the database?</p>
+<p>(some additional discussion of ANTICORRUPTION LAYER vs. TRANSLATION LAYER<br />
+    in different contexts)</p>
+<p>Mark: Web pop-up blockers are an ANTICORRUPTION LAYER.</p>
+<p>John B: They protect you from the advertisers' protocol.</p>
+<p>Eric: By doing complicated gymnastics inside the browser. If you provide<br />
+    a compatible interface to protect your clients from changes, that's being<br />
+    nice.</p>
+<p>John B: It's like being CONFORMIST to a layer that keeps squiggling out<br />
+    from under you, you conform to what the ANTICORRUPTION LAYER presents<br />
+    and adapt to the changes inside that layer.</p>
+<p>Eric: If the old model is nice and clean, if it isn't a conceptually<br />
+    difficult translation... unless there were no longer a straightforward<br />
+    relationship between the new model and the old model, it's not something<br />
+    where the service is protecting yourself. I don't think that offering<br />
+    a </p>
+<p>Russ: Insulation but not anti-corruption.</p>
+<p>Eric: But if the old model were a BAD one, incompatible, a messy, complex<br />
+    translation from the current system's model, then perhaps it is an ANTICORRUPTION<br />
+    LAYER on an outward feed.</p>
+<p>Tracy: Maybe I can make a point that will help. So let's say the new<br />
+    internal model is the brown sugar. So if the guys that wrote this offer<br />
+    a new interface that's sugar, and doesn't offer the interface of Sweet<br />
+    N' Low, then the client might build an ANTICORRUPTION LAYER to defend<br />
+    themselves from the incompatible new interface.</p>
+<p>Russ: So if the motivation is trying to protect your old clients by offering<br />
+    a translation layer to a protocol they want, it's different from...</p>
+<p>Eric: Yes, the attitude is different.</p>
+<p>John B: It's where there is a meeting of minds (TRANSLATION LAYER) vs.<br />
+    no meeting of minds, a disagreement (ANTICORRUPTION LAYER).</p>
+<p>Charlie: The word "corruption" is subjective itself, it depends<br />
+    on point of view.</p>
+<p>(some additional discussion of ANTICORRUPTION LAYER to attempt to clarify<br />
+    its usage)</p>
+<p>p. 371, SEPARATE WAYS</p>
+<p>Phil: I love the picture for SEPARATE WAYS. You see all those team rowboat<br />
+    pictures in those motivational posters. Seeing that picture of that one<br />
+    guy in the rowing shell really captures the feel.</p>
+<p>John B: It's like a standalone context, like your earlier discussion<br />
+    of STANDALONE CLASS.</p>
+<p>Eric: Yes. But separate contexts may introduce duplication. If you have<br />
+    separate contexts, you can have duplication. But not sharing.</p>
+<p>Russ: It's positive danger to share things between contexts.</p>
+<p>Eric: Unless you have a SHARED KERNEL.</p>
+<p>Mike: Does SHARED KERNEL drive you to use CONTINOUS INTEGRATION? Or another<br />
+    specific process to support the SHARED KERNEL.</p>
+<p>Eric: Yes, if you have SHARED KERNEL, you have a process that needs to<br />
+    support it. CONTINUOUS INTEGRATION is an example of one process that could<br />
+    support it, but it's not the only way to do it. Frequent integration,<br />
+    appropriate to its rate of change; having each side supply some test cases,<br />
+    and each side runs all the shared, compiled test cases. I wouldn't recommend<br />
+    in more detail than that, but you do need a process.</p>
+<p>John B: So you might have meetings or pow-wows between the teams sharing<br />
+    the SHARED KERNEL, to negotiate the interface changes, where an XP team<br />
+    would just go bam, there the interface changes.</p>
+<p>Eric: *Within* a context, you can use full-on continuous integration.</p>
+<p>Charlie: Does a SHARED KERNEL tend to be more stable than the rest of<br />
+    the system?</p>
+<p>Eric: Sometimes, but not necessarily. Sometimes it has the most change<br />
+    at certain phases of the project, although it has more inertia from the<br />
+    multiple forces depending on it. You've traded away some agility.</p>
+<p>John B: You need these patterns in order for XP to work, for changing<br />
+    the system to make it better?</p>
+<p>Eric: The assumption that change makes things better is implicit to XP.</p>
+<p>Chris: Does the way that XP works, that you surge forward, changing the<br />
+    model, in a couple of different contexts. Does that make integration of<br />
+    two divergent teams' work difficult at a later point? The lack of detailed<br />
+    design documentation?</p>
+<p>Phil: Just read the tests?</p>
+<p>John B: The tests will get you a long way. All the translations will<br />
+    have to be green-bar preserving.</p>
+<p>Russ: That's where you encounter the greatest risk of the tests becoming<br />
+    irrelevant. When the model changes, the tests may be making irrelevant<br />
+    assertions. Incorrect assertions.</p>
+<p>John B: The unit tests, yes. Not the acceptance tests. They reflect knowledge<br />
+    of the domain.</p>
+<p>Eric: But those acceptance tests contain some assumptions about the model,<br />
+    they exist within a context. If the model changes slightly, what the acceptance<br />
+    tests express may be subtly different. </p>
+<p>Jeff: Perhaps if the acceptance tests were expressed in different units,<br />
+    they might be able to be consistent within a larger framework. Say more<br />
+    detailed units of time or money or something. That you could translate<br />
+    the acceptance tests into a common larger perspective, but the new perspective<br />
+    might have lots of holes in the acceptance test coverage.</p>
+<p>John B: But how do you do this in the context of a non-XP team? You have<br />
+    a document, maybe, but it doesn't reflect how things really are.</p>
+<p>Phil: How things used to be, how things were supposed to be, how we thought<br />
+    the system was going to turn out.</p>
+<p>Chris: Even if those two documents were inaccurate, they are marker points<br />
+    to bring up subtle points that people might forget. But they provide a<br />
+    place to start talking, a guide to find out if the two kinds of apples<br />
+    we're trying to merge are really two kinds of apples, rather than apples<br />
+    and something else.</p>
+<p>Chris: To the extent you can automate the documentation (TogetherJ was<br />
+    mentioned) </p>
+<p>John B: Supple design assertions, what's the invariant for an apple?<br />
+    Those can really help you reveal what the common points of view are between<br />
+    two models.</p>
+<p>Russ: Sometimes it's how the actual artifacts of the code relate drives<br />
+    you in a direction. What Phil was saying earlier about refactoring driving<br />
+    you toward better understanding of how things were being used. When the<br />
+    problem is too big to hold in your head.</p>
+<p>John B: The problem is not the technical issues so much that there is<br />
+    my model and your model, and clearly my model is better than yours, and<br />
+    there are two sets of (mine, yours) in the room. The difficulties are<br />
+    more sociological than technological.</p>
+<p>Russ: But maybe we aren't even at this point. We have to decide whether<br />
+    the models have any correspondences where we can extract some common point<br />
+    of view. Using diagrams, pictures, descriptions, etc, to see if common<br />
+    points of correspondence occur.</p>
+<p>Charlie: I was once a "swamp guide" for new hires at my company.<br />
+    There were lots of questions about certain idiosyncrasies in the code<br />
+    which related to evolution in the company's business model without the<br />
+    objects being changed to reflect the new point of view.</p>
+<p>John B: The context of "now and then".</p>
+<p>Eric: Similar to Mike's issue with the different messaging protocols.<br />
+    He had to deal with the protocol based on "then", and the internal<br />
+    model based on "now", and facing the challenge of how to get<br />
+    more "now" into "then".</p>
+<p>p. 388: a diagram grouping the "context" patterns in relationships,<br />
+    from SEPARATE WAYS at one end (need no control of other systems, no communication)<br />
+    to Single BOUNDED CONTEXT (need high control, high communication). </p>
+<p>Russ: Even on our small team, we have three different contexts in which<br />
+    there's a "Book" object</p>
+<p>Eric: (discussing the diagram) But CONFORMIST has no control and requires<br />
+    high communication. ANTICORRUPTION LAYER is somewhat similar. Then there's<br />
+    a break to a set of patterns which require greater integration, greater<br />
+    control over other systems and more communication about internals... CUSTOMER-SUPPLIER<br />
+    TEAMS, OPEN HOST SERVICE, SHARED KERNELs are partway along toward the<br />
+    single BOUNDED CONTEXT.</p>
+<p>Russ: You're really nice to XML on p. 376.</p>
+<p>Eric: I wrote that back in the glory days of XML. We're all a little<br />
+    disillusioned these days. I really wanted to talk about XML as a stimulus<br />
+    to create common languages for interchange.</p>
+<p>Eric: The E-commerce enthusiasts for XML as the magic bullet are not<br />
+    realizing that the really key thing is the common model. The problem isn't<br />
+    getting to a common syntax. With a common model, you can reach a common<br />
+    syntax fairly easily.</p>
+<p>John B: The fact that there's a common syntax, a common way of parsing<br />
+    it did help take some of the syntax and formatting issues out of the way.</p>
+<p>Russ: XML helps you with the easy problems, but not the hard ones, the<br />
+    conceptual meaning of the marked up object. Here's a price with a dollar<br />
+    value. But does it include tax? Not? How are you allowed to interpret<br />
+    this value you've been given, &lt;price&gt;&lt;value unit="USD"&gt;50&lt;/value&gt;&lt;/price&gt;<br />
+    ?</p>
+<p>(brief discussion of XML web services design, what might make it supple,<br />
+    will good designs win?)</p>
+<p>Eric: p. 378, Notice the UML diagram is more compact than the poem!</p>
+<p>Mark: What about the second and fifth guy?</p>
+<p>Eric: Oops! Guess that was enough to make the point.</p>
+<p>   <!-- InstanceEndEditable --></p>
+<div id="sidebar">
+ <!-- InstanceBeginEditable name="SideBar" --></p>
+<h2>Attending:</h2>
+<p>			Shiva Jayaraman<br />
+      Darlene Wallach<br />
+      Dave Smith<br />
+      Russ Rufer<br />
+      Robert Benson<br />
+      Mike Winter<br />
+      Ken Scott-Hlebek<br />
+      John Corbett<br />
+      Carol Thistlethwaite<br />
+			Tracy Bialik<br />
+      Jeff Miller<br />
+      Charlie Toland<br />
+      John Brewer<br />
+      Chris Lopez<br />
+      Mark Taylor<br />
+      Phil Goodwin<br />
+      Bob Evans<br />
+      Wayne Vucenic
+ </div>
+<p></p>

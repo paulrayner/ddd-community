@@ -1,0 +1,48 @@
+---
+layout: post
+title: Some thoughts on BDD
+date: 2009-04-02 02:53:24.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- DDD and ...
+- Development Process
+tags:
+- BDD
+meta:
+  _gcid: '65'
+  _gcuser: Vladimir Gitlevich
+  content_type: blog
+  _bitly_trim: http://dddcommunity.org/?p=56
+  _edit_last: '3110'
+  custom_permalink: uncategorized/thoughts-on-bdd
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  U_S_C_message: ''
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p><a href="http://dddnyc.org">DDD-NYC group</a> just had a meeting on BDD+DDD. After watching a pre-recorded <a title="Watch" href="/library/north_keogh_gitlevich_2007">introduction by Dan North and Liz Keogh</a> (which was originally done as an interview, but works as an intro just fine) we had a discussion, and a few interesting points emerged.</p>
+<p><strong>Isn’t BDD best applicable on the highest levels of the application, where the stakeholders interact with the system? Does it become less applicable as you go into the “deeper levels” of the application?<br />
+</strong><br />
+It is equally applicable on every level. You always have stakeholders, although they aren’t always the user - they are the people who get value of whatever code you are writing (and if nobody gets any value out of it, a good question to ask would be “Why am I writing it?”). If, for example, you are writing some classes in the domain layer, your stakeholders are the developers who’ll use it - you deliver value to them, so that the software they write delivers value to somebody else upstream. We can call it <em>a value chain of interactions</em>, where the user gets value by interacting with UI of the system, and UI gets value from some deeper part of the system, and so on - and yes, this sounds as if it's a bit of software that gets the value, but it’s really the developers whom your code enabled to write their code that enabled some other developer to write another piece of code that... delivered value to the user. In other words: "<a title="This is the house that Jack built, by Mother Goose :-)" href="http://www3.amherst.edu/%7Erjyanco94/literature/mothergoose/rhymes/thisisthehousethatjackbuilt.html">...in the house that Jack built</a>". And turtles all the way down.</p>
+<p><strong>BDD would never lead me to write a test that checks how </strong><strong>the </strong><strong>withdrawal service</strong><strong> I am writing</strong><strong> behaves if a customer requests</strong><strong> a negative </strong><strong>amount</strong><strong> from an ATM</strong><strong>, and yet at the level of the service this is a legitimate test: I want to see how it handles illegal input.</strong></p>
+<p>This is actually where DDD would help you: if in your domain negative amounts are illegal, if you modeled money as an object (let’s call it Money), it should be impossible to create one with a negative amount. Then, at this level, you can say “I should not be able to create negative amount”. Which is a statement of behavior of your Money class. Which is your BDD test.</p>
+<p>On the other hand, if you are placing responsibility of checking for negative amounts in your withdrawal service, BDD would probably not lead you in the direction of writing such a test - simply because it is not a scenario you are likely to imagine: why would someone want to withdraw a negative amount of cash?!</p>
+<p><em>An aside</em>. It's time to mention <em>compensation code</em>, which is code that compensates for deficiencies in your model: if negative money do not make sense in your domain, but your Money object allows that, you will have to compensate for that in your withdrawal service.</p>
+<p><strong>Bell curves and the value of tests</strong><br />
+BDD statement “know what done looks like” gives us a way to gauge the value of a test: the more it is expressed in terms of “done”, that is in terms of the system’s behavior (on the appropriate level at which you are writing the test), the more valuable it is. These are the tests that come out of acceptance criteria of a story, and the tests that are motivated by code you wrote to make those pass.</p>
+<p>So you can imagine a Bell Curve, where the tests that are close to the middle are more valuable than those on the periphery. Interestingly, these tests on the periphery are the more brittle ones, the ones that tend to break on refactoring, the ones about which it is never easy to say what exactly they test. And the worst thing, these peripheral tests are often a liability on any remodeling effort, because they are not expressed in terms of the model or behavior.</p>
+<p><strong>The Vision Statement</strong> and <strong>"What done looks like</strong>"<br />
+There is a parallel between the DDD concept of a Vision Statement and the BDD idea to know what done looks like: both are focusing mechanisms, determining where to focus your effort.</p>
+<p><strong>Testing in “negative space”</strong><br />
+Meaning, it is really hard to define all things that can go wrong (“<a title="What I am referring to" href="http://en.wikipedia.org/wiki/Please_Don%27t_Eat_the_Daisies">Please Don’t Eat the Daisies</a>”). BDD helps you to focus on the “positive space”, that is the scenarios that you want your system to support. Question: how do you come up with these “negative space” scenarios, like what if user enters a negative amount? One answer would be, if you plant yourself firmly in the context of cash withdrawal from ATMs, nobody can even think of a negative amount: that's an impossible scenario. So while it may have a theoretical value to know what your system will do with such a request, it has little practical value (will be one of these “peripheral tests” on the bell curve of tests). So you might write it last. Or not at all? There is a lot of possible answers here, would be interesting to find out what people think about it.</p>
+<p>&nbsp;</p>

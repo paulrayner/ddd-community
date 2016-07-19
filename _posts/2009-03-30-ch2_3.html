@@ -1,0 +1,542 @@
+---
+layout: post
+title: Chapters 3 & 4
+date: 2009-03-30 20:16:20.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '55'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=46
+  _edit_last: '3110'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">25-Nov-2003<br />
+    Domain Driven Design (Evans) II. <br />
+   Notes by Jeff Miller <br />
+		</span></p>
+<p>This meeting revisits the final published form of a book that SVP reviewed<br />
+    in an earlier draft two years ago.</p>
+<p>(some comments and questions unattributed)</p>
+<p>(notes start with discussion in progress)</p>
+<p>(previous to this point, Eric compared and contrasted model-driven<br />
+    design with domain-driven design)</p>
+<p>Eric: It depends on whether you demand that the classes in your model</p>
+<p>    have meaning in the domain.</p>
+<p>Russ: "bits of responsibililty"</p>
+<p>Eric: It matters that the classes in the model... The reason some<br />
+    models give you that kick is that they are are close to the domain.</p>
+<p>Robert: Is it easier to refactor the model, classes and objects, than</p>
+<p>    services?</p>
+<p>Russ: Let me do a quick check here. "Most talented developers don't</p>
+<p>    have much interest in learning about the specific domain in which they</p>
+<p>    are working" ? (p.4) How true is that?</p>
+<p>Robert: Probably, let's say, at Sun Microsystems, your domain is<br />
+    technical stuff you're doing for someone else.</p>
+<p>Eric: That's cheating. That's the exception that proves the rule.<br />
+    ("developers get interested in the domain when the domain is<br />
+    technical").</p>
+<p>Russ: Let's exclude technical domains, then. What do people think?</p>
+<p>Mark: Key word... I think "talented" is misplaced. I'd use<br />
+    the<br />
+    generalization without this word.</p>
+<p>Eric: You may be partly defining "talented" as a person with<br />
+    enough<br />
+    insight to be interested in the domain.</p>
+<p>Russ: And connecting "talented" with "successful".</p>
+<p>Mark: People may not care about "widgets" in the product sense<br />
+    rather<br />
+    than the GUI sense. The only way you can care about it is to really<br />
+    learn it.</p>
+<p>Eric: Often on larger projects there's an infrastructure team broken</p>
+<p>    off... The most talented developers get to pick what team to be on.<br />
+    Where do they end up? The infrastructure team. They don't work on the</p>
+<p>    account reconciliation feature. Instead they do fancy framework<br />
+    generalization about the UI or something.</p>
+<p>[...]</p>
+<p>Eric: I'd certainly like for talented developers to have interest in</p>
+<p>    the domain. When they were working on the account reconciliation code,</p>
+<p>    they did a better job than the person who replaced them. So part of<br />
+    what I'm hoping from domain driven design is that we could give the<br />
+    talented person a better way to think about the domain, a way that it</p>
+<p>    can be interesting. I don't think the group here is representative.</p>
+<p>Russ: Of talented developers?</p>
+<p>(general laughter)</p>
+<p>Eric: Present company excepted.</p>
+<p>Chris: Technical knowledge is often more transferable than domain<br />
+    knowledge.</p>
+<p>Eric: And the way domain-related development (notice I don't say<br />
+    domain-driven development) is done is often very boring. And when you</p>
+<p>    add things to your resume... if you say you have mastered the specifics</p>
+<p>    of the cargo handling operations at a port, it would just be clutter.</p>
+<p>    You wouldn't put it on at all.</p>
+<p>Chris: Yes, accounting, finance, there are a few generic, transferable</p>
+<p>    domains that would count.</p>
+<p>Eric: And does your peer group of other developers... they think you're</p>
+<p>    really smart when you can do cool technical tricks. Do other<br />
+    developers think you're smart when you find a better way to reconcile</p>
+<p>    accounts? No.</p>
+<p>Tim: Interest...my personal interest sometimes in the complexity of a</p>
+<p>    domain. Multi-state tax law for multinational companies. So if I<br />
+    tackle it as a complex problem, it's interesting, but if I got assigned</p>
+<p>    to it, it's not clear at the outset that it's actually quite an<br />
+    involved problem. Now I'm working on music playlists, I'm a little<br />
+    more interested in the domain.</p>
+<p>Eric: If people in some domain want a new application to do something</p>
+<p>    more than create, read, edit, delete... It's like you're a<br />
+    15th-century physicist.</p>
+<p>Q: "Getting your head chopped off?"</p>
+<p>Eric: Sometimes, perhaps. People may not support and understand your</p>
+<p>    way of thinking. But think how exciting it could be to be among the<br />
+    first to see rhyme and reason in how things move. Before that, people</p>
+<p>    would speculate on motion, and often they got it wrong.</p>
+<p>John B: It's a very similar analogy, actually, to what often happens<br />
+    in<br />
+    software development. Speculation rather than testing.</p>
+<p>Eric: We're still at that level with domain modeling with most domains.</p>
+<p>    There are a few that are better done, say accounting. There are some<br />
+    powerful abstractions, a ledger, credit, debit, double-entry. It's<br />
+    well on its way. But most other domains are virgin territory.</p>
+<p>Eric: What's missing... what's missing is the idea that domain modeling</p>
+<p>    is a discipline. Saying "I'm good at diving into domains, finding<br />
+    a<br />
+    model, building software based on that." Being able to put that on</p>
+<p>    your resume, having it mean something among your peers.</p>
+<p>Chris: I've certainly seen contract positions advertised for people<br />
+    with skill doing domain modeling. They call them "Rational Rose<br />
+    Modelers" or "UML modelers for the domain."</p>
+<p>Eric: I guess there's a silver lining in that cloud.</p>
+<p>Russ: Are you sure it's silver?</p>
+<p>John B: There's this meta-skill, then, domain modeling, that you can</p>
+<p>    capture, otherwise you couldn't write a book on it.</p>
+<p>Eric: Well, I guess _I_ couldn't write a book on it if it didn't exist.</p>
+<p>Q: How do you tell if you have a good model for a domain, vs. a good</p>
+<p>    architecture in the model. You were saying that there are a lot of<br />
+    things in the domain that aren't captured well by UML.</p>
+<p>Eric: Perhaps it would be best to keep moving through the material to</p>
+<p>    answer that question.</p>
+<p>Eric: Sometimes, when the code is closely tied to the model. You<br />
+    might choose to move a method, to re-assign a responsibility. That can</p>
+<p>    mean the model has changed; the model in your head, not necessarily a</p>
+<p>    particular UML diagram.</p>
+<p>Russ: You had a good example of having to create a larger-grained set</p>
+<p>    of objects in the system to be able to work well with an object<br />
+    database, and that caused you to re-think the model and how you were<br />
+    going to deal with the domain.</p>
+<p>Eric: In our original model, perhaps we might call it an analysis<br />
+    model, we had a large number of small objects in intricate<br />
+    relationships. It was a serious performance problem in connection with</p>
+<p>    the database. So we needed to model the problem with fewer objects.<br />
+    There were 3 possible outcomes: (1) the same concept, but different<br />
+    implementations, rolling in subcomponents into the object which<br />
+    aggregates them, absorbing variant behavior; (2) a modified model, not</p>
+<p>    as nice, but it works; (3) a new way of thinking about the problem that</p>
+<p>    also works well as a way of breaking down the domain. We had some of<br />
+    each. But in each case, we said the way we think about the problem<br />
+    will be tied to the implementation. Maybe the model will not be as<br />
+    beautiful, but we do have to support it. There might be "teaching</p>
+<p>    models" to tell people about the domain, but there's only one domain</p>
+<p>    model that</p>
+<p>Russ: Does anyone have a story about when there was an analysis model</p>
+<p>    that was at variance with the code?</p>
+<p>(1): I had this issue. There were often subtle problems with the<br />
+    model, things that were not implementable. We had to go back to the<br />
+    analysts again.</p>
+<p>Tim: We didn't go back to the analysis phase.</p>
+<p>Russ: And you'd already used that time?</p>
+<p>Tim: Yes. We would have had to cut into QA time. And yes, it was a<br />
+    problem that the model was not really useful. Did the analysts get<br />
+    paid? Yes. It met their criteria. Measured against our phase, well,<br />
+    no. We had a notion of the model, but we were too busy coding<br />
+    workarounds.</p>
+<p>Eric: Did you change your objects to reflect new concepts or stick with</p>
+<p>    the original ones from the model?</p>
+<p>Tim: Both. Sometimes we worked around it with a mapping layer, other</p>
+<p>    times the model was loosely enough defined that we could implement it</p>
+<p>    in a reasonably flexible way.</p>
+<p>Eric: I'd like to distinguish between "UML", a representation<br />
+    of what<br />
+    someone thought was the model at some time, and "the model",<br />
+    which is<br />
+    how you are thinking about and communicating with the code.</p>
+<p>Tim: An interesting part of this is that I'm sure the analysts had a</p>
+<p>    model which was not the UML. But it was transcribed to UML and we just</p>
+<p>    had to guess at what was missing.</p>
+<p>Eric: UML just doesn't capture enough.</p>
+<p>Russ: Isn't that what OCL is for?</p>
+<p>(2): Usually you give people X and they are happy, occasionally people</p>
+<p>    ask for X, you give them X, and they wanted Y. But when you hand it<br />
+    over, it does not provide people what they need to accomplish the task</p>
+<p>    in the environment -- speed, memory use, usability -- not a conceptual</p>
+<p>    mismatch, necessarily, but a poor implementation in terms of the<br />
+    working context.</p>
+<p>Eric: Extreme Programming says, "just don't try to understand it<br />
+    all up<br />
+    front". So they have elaborate practices to stay customer-focused<br />
+    and<br />
+    deliver something useful. You can get something done, delivering<br />
+    feature-by-feature code. But part of the story is also agility,<br />
+    responsiveness to changing requirements. Partly it's things like test</p>
+<p>    frameworks, refactoring, etc. to keep the _code_ quality high. But if</p>
+<p>    you have also been using domain driven design, the internals of the<br />
+    software reflect what the customer cares about and wants to do, not<br />
+    just the external interface, the services the software provides. So<br />
+    you need a close relationship with a domain expert. This is not<br />
+    necessarily the customer who is choosing and assigning value to<br />
+    features, or the user who will be working about it. There is iteration</p>
+<p>    in code, while in domain knowledge, there's what I call knowledge<br />
+    crunching, reflecting on what you have learned about the domain and<br />
+    evolving your model to a more representative and more useful state.</p>
+<p>
+    Eric: Probably that's true.</p>
+<p>Russ: It goes further than that. By modeling the domain well, by<br />
+    coding that into the software, you also find that the next thing you<br />
+    haven't designed yet, you're more likely able to fit it into the<br />
+    existing software because of the way its structure reflects the<br />
+    structure of the domain.</p>
+<p>Eric: XP has more things to guard your process against spinning your</p>
+<p>    wheels and not making useful progress. You could apply a very<br />
+    straightforward, procedural approach to an iterative development and<br />
+    make good progress.</p>
+<p>(2): You're talking about more about architecture, and I'm talking<br />
+    about features.</p>
+<p>Eric: You'll notice I don't actually talk about architecture except<br />
+    toward the end of the book when I talk about architecture teams as a<br />
+    way to organize larger development efforts. But for a domain with<br />
+    complex requirements, where there are interrelationships among the<br />
+    various pieces, then model-driven, domain-driven design is important.</p>
+<p>Keith: I've worked with code where there's a model, but it has kind of</p>
+<p>    evaporated, it isn't visible in the code as you see it and work with<br />
+    it. Do you need, at least, a good object oriented language?</p>
+<p>Eric: Well, code of that description is not a model-driven design. And</p>
+<p>    how you get one is much of what this book is about. Especially part 2,</p>
+<p>    and part 3 is about getting a good one. So modeling -- what your<br />
+    "Rational Rose Modeler" would be expected to do (looking at<br />
+    Chris), is<br />
+    the opposite of hands-on modeling.</p>
+<p>Keith: In the case I'm thinking about, the team created a model and<br />
+    implemented it.</p>
+<p>Eric: Does it show up in the code?</p>
+<p>Keith: You can't really see it. It's sort of like a fragmented mirror</p>
+<p>    or a Picasso painting.</p>
+<p>Eric: Then it's not model-driven design.</p>
+<p>John B: "Team = Code" ?</p>
+<p>Keith : Conway's Law? The structure of the code reflects the structure</p>
+<p>    of the organization?</p>
+<p>Russ: I think you were a little harsh about not being able to do<br />
+    model-driven design in C. You can do object-like stuff if you don't<br />
+    need inheritance. We had structures of function pointers, we passed<br />
+    around a "this" pointer, and everything corresponded and felt<br />
+    much like<br />
+    you would feel programming in an object-oriented language.</p>
+<p>Eric: I don't want to overstate it. But I think that choosing the<br />
+    right language is really powerful. It's harder to write, it's harder<br />
+    to read.</p>
+<p>Russ: But I think you could read the code and see right back to the<br />
+    model we were working with.</p>
+<p>Mark: It depends more on the programmer. I've seen awful code in C++</p>
+<p>    and really clean code in C.</p>
+<p>Eric: I'm not trying to pick good and bad among languages. But when<br />
+    you want to do model-driven design...the model belongs to some style,</p>
+<p>    and mostly these days the model is in terms of interacting objects. So</p>
+<p>    choosing an object-oriented language gives you code which can be<br />
+    expressed in terms closer to the model than other languages can easily</p>
+<p>    express. You need a programming language which supports your modeling</p>
+<p>    paradigm, whether it's object-oriented, mathematical equations, or a<br />
+    chain of logical rules.</p>
+<p>Eric: I'd certainly like to see a language that's better at supporting</p>
+<p>    object-oriented design than Java. I have worked with Smalltalk, which</p>
+<p>    I consider to be better, but it is not radically better, not in a<br />
+    different league.</p>
+<p>Keith: Have you considered Scarlet? You write the algorithmic parts,</p>
+<p>    the object and methods, in one part of the language, and separately<br />
+    describe how the objects are composed.</p>
+<p>Eric: You could consider the current fashion for compiling a system out</p>
+<p>    of UML and OCL as a programming language which is close to the model,</p>
+<p>    but I don't think it's a good programming language. I'd have to see<br />
+    Scarlet to see what I think. I don't want to get into any religious<br />
+    wars about programming languages, I'd just like to point out that you</p>
+<p>    want to choose the right tool for the job.</p>
+<p>Eric: I try to stay away from the dichotomy between the "analysis</p>
+<p>    model" and the "implementation model". Each one is useless<br />
+    in<br />
+    isolation, since the analysis model doesn't tell you whether the system</p>
+<p>    actually obeys, say, a constraint you've noted in the model. This is<br />
+    not to say that all parts of the model are equally important, but that</p>
+<p>    the core, meaningful, abstract concepts from the domain are expressed</p>
+<p>    in the model that your implementation is based on.</p>
+<p>Tim:</p>
+<p>Eric: I advise people not to get attached to any particular model.<br />
+    There are always alternatives, or almost always. If you find that your</p>
+<p>    original model does not work for building the system, then I take that</p>
+<p>    as a sign for rethinking the model. So the shift I describe in the<br />
+    book -- from composed groups of little objects, to a stack of tokens<br />
+    and a parser which interpreted these as a little language. It was<br />
+    equally elegant, but perhaps less accessible to some developers. And<br />
+    it reflected a different model, a different way of thinking about and</p>
+<p>    expressing the concepts from the domain.</p>
+<p>Russ: Key points from the introduction?</p>
+<p>Eric: One point is not so much about whether you have a good model<br />
+    (that's more part 3), it's about how to keep your model in sync with<br />
+    your development. If your "smart people" are doing nothing but</p>
+<p>    modeling, but you don't implement the model in the terms it presents,</p>
+<p>    then</p>
+<p>(3): Don't you want your junior people in on modeling, so they can get</p>
+<p>    mentoring and absorb skills?</p>
+<p>Eric: I go further than that. I say everyone should be modeling, and</p>
+<p>    everyone should be programming. If you aren't doing that, you aren't<br />
+    doing model-driven design. You have to do modeling as you program.</p>
+<p>Russ: Let me say something heretical. What if you had a "thinker"<br />
+    and<br />
+    a "coder", and the coder goes back whenever there is a problem,<br />
+    and<br />
+    asks the model to be adjusted and fed back. Is that model-driven<br />
+    design? Clearly there are communication costs.</p>
+<p>Eric: I guess that could be model-driven design. But if you adapt your</p>
+<p>    implementation to be more do-able, you introduce a change in the model.</p>
+<p>    I wouldn't advocate that. You want someone's eyes on the code who<br />
+    understands the model, and can recommend whether it's consistent with</p>
+<p>    the model to tweak the code a bit for the sake of implementation, or<br />
+    whether there is some issue in the model which needs to be re-thought.</p>
+<p>    Every time I've seen this approach succeed, the people who had created</p>
+<p>    the model were also participating in coding it.</p>
+<p>(1): Scaling of this approach?</p>
+<p>Eric: Part 4 of the book discusses this. But there are also issues<br />
+    about how to partition the model into chunks which make good objects<br />
+    (Part 2).</p>
+<p>Russ: Like the comparison between the elements of the model... and<br />
+    saying that they are not things that you try to identify like<br />
+    constellations in the night sky.</p>
+<p>John: I see that when people try to reverse-engineer a system. They<br />
+    look at all the stars, and say, "well, there's a scorpion in there</p>
+<p>    somewhere."</p>
+<p>Russ: And you can extract the patterns with an automated tool.</p>
+<p>Chris: (p.70) You seem to have defined the "application layer"<br />
+    very<br />
+    strictly. I might equate it to a "services layer". There is<br />
+    some<br />
+    business knowledge, often, in doing things like exposing tasks, in<br />
+    doing error handling. That amounts to business logic. Recovery<br />
+    strategies in the case of failures, perhaps.</p>
+<p>Eric: I might not want to put those in the application layer. I talk</p>
+<p>    about services in the domain layer, services which are fundamentally<br />
+    domain behavior, and others which are more application behavior.</p>
+<p>Chris: I agree that there are two kinds of services. But I find that</p>
+<p>    even in things, like services for aggregating network traffic, there is</p>
+<p>    some business logic.</p>
+<p>Eric: All right. Then there's a little workflow in there. But you<br />
+    want to push it back if you can. A lot of workflow is not really<br />
+    business related. Things like going from screen to screen in an<br />
+    application. Or having an application which constructs a new account<br />
+    in a particular way, but it doesn't necessarily matter that you do it</p>
+<p>    in that way to the domain.</p>
+<p>Chris: I'm thinking of metaservices, which call to services which exist</p>
+<p>    in the domain. Have you worked with Struts or JFaces?</p>
+<p>Eric: I've been on such a project, but I wasn't involved in that part</p>
+<p>    of the application.</p>
+<p>Chris: I wanted to ask about applications of Struts or JFaces which<br />
+    might be either in harmony with this approach, or at variance with it.</p>
+<p>Eric: J2EE entity beans, I guess the recommended way to use them,<br />
+    really separates your data from your behavior. Does Struts carry<br />
+    baggage like that? I don't know.</p>
+<p>Chris: What I wanted to see is if the recommended or common patterns</p>
+<p>    for using Struts were problematic. As an example from a different<br />
+    framework, say, the .NET suggested practice of exposing RowSets all the</p>
+<p>    way from your database up to your UI objects?</p>
+<p>(discussion of Microsoft approach... view through to the database as<br />
+    a<br />
+    way of scaling through stateless servers)</p>
+<p>Azad: And what you might call, not the "Smart UI", but the<br />
+    "Smart<br />
+    Database" pattern, controlling things with stored procedures. For</p>
+<p>    certain applications, you can get quite a ways with this approach.</p>
+<p>Eric: You could make it work in a model-driven way, but your modeling</p>
+<p>    paradigm would have to be in terms of entities, relationships,<br />
+    triggers, etc. It strikes me as a rather masochistic way to do<br />
+    modeling.</p>
+<p>Russ: That's kind of a lead-in to the Smart UI pattern.</p>
+<p>Bob: First... having the domain objects responsible for persisting<br />
+    things. But unfortunately I've seen readers and writers all over the<br />
+    system, knowing bits and pieces about the serialized form, breaking<br />
+    encapsulation. I wanted to check in about where you were going.<br />
+    Perhaps "what" should be persisted should belong to the domain<br />
+    object,<br />
+    and "how" should belong to the implementation?</p>
+<p>John B: I think that is Chapter 6.</p>
+<p>Eric: Yes. Let me just refocus on the goal. When you're looking at<br />
+    the domain object, you can think about its domain meaning, not about<br />
+    the implementation details of how it talks to the database. If you<br />
+    have a framework that lets you disentangle the domain meaning and<br />
+    behavior with the implementation.</p>
+<p>Bob: I've used Aspects a lot lately, to isolate things like<br />
+    persistence.</p>
+<p>Eric: I've dipped my toe into this, and I thought it was neat. But<br />
+    I'd just like to focus on whether the persistence framework helps you</p>
+<p>    read the code in terms of its domain nature (or at least gets out of<br />
+    the way), or whether it does not.</p>
+<p>Russ: I was curious to know about how aspects and refactoring interact</p>
+<p>    in practice. How well do they work together. Bob, have you been using</p>
+<p>    Aspects in a serious way?</p>
+<p>Bob: More playing at this point, but I can give you a pointer to a blog</p>
+<p>    from a fellow at Microsoft, an entry something like "A Year With</p>
+<p>    Aspects", where he talks about the difficulties with multiple aspects,</p>
+<p>    dependencies and duplications, after working with AOP for a while.</p>
+<p>Azad: How does the model interact with documentation?</p>
+<p>Eric: If you start with the core notion that the model is a set of<br />
+    concepts that you want to be able to communicate, to understand, to use</p>
+<p>    in talking about the domain and the software implementation, then any</p>
+<p>    way of documenting that is compatible with that is reasonable.</p>
+<p>Azad: Or if you were dealing with something that was more heavily<br />
+    rules-based. Or when your domain experts are expressing the domain in</p>
+<p>    different terms than you find useful for implementation.</p>
+<p>Eric: I'd recommend using the same style for capturing domain knowledge</p>
+<p>    from the experts and for designing and implementing the system.</p>
+<p>Azad: No question about that.</p>
+<p>Eric: Or have a rules engine and integrate that into the system. But</p>
+<p>    it may be worse than modeling their rules as Java objects. You still<br />
+    need a ubiquitous language which you can communicate in terms of the<br />
+    domain, in terms of the design, and the implementation.</p>
+<p>Robert: Perhaps in a lot of domains, there are a lot of little surface</p>
+<p>    rules in the processes you go through. But in order to build things<br />
+    that will go a longer way, I feel there's a danger in not trying to<br />
+    discover the objects.</p>
+<p>Eric: The concepts of the domain.</p>
+<p>Eric: It's hard to carry two models with a mapping between them. The</p>
+<p>    mapping is itself a modeling problem.</p>
+<p>(4): Or in some languages, being able to overlay knowledge about how<br />
+    to<br />
+    connect things, to expose different ways of</p>
+<p>Eric: So you're introducing candidate abstractions into the language,</p>
+<p>    in the terms of the domain?</p>
+<p>Russ: So if your domain experts are not communicating in terms which</p>
+<p>    map very closely to the system you are building, you've lost a lot of</p>
+<p>    their expertise.</p>
+<p>Azad: So I think that we disagree on one little point.</p>
+<p>Eric: "Never do it" on my side, vs. "Avoid it." But<br />
+    when I expressed<br />
+    it that way in the book, the reviewers recommended that I remove all<br />
+    the caveats and reservations. I really do believe that whenever there</p>
+<p>    is one model for talking to domain experts and another model for<br />
+    programming, then we are really missing the boat. We won't get the<br />
+    agility in the design.</p>
+<p>Azad: Partly what I was trying to express was that in the currently<br />
+    popular programming language, whatever that might be, there may be some</p>
+<p>    concepts that are key to the domain that aren't easily mapped or<br />
+    modeled.</p>
+<p>Mark: Something I wanted to ask that isn't in the book so explicitly</p>
+<p>    ... trying to get the developers to buy in, having the whole team<br />
+    involved ... but what about management? How do you change the culture</p>
+<p>    of management to allow teams of developers to do these things?</p>
+<p>Eric: Managers are very buzzword-driven. If they are interested in the</p>
+<p>    buzzword (today maybe it's XP, tomorrow maybe Domain Driven Design),<br />
+    you'll be more likely to be able to do it.</p>
+<p>Robert: Managers also pay attention to success as well as buzzwords.</p>
+<p>    You try and make strong connections between this approach and<br />
+    successful projects.</p>
+<p>Eric: On the web site, there's actually something called "Managers'</p>
+<p>    Guided Tour To Domain Driven Design"</p>
+<p>Mark: Is it in PowerPoint format?</p>
+<p>Russ: A good lead-in to Smart UI. You really need forward-looking<br />
+    management to take on model-driven development with nice testing and<br />
+    all that. Smart UI gives you a quick burst of productivity up to a<br />
+    certain point, then you run into a point where you can no longer scale</p>
+<p>    it. Model-driven and domain-driven... you start with something kind of</p>
+<p>    linear, lose a little from complexity, gain some from the set of<br />
+    strong, interacting abstractions. It takes a little while for the more</p>
+<p>    advanced techniques to really bring home their benefits.</p>
+<p>Eric: I do say that MDD is more important for cases where the domain<br />
+    is<br />
+    complex.</p>
+<p>Bob: It's robustness. YAGNI works if you don't have to go back and<br />
+    touch it. MDD is about robustness. A small change in the problem<br />
+    domain is a small change in the objects and classes.</p>
+<p>John B: XP's "system metaphor" speaks to this.</p>
+<p>Eric: YAGNI applies a lot in model driven design, as well. For<br />
+    analysis modeling, you don't have something that tells you when you can</p>
+<p>    stop.</p>
+<p>Eric: Do the _simplest_ thing that can possibly work... it might be<br />
+    really hard. Thinking profoundly in order to express the problem most</p>
+<p>    elegantly and most simply. It's really a profound breakthrough.</p>
+<p>John B: Kent Beck expressed this as a question: "What is the simplest</p>
+<p>    thing that can possibly work? Why aren't you doing that?" rather<br />
+    than<br />
+    simply "Do the simplest thing that could possibly work." There's<br />
+    a<br />
+    level of reflection there that's missing without the questions.</p>
+<p>Eric: Especially when you know you'll have a version 2, you need a<br />
+    robust way of developing software like model-driven design. There may</p>
+<p>    be simple ways to solve simple problems where you may not have to use</p>
+<p>    such techniques. If your problem fits into a pre-existing tool, get it</p>
+<p>    off the shelf.</p>
+<p>John B: I often start with a smart UI. I start in domains where the UI</p>
+<p>    is the biggest risk. Then I factor the domain objects out of the UI as</p>
+<p>    time goes on. I'm working on a graphical interface to a text-based<br />
+    conferencing system, and I can see there are a set of objects wanting</p>
+<p>    to come out. But the next several stories don't call for that to<br />
+    happen.</p>
+<p>Russ: And then, when you've learned what you can from the first<br />
+    prototype with the smart UI, you have a choice between factoring out<br />
+    the domain objects, and retiring the prototype and re-building it.</p>
+<p>Eric: You may have different experience from I about how easy it is to</p>
+<p>    refactor out of a smart UI. My experience has been that when I step<br />
+    into a client's place where there isn't some sort of layered<br />
+    architecture present, then I often will say that I do not know how to</p>
+<p>    help them. I've had a lot of trouble with escaping from a bad design.</p>
+<p>(discussion of experiences factoring out of a smart UI: John B, Russ,</p>
+<p>    Jeff M)</p>
+<p>Eric: Very early in the history of a system, especially if you are<br />
+    probing for key risks, you can get away with a "Smart UI". But<br />
+    if you<br />
+    plan your system to have any sort of a life in development, you should</p>
+<p>    plan to have a domain layer.</p>
+<p>Bob: How about non-layered architectures. Pipes and Filters?<br />
+    Blackboard?</p>
+<p>Russ: Composite?</p>
+<p>John B: Composite sounds like the structure of the domain layer.</p>
+<p>Russ: Are we the only people who have made a success out of a<br />
+    non-layered architecture? (Russ describes a system that separates I/O</p>
+<p>    and other implementation concerns in specific service classes, but not</p>
+<p>    separate layers).</p>
+<p>Eric: The four-layer architecture diagram I present is probably too<br />
+    specific. The essence is isolating the domain. Have a domain layer<br />
+    representing the software constructs relevant to business logic. It<br />
+    sounds like what you describe is not a layered architecture, but it is<br />
+    a separation of the domain. It's too bad it comes across as so much of<br />
+    a specific prescription.</p>
+<p>Bob: For domain-driven business applications, they pretty much do look</p>
+<p>    a lot like this layered architecture you present.</p>
+<p>   <!-- InstanceEndEditable --></p>
+<p> <!-- InstanceBeginEditable name="SideBar" --></p>
+<h2> Attending</h2>
+<p>(partial list only) </p>
+<p>Don Chin <br />
+Vince Nibler <br />
+Tim Huske <br />
+Mark Taylor <br />
+Robert Benson <br />
+Russ Rufer <br />
+Jeffrey Blake <br />
+Ken Scott-Hlebek <br />
+Carlos McEvilly <br />
+Batman/Tao <br />
+Tracy Bialik <br />
+Jeff Miller   <br />
+Chris Lopez <br />
+John Brewer <br />
+Azad Bolour <br />
+Keith Ray <br />
+Bob Evans <br />
+Walter Vannini   </p>
+<p>(and several more, total 23)</p>
+<p></p>

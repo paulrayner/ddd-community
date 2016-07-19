@@ -1,0 +1,361 @@
+---
+layout: post
+title: Chapters 10 & 13
+date: 2009-03-30 20:18:43.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '57'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=48
+  _edit_last: '3110'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">Domain Driven Design (VI) + Industry Roundtable<br />
+   <br />Guest Author: Eric Evans<br />
+   <br />Notes by John Brewer and Jeff Miller </span></p>
+<p>(some discussion of John Corbett's picture discussed on the list representing<br />
+    evolution of a software system and easy/hard features within reach)</p>
+<p>(lengthy roundtable discussion, omitted, of interesting new trends in<br />
+    software, eventually rolling around to outsourcing)</p>
+<p>Russ: It seems like a lot of jobs that are still high-skill are apt to<br />
+    be commoditized in the next year or two. A lot of the web design tasks,<br />
+    for example. There are easy-to-use tools to put together a site, even<br />
+    with a shopping cart.</p>
+<p>Eric: It seems like a lot of companies try to ship the wrong things offshore.<br />
+    The domain business logic, which is actually one of the worst parts.</p>
+<p>??: So they're thinking it's up front design, they'll just ship off the<br />
+    spec.</p>
+<p>Eric: But it doesn't work.</p>
+<p>John: For big companies, they have a branch over there, not quite like<br />
+    outsourcing.</p>
+<p>??: A new thing, and widely perceived to be successful so far. Not so<br />
+    many horror stories at this point.</p>
+<p>Eric: Programming as unskilled labor? It's certainly some of it is more<br />
+    semi-skilled than it used to be. Perhaps building a web page is rather<br />
+    less technical than it was. So that's one thing. Partitioning jobs that<br />
+    are less technical from ones that are more so. But it seems to me that<br />
+    the domain layer is the last thing that will actually be automated. Then<br />
+    there's the process. You can imagine an offshore shop full of smart people<br />
+    using XP, and they would still be less in price. It's a little scary to<br />
+    me, but in practice, I've never seen a big company get a really effective<br />
+    process going locally, so...</p>
+<p>Charlie: Savings of 20-35% seems to be what they're actually realizing.<br />
+    Wages are going up in India, it's harder to manage a remote project.</p>
+<p>John B: And there are things which end up in the wrong part of the balance<br />
+    sheet, or opportunity costs that aren't measurable in a direct way. I<br />
+    think this year we will hear many more offshore horror stories. It might<br />
+    take two or three years before things really come crashing down, before<br />
+    things finally come to account.</p>
+<p>Mike: My company is partnering with a couple of established offshore<br />
+    companies, and they're doing fairly well with it. They have a heavyweight<br />
+    process, and it moves a little slow at the requirements phase, but the<br />
+    code comes back in reasonable shape.</p>
+<p>Eric: Yes, if you can write a spec and be happy getting back something<br />
+    that meets the spec. But it doesn't necessarily make the next step easier.<br />
+    There's no incentive in the structure to make to code supple, easy to<br />
+    work with.</p>
+<p>Russ: Not so much motivation, as just the way it works under this process.</p>
+<p>Eric: But even without a breakthrough, the crafting of the pieces of<br />
+    software.</p>
+<p>Tracy: And the lack of access to interaction with customers, quick feedback.<br />
+    The suppleness goes into the right place. People in a traditional waterfall<br />
+    are hard to get to make changes. And unless there's someone right there<br />
+    local, you don't get the little "aha!" insights, "Oh, that's<br />
+    what you mean by a cargo!". Some local person who understands the<br />
+    domain will make a little remark which will clarify issues for you, and<br />
+    you'll have an insight that makes things much better.</p>
+<p>John B: From "This Discipline of Market Leaders", you compete<br />
+    with offshore people by choosing customer intimacy. Ex: FedEx: "innovation".<br />
+    UPS: "operational excellence", Airborne Express, "customer<br />
+    intimacy", they become part of your shipping division. They'll host<br />
+    your company's warehouse in their shipping hub. We can't do operational<br />
+    excellence, so we need to focus on innovation and customer intimacy. We<br />
+    should take advantage of that, in the way that agile processes do.</p>
+<p>Dave Smith: When I was managing a project, sometimes the customers are<br />
+    distributed. In my case, it was financial companies around the Pacific<br />
+    Rim.</p>
+<p>Charlie: And you can use offshoring effectively for routine development<br />
+    that's well understood.</p>
+<p>Tim: When do you outsource? If it's well understood, get the requirements<br />
+    exactly right and send it out to get typed up into code. But getting the<br />
+    requirements exactly right *is* the central problem in software. Sending<br />
+    the work outside the company is more apt to make things worse.</p>
+<p>???: The better companies will provide a local representative to gather<br />
+    requirements from the customer directly, and clarify anything that needs<br />
+    more direct contact.</p>
+<p>Dave Smith: Infosys, for example, has requirements teams local to the<br />
+    customer. But wage inflation...there's high turnover in India, people<br />
+    get hired away.</p>
+<p>Eric: I think we should be glad that there are good opportunities there<br />
+    now. A billion people pulling themselves out of poverty.</p>
+<p>John B: A country of a billion plus people ought to have 3x as many genius<br />
+    programmers. I think we should be very grateful, as programmers drawing<br />
+    high salaries, that the regimes in these countries have held things back<br />
+    up till now.</p>
+<p>Darlene: </p>
+<p>John B: Stories about mistreatment of knowledge workers.</p>
+<p>Eric: I've heard of more problems here, like the H1B workers.</p>
+<p>John B: I have another topic...the social networking software, LinkedIn<br />
+    for example. It's a way of extending one's contacts. You can only initiate<br />
+    requests directly through the set of contacts, and each contact has to<br />
+    forward your request along.</p>
+<p>(some discussion of automating programming...what level to write the<br />
+    specs at... perhaps Java is a sufficiently formal language... but you'd<br />
+    want a layered architecture with a good domain layer...so)</p>
+<p>Eric: That's a good lead-in to the part of the book, Chapter 10 (Supple<br />
+    Design). I favor a declarative style of design (p. 273). But there's a<br />
+    problem with that mindset, you can get the wrong focus, which will lose<br />
+    the details that will lose the agility of the process. I'm all for raising<br />
+    the level of abstraction, but there's a problem with that particular direction<br />
+    of abstraction, trying to make UML an executable specification.</p>
+<p>Russ: When I first talked with Don Roberts, I couldn't see where some<br />
+    of his points were coming from. You can't get all of the details right<br />
+    up front, all of the bits of the landscape that give you the most appropriate<br />
+    design.</p>
+<p>Eric: ...building a language for my application. I used to think about<br />
+    putting components together. But now I think about building up a language.<br />
+    The fine-grained, well-crafted base level supports the next level of abstraction.<br />
+    A layered language more than a layered architecture.</p>
+<p>John: Some design methodologies inadvertently sabotage opportunities<br />
+    for synergy, interplay between levels.</p>
+<p>Russ: It felt like we used to design top-down, now it feels more like<br />
+    inside-out. Starting somewhere in the middle of the system, and incrementally<br />
+    fleshing it out as we go.</p>
+<p>Jeff: That reminds me of one of the OOPSLA keynotes, that often the most<br />
+    salient categories are those in the middle of an abstraction hierarchy,<br />
+    rather than the most general or most specific categories.</p>
+<p>Eric: I think this chapter is really important, but I'm not sure how<br />
+    it comes across.</p>
+<p>John B: It's sort of subtle, but it is self-reinforcing as it goes along.</p>
+<p>Eric: And I pull from earlier stuff. The distinction between entities<br />
+    and values becomes more important as you put side-effect-free functions<br />
+    onto a value, etc.</p>
+<p>Mike: I got one of those enterprise e-zines today, "go here and<br />
+    look at the latest enterprise governance releases." What I read today<br />
+    was the antithesis of it: "standard, standard, standard" rather<br />
+    than a set of flexible guidelines to produce supple software. They aimed<br />
+    for good design, and they ended up with a bunch of rules crafted by ivory<br />
+    tower geeks.</p>
+<p>Russ: Standards are motivated by fear.</p>
+<p>Dave: But agile processes can have that motivation as well, once you<br />
+    understand them. Fearing getting stuck in wasteful, painful activity.</p>
+<p>John B: I prefer "winning" vs. "not losing". Agile<br />
+    processes play to win, while standards-based processes play to not lose.<br />
+    When a doctor says, "we did everything we could." And it's often<br />
+    about big companies vs. small companies. Big companies have a lot to lose,<br />
+    and so they play not to lose. Startups have to play to win, because playing<br />
+    not to lose will just delay the point at which they lose.</p>
+<p>Tim: How is one, as a manager, to see through the stories and choose<br />
+    the right process?</p>
+<p>Eric: I think that Supple Design is where the connection between design<br />
+    and agile processes shows up the most. How to design things so that we<br />
+    can change them when we need to.</p>
+<p>Russ: Managers want to hear things in different ways. Some are more receptive<br />
+    to the "Lean Software Development" </p>
+<p>Charlie: Kent Beck's approach is to show something useful delivered every<br />
+    iteration.</p>
+<p>John B: I'd say that you should study persuasion, more than agile methods<br />
+    or software development. </p>
+<p>Eric: But frequent delivery can cause some distortions of the supple<br />
+    design process from the pressure to deliver more each iteration. Ward<br />
+    Cunningham recently was talking about "making the software softer."<br />
+    Let's say you want to add a feature that doesn't look like it's going<br />
+    to fit very well. You can add the feature in two different ways -- to<br />
+    stick it on the side of the old system. Or you can rework the old system<br />
+    until there is a place to put the new feature, and drop it in. His point<br />
+    is that most people will do it the first way. They don't believe that<br />
+    reworking the old system has value. But if you do it the second way, the<br />
+    system ends up very easy to understand.</p>
+<p>Tracy: "Hanging a bag on the side". You have to understand<br />
+    the system, and then separately understand each bags. You end up with<br />
+    a bag on a bag on a bag, and finally you have a pile of spaghetti code.<br />
+    And the mantra you hear is "but it works!" And until you've<br />
+    gotten there, to where it encumbers you, you don't really see it.</p>
+<p>Eric: Or when you've gotten to a really supple, unencumbered place. If<br />
+    you deliver every three weeks.</p>
+<p>Jeff: Version 1.0 of a product often has features but little design.<br />
+    And then it comes time to start working on 2.0...</p>
+<p>Eric: I think the payoff for supple design comes within weeks. It gives<br />
+    you a better version 1.0, and makes a huge advantage in version 2.0</p>
+<p>Russ: I've seen a problem with people reaching for a supple OO design<br />
+    and dig a deeper hole with OO than they could have with a procedural language.</p>
+<p>Eric: Even advanced designers can be too perfect, too abstract in their<br />
+    design.</p>
+<p>Tim: (describes a situation where success was redefined as the very limited<br />
+    success that was actually achieved). We have a deployed product with a<br />
+    lot of revenue in the field, but it costs so much in the support end that<br />
+    it isn't a big win.</p>
+<p>John B: A functional organization understands the cost of each tech support<br />
+    call. So you make design decisions based on that if it's a significant<br />
+    force.</p>
+<p>Eric: At the place I've been working lately, they work hard to be compatible<br />
+    with all the ancient versions of the web browsers. Who knows what happens,<br />
+    if you make a few people unhappy. It changes the perception that it's<br />
+    a site that is very easy and always works for everyone.</p>
+<p>(some discussion of ease of use, supportable software, use of facilities<br />
+    that only some people will be able to use or choose to enable: [Javascript,<br />
+    ActiveX])</p>
+<p>Eric: And sufficiently unpleasant things to work on will drive people<br />
+    away. Supple Design makes things not only easier to work with, but more<br />
+    pleasant.</p>
+<p>Darlene: And easier to understand.</p>
+<p>John B: Let me mention a phrase Ward Cunningham uses, "Design Debt".<br />
+    He was working with financial services companies who understand the appropriate<br />
+    use of debt. But you're talking about design surplus here, starting to<br />
+    earn interest on the quality of your design.</p>
+<p>Eric: I prefer supple design as a way to describe it, to describe where<br />
+    you're at when you're free of design debt. </p>
+<p>Russ: So at Eric's suggestion, perhaps we can pick up Chapter 13, which<br />
+    is pretty short. "Refactoring Toward Deeper Insight".</p>
+<p>Eric: It tries to tie together the whole of Part 3, since there are several<br />
+    chapters there. It says similar things, but shifts the angle.</p>
+<p>John B: This reminds me of Ward Cunningham's phrase about "waiting<br />
+    for insight". You don't *have* to wait, but then you don't get the<br />
+    insight.</p>
+<p>Eric: But sometimes you have to go looking for it.</p>
+<p>Charlie: Insight usually comes from hard work.</p>
+<p>Eric: So you don't actually go looking for a breakthrough, but you keep<br />
+    refining your knowledge and then you can be in a place where you can get<br />
+    insights.</p>
+<p>Russ: So, earlier you say, "you can't plan on a deep model."<br />
+    But it seems you talk about a set of practices which give you opportunities<br />
+    to break through to deeper insight into the model. Making your own luck.</p>
+<p>Eric: You can still get a workable supple design.</p>
+<p>Bob: Jazz improvisation. You still practice, you listen to other players,<br />
+    learn new motifs, polish your scales, and then you're more ready when<br />
+    the opportunity for an improvisational leak happens.</p>
+<p>John B: For me, it often happens when something in the code bugs me.<br />
+    And I reflect on it and I can make a breakthrough to a better design.</p>
+<p>David V: When a system is in deployment, and you discover something where<br />
+    you want to make a change, you may need to get management's agreement<br />
+    to accept a risk. So right now we're looking at a "patch" release.<br />
+    If you just fix the bug, versus using the opportunity to clear up a design<br />
+    issue by making larger changes.</p>
+<p>John B: Politically there are things you don't want to do in a small-point<br />
+    release. Version 3.00 vs. Version 3.01, you wouldn't expect much of a<br />
+    change in features or in how the system does its job. But if you're going<br />
+    from version 1 and you have a big insight, then you may have to work that<br />
+    out in the version 2 branch of the source, where you know that there will<br />
+    be bigger changes and a full quality assurance cycle, and all the participants<br />
+    will expect the larger changes.</p>
+<p>Wayne: These breakthroughs are crucial for making a deep model. The little<br />
+    stuff is important, but not the major part of the progress.</p>
+<p>Eric: The little stuff is necessary to make the breakthroughs possible,<br />
+    and is worth doing in its own right. I compared it to punctuated equilibrium<br />
+    in evolution. (Which is itself a sudden insight which changed the evolutionary<br />
+    model).</p>
+<p>David V: It's all self-similar.</p>
+<p>Charlie: The punctuated part was part of Darwin's theory that was lost.<br />
+    Stephen Jay Gould discusses how the gradualism was a cultural accretion,<br />
+    and in some ways punctuated equilibrium.</p>
+<p>Eric: Right before a breakthrough, things don't feel good, and sometimes<br />
+    right after as well. "There is a gaping hole in the model.... the<br />
+    old model looks poor." (reading from page 326) So there is much work<br />
+    to do, you look at the system and see how inadequate it is based on your<br />
+    new understanding. And if people can see things from a different point<br />
+    of view -- that they've learned something, that this is an advance. When<br />
+    your model starts to look bad, you know you've learned something important.</p>
+<p>Jeff: So this is a disillusionment with your original Hello Kitty picture<br />
+    of the world.</p>
+<p>Eric: Which shows you've learned something and can now make things better.<br />
+    If people were more prepared to deal with the consequences of the breakthroughs<br />
+    in knowledge, of feeling bad at that point, then they can work much more<br />
+    effectively.</p>
+<p>Charlie: It's kind of like breaking up with a girlfriend or boyfriend</p>
+<p>Eric: And then you get another one just like the last? (teasing)</p>
+<p>Charlie: "The design is wrong!" -- mostly you feel pain and<br />
+    loss.</p>
+<p>Eric: You're attached to it.</p>
+<p>Charlie: And you were proud of it.</p>
+<p>Eric: Emotionally invested.</p>
+<p>Mark?: People get identified with the design, especially if they participated<br />
+    in creating it.</p>
+<p>Eric: I've been in that situation, where I wasn't the one to see the<br />
+    breakthrough. It isn't as satisfying as when you can see the change that's<br />
+    needed. It's an essential part of our craft to detach, to let things go<br />
+    when they aren't right any more.</p>
+<p>Charlie: And six weeks ago you were really proud of it.</p>
+<p>Eric: And perhaps it was the breakthrough from the previous version.</p>
+<p>Mark: I'm often earliest to let go of my own code if there is something<br />
+    better. Sometimes it's the other people on the team who don't want to<br />
+    let go.</p>
+<p>Eric: There's the notion of occupational temperaments. A perception that<br />
+    software developers like to work alone. XP has changed some of that by<br />
+    emphasizing a team focus, a social activity. But here's a different level<br />
+    yet, of being detached from your own creation.</p>
+<p>John C: And good diplomacy skills.</p>
+<p>Eric: Yes, when you see a flaw in someone else's design. But it's not<br />
+    one I think people are looking for when they're hiring, yet. </p>
+<p>Carol: Why do people think there has to be one superior design. In architecture,<br />
+    if you can give a client several designs, that's great, that you can see<br />
+    different ways to do it.</p>
+<p>Eric: The reason you can get away with a single model for your analysis<br />
+    and design is that the model space is large, that you can explore it until<br />
+    you find one that works for you in both ways. But I don't know why we<br />
+    limit things.</p>
+<p>Charlie: Architectural customers are better, more insightful about buildings<br />
+    and needs than typical software customers.</p>
+<p>Eric: We should remember that the original patterns movement was started<br />
+    by Christopher Alexander, who was an architect dissatisfied with the building<br />
+    architecture that he saw around him.</p>
+<p>Tracy: Building design is more limited scope.</p>
+<p>Russ: You can have discussions with the client about architectural issues,<br />
+    alternatives in technology.</p>
+<p>Carol: In architecture, earlier in the business, all the design documents<br />
+    were manually drafted. After the advent of CAD, we ended up with the same<br />
+    cost and time to deliver a design, but it was more detailed, more fully<br />
+    developed. And the difference was in the cost of making changes. Moving<br />
+    a wall was very painful if you had to manually redraw a lot of plans.<br />
+    In software, we may not yet have the appropriate tools.</p>
+<p>Eric: Better tools would be good, but again I resist that architecture<br />
+    metaphor. I think these metaphors are throwing us off. [...]<br />
+    Writing this book was much like software development. The experience of<br />
+    inside out, top-down as well as bottom-up. Expressing some points you<br />
+    want to make, and at the same time how to present it, how to organize<br />
+    it. Crystallizing and refining concepts as you go along. You work, polish<br />
+    things, then you finally understand it and you have to let your work go<br />
+    and rewrite it to what it needs to be. I recall a quote from Hemingway,<br />
+    if there was a really polished, really beautiful page or paragraph, the<br />
+    best thing he could do for the rest of the book was to throw it away.<br />
+    We get stuck endlessly in choosing the right metaphor -- architecture,<br />
+    manufacturing. And as you point out (to John B), we don't even do them<br />
+    well.</p>
+<p>Dave Smith: Architectural designs, at the time they are sold to the customer,<br />
+    are far more visions than designs. A construction company would be very<br />
+    angry with trying to actually implement the design.</p>
+<p>John B: There are two outcomes in software development, "I'm a great<br />
+    architect" or "You are lousy programmmers".</p>
+<p>   <!-- InstanceEndEditable --></p>
+<div id="sidebar">
+ <!-- InstanceBeginEditable name="SideBar" --></p>
+<h2>Attending:</h2>
+<p> 			Mike Winter<br />
+      Walter Vannini<br />
+      Carol Thistlethwaite<br />
+      Russ Rufer<br />
+      Tracy Bialik<br />
+      David Vydra<br />
+      Tim Huske<br />
+      Wayne Vucenic<br />
+			Jeff Miller<br />
+      John Brewer<br />
+      Charlie Toland<br />
+      Darlene<br />
+      John Corbett<br />
+      Mark Taylor<br />
+      Patrick Manion<br />
+      Robert Benson
+ </div>
+<p></p>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Persistence Last
+date: 2003-12-01 19:53:15.000000000 -07:00
+type: post
+published: true
+status: publish
+categories:
+- Case Studies
+tags: []
+meta:
+  _gcid: '46'
+  _edit_last: '3110'
+  _wp_page_template: default
+  U_S_C_message: ''
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  _bitly_trim: http://dddcommunity.org/?p=37
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="articleauthor">by J. B. Rainsberger</span><br />
+ <span class="articledate">October 2003</span> </p>
+<p>I was working at IBM when I discovered JUnit, Design Patterns, Refactoring and Pragmatic Programmer. These all gave me a bright idea how to deal with a specific problem in my programming group. There is a database group that acts as gatekeeper to the database schema for our product. Since the product has several hundred tables, I can appreciate the desire for conceptual integrity by having a small group of like minded people oversee its design. Unfortunately, for the most part, the database gatekeepers do not criticize design, rather they merely control change. This change control leads to problems on both sides: sometimes I have to wait five business days for the testing group to see changes; sometimes my changes are "lost in the translation" and made incorrectly by one of the gatekeeper's teammates. This sets the context for my decision to do something radical: develop the database schema last. It is radical because in that organization, the database was -- and may well still be -- the center of the universe.</p>
+<p>I built a component entirely decoupled from its persistence mechanism. It was the first time that I wrote code that felt truly object-oriented. Using JUnit to test my business logic led me to use a "dummy" persistence mechanism during testing, and I continued to use this dummy persistence mechanism until I had implemented every feature I needed. This led me up to approximately three weeks before feature/database schema freeze.</p>
+<p>As one might expect, this was a period of time during which teams were continually submitting schema changes and during which weekly meetings were used to judge which changes were "in" and which were "out". These was considerable tension as everyone's goal was to converge on a final schema.</p>
+<p>At "freeze minus three weeks" my component was fully built, fully programmer tested, including an entity bean-based implementation of the persistence mechanism. Building this entity bean persistence mechanism led to designing a simple, four-table database schema. I designed the database schema only after all the business features were fully implemented and programmer tested. Since I practised test-driven development, implemented" implied "programmer tested" in this case. At the third-last meeting I submitted my request for new database tables.</p>
+<p>In response to complaints that I was bringing this up "awfully late in the cycle" I stated with supreme confidence, "Yes. To compensate you for this, I relinquish all change requests for the rest of the release. If I feel I need a schema change, I will simply have to deal with it myself somehow." The database group hesitated, but felt that they had little choice: without the schema I proposed, there was no way to ship my feature set. They agreed.</p>
+<p>As I promised, I changed absolutely no part of that database schema. While other groups were scrambling to make last-minute changes, I sat back, relaxed and grinned. Of course, while they were also scrambling to fix defects that the testing group reported, I also sat back, relaxed and grinned. I did have to fix one defect, but that was a misunderstood requirement, rather than an incorrectly-implemented feature.</p>
+<p>I attribute this success to two main techniques: programmer testing and letting the domain drive the database schema.</p>
+<p> ©2003, J. B. Rainsberger</p>
+<p></p>

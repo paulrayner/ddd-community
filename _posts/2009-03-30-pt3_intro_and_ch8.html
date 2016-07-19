@@ -1,0 +1,439 @@
+---
+layout: post
+title: Part III Intro & Chapter 8
+date: 2009-03-30 20:17:32.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '56'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=47
+  _edit_last: '3110'
+  _oembed_b6fe0ba0d92b6ab6d42f30ebcc5f1c9b: "{{unknown}}"
+  _oembed_025bcef09990c8aee87987ff1a379fcf: "{{unknown}}"
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">December 2003 <br />
+   Notes 9, 4th Session<br />
+	 Guest Author: Eric Evans </span></p>
+<h3>Part III introduction</h3>
+<p>Robert: The 3 issues on p.188, the qualifications for doing<br />
+    domain-driven development</p>
+<p>(mention of OO databases)</p>
+<p>Eric: [use of OO databases is rare] Because there aren't so many people</p>
+<p>    using rich domain models.</p>
+<p>Tracy: Isn't there also a comfort level with relational databases?</p>
+<p>Robert: And ad-hoc reporting, etc.</p>
+<p>John B: This is discussed in Crossing The Chasm, etc. People only<br />
+    change technologies at gunpoint, figuratively speaking. But when<br />
+    there's a shift, often the change is permanent (e.g. CodeWarrior<br />
+    beating LightSpeed C).</p>
+<p>Tim: Very few people believe the #2 issue, willingness to evolve and</p>
+<p>    change the model.</p>
+<p>Eric: I really thought about this list very hard. People might have a</p>
+<p>    domain model, and the willingness to evolve and change it, but they<br />
+    didn't have the knowhow for #3, the design skills. Or sometimes they<br />
+    would isolate the designers from the coders.</p>
+<p>[some notes lost to editor program failure]</p>
+<p>(question about deep models)?</p>
+<p>Russ: We worked on an autodialer where we made effective use of a deep</p>
+<p>    model of the problem domain. The customer was happy to find out that<br />
+    our solution had lots of areas of flexibility where they were able to</p>
+<p>    ask for new features that they had not thought of before.</p>
+<p>Tracy: We had another project where we had solved a problem with<br />
+    respect to arranging some resources in memory blocks. The customer<br />
+    gave us a new variation of the problem where they thought it would be<br />
+    a<br />
+    difficult elaboration of the previous version.</p>
+<p>Russ: But it fell out naturally from the solution of the specific<br />
+    problem we had solved previously.</p>
+<p>Jeff M: Was this a question of a "deep model" or more a question<br />
+    of<br />
+    solving a general case and being able to then handle specific cases<br />
+    more easily?</p>
+<p>Russ: It was specific to the problem domain, and their "difficult</p>
+<p>    elaboration" was one that made a lot of sense in terms of the original</p>
+<p>    problem.</p>
+<p>Jeff M: Close in concept space, then.</p>
+<p>Russ: Yes.</p>
+<p>Eric: Once you've experienced it, it seems real. It's the fact that<br />
+    this occurs so rarely that is part of the reason I wrote this book.</p>
+<p>(some additional discussion, mention of O-R mapping, "well-worn<br />
+    glove"<br />
+    metaphor of an effectively evolved domain model)</p>
+<h3>Chapter 8, Breakthrough</h3>
+<p>Eric: O-R mapping means you have to change a translation layer when you</p>
+<p>    change the model. It means you have to carry more along as you refine</p>
+<p>    the model, as you make changes to reflect deeper insights. Or when you</p>
+<p>    refactor away from a code smell. You still come to points where you<br />
+    make a breakthrough, it's just slower.</p>
+<p>(show of thumbs, how many people have 1,"seen a deep model?"<br />
+    2, had a<br />
+    "breakthrough" from better understanding a model")</p>
+<p>Eric: Ah, interestingly more people have had the "breakthrough"</p>
+<p>    experience than the deep model.</p>
+<p>Russ: Who broke through and didn't get to a deep model?</p>
+<p>Tim: In your own little parts which you have freedom to change, you can</p>
+<p>    have significant breakthroughs, which don't affect the model of the<br />
+    system at large. Deep but narrow, perhaps. A small enough subsystem<br />
+    that I don't consider it the systems model.</p>
+<p>Chris: Or if you start with a bad enough model, getting to a mediocre</p>
+<p>    one is quite a breakthrough.</p>
+<p>Eric: And I think I've experienced multiple breakthroughs in the same</p>
+<p>    project.</p>
+<p>Russ: (Looking at a chapter head chart, re the breakthrough pattern)<br />
+    I<br />
+    don't really get what this chart is trying to tell us. So this is time</p>
+<p>    marching along...</p>
+<p>Eric: As you refactor again and again, and then you have little jumps</p>
+<p>    of value, and at some point, voom! You get a big jump in value.</p>
+<p>Tracy: So maybe the vertical line should be a little diagonal?</p>
+<p>Eric: It's at the granulation of significant steps. Imagine if the<br />
+    horizontal axis is a year. So how wide would a 3-week change-over be?</p>
+<p>Russ: So this is potential value vs. value delivered?</p>
+<p>Eric: You're trying to read a bit too much into this picture. What I'm</p>
+<p>    trying to express is that progress in refactoring, in what you get out</p>
+<p>    of it, is like punctuated equilibrium. You have a steady practice<br />
+    which takes you to a point at which things change suddenly. On really</p>
+<p>    successful products. If the refactoring is just keeping you out of<br />
+    total chaos, you just keep going and going and don't get big jumps.<br />
+    But when you're improving the system, you get little jumps, little<br />
+    improvements, and then occasional big jumps. The axes are kind of<br />
+    vague since it's trying to express things you experience. Things that</p>
+<p>    may be difficult to measure.</p>
+<p>Mark: So the length of the jump? The height is the amount of code you</p>
+<p>    change?</p>
+<p>Eric: No, more the horizontal axis. The horizontal axis is either<br />
+    time, or amount of refactoring. If you're keeping up, they're the same</p>
+<p>    thing.</p>
+<p>Mark: I've often seen that in a breakthrough, you can throw away a lot</p>
+<p>    of classes and methods. The jump is in the amount of code that<br />
+    changes, in my experience.</p>
+<p>Eric: What I'm trying to express is the value of the code. The<br />
+    flexibility, the ability to do more and better things.</p>
+<p>(comment): You could express this as shortening the arcs, reducing the</p>
+<p>    cost, the distance to some new things you could get to. New features.</p>
+<p>John: If you take the derivative of Eric's graph, you can tell what the</p>
+<p>    expression on the manager's face is.</p>
+<p>Russ: Let me talk out of both sides of my mouth now. I think I<br />
+    disagree with the notion that all programming days are the same.<br />
+    Productivity-wise. When you're really where you want to be with the<br />
+    model, you can accelerate in how much code you can write. Whereas when</p>
+<p>    you are trying to figure things out, you're a lot slower. When this<br />
+    doesn't come early in working with the code, I feel you're more in the</p>
+<p>    realm of re-engineering then re-factoring. There are no small steps<br />
+    that get you out of the hole. Now we're in the area where hopefully<br />
+    there's some piece on the outside that you don't have to change, but<br />
+    the stuff on the inside has to be radically changed around.</p>
+<p>Eric: I think all these things can happen. I don't like to get too<br />
+    hung up on the details. I call it refactoring because it has the same</p>
+<p>    definition -- changing the design without changing the behavior of the</p>
+<p>    system. It doesn't say how big that change is. It's good practice to<br />
+    make these steps small and continuous. But sometimes you have to take</p>
+<p>    a leap across a big chasm. In a story I have later, fixing the core<br />
+    stuff was quick, but fixing the stuff that depended on it took quite a</p>
+<p>    bit longer. Nowadays I might be able to figure out how to break that<br />
+    design shift into smaller pieces. But three weeks was small in terms<br />
+    of the total project.</p>
+<p>Russ: For other people who have had the breakthrough experience?</p>
+<p>Chris: For us, I've seen it where "everyone gets Friday off except<br />
+    you,<br />
+    you, and me." Then the change happens over the weekend, and everyone</p>
+<p>    picks up the new architecture on Monday.</p>
+<p>Eric: There was a point at which a team I was working on got rid of the</p>
+<p>    EJBs in their system. They'd been whittling them down over time, and<br />
+    at the last point, they took their last few EJBs and ripped them out<br />
+    over a weekend. Sometimes you have to say hands off the code.</p>
+<p>Chris: I find that that tends to be a property of the "aha"<br />
+    story.</p>
+<p>John B: Or if we just move one thing, suddenly everything else becomes</p>
+<p>    much easier.</p>
+<p>Chris: I tend to think of those as "d'oh"s rather than ahas.</p>
+<p>Tim: Sometimes you get in a stuck position where you end up getting<br />
+    told, "Okay, you're not making progress, just stop and think."<br />
+    Then<br />
+    sometimes when you get an insight, you don't have time to work out all</p>
+<p>    the advantages by the time you have to ship.</p>
+<p>(Chris, Eric: discussion about software architects resisting a change</p>
+<p>    that simplified the model and made the architects' job "too small")</p>
+<p>John B: When you ask the question, "Why is this code that way",<br />
+    and the<br />
+    answer is someone's name. That seems to be a recurring pattern of<br />
+    dysfunction.</p>
+<p>John B: Ward Cunningham's talk, his metaphor about waiting for insight.</p>
+<p>    You don't have to wait, but if you don't it won't come. And when you<br />
+    get an insight, it can be like climbing a mountain. Going down the<br />
+    other side is working out the implications of your advance in<br />
+    understanding on the rest of the system. You can abort a climb, you<br />
+    can climb to the top and plant a flag, or you can carry out the whole</p>
+<p>    thing, climbing up and carrying it down.</p>
+<p>Eric: Businesses keep an eye to new opportunities constantly. They<br />
+    don't expect that they can predict things, that the environment will<br />
+    remain stable. They look for new places where they can gain advantage,</p>
+<p>    new markets, new ways of simplifying things. You don't see this search</p>
+<p>    for opportunities in software projects, and it's rare you get the<br />
+    serendipity you can get from just keeping your eyes open.</p>
+<p>Eric: One of the things I worry about, on the highly iterative methods</p>
+<p>    of software development, especially frequent releases. It's hard to<br />
+    stay agile if you have a large installed base.</p>
+<p>Tracy: The Poppendiecks' book -- Lean Software Development. They talk</p>
+<p>    a lot about experimentation. The right amount of experimentation is<br />
+    when you succeed half the time. You learn something from your<br />
+    successes, but you learn a lot more from your failures.</p>
+<p>Carol: Detail-oriented people, are they different from ambitious,<br />
+    entrepreneurial types?</p>
+<p>Eric: The people who do manage to set up their organizations in the<br />
+    right balance, who allow upside potential, they will leave the others</p>
+<p>    behind.</p>
+<p>Robert: OK, you talk about sort of a portfolio approach in business,</p>
+<p>    trying out a lot of business opportunities. But there's a difference<br />
+    between software development and business opportunities.</p>
+<p>John B: 3M does this with atoms, even. They've institutionalized a<br />
+    version of what's called "playtime" in Tom DeMarco's work. When<br />
+    one<br />
+    company DeMarco described looked at their successes, all their<br />
+    best-selling projects all came out of playtime.</p>
+<p>Eric: And software development would be more fun AND more productive.</p>
+<p>    In squeezing out the fun, they've squeezed out their unexpected<br />
+    opportunities. There are only unexpected bad things.</p>
+<p>Robert: Evolution from a "big up-front specification and design</p>
+<p>    culture".</p>
+<p>Russ: The large corporate culture of software really followed a<br />
+    grass-roots, individual level orientation at first.</p>
+<p>John B: Everybody knew this who was any good. That you couldn't<br />
+    anticipate everything up front. That you should go through the whole<br />
+    cycle of the project in miniature, early on. That you should deliver<br />
+    something part-way through as a sanity check.</p>
+<p>(comment): do people just have the wrong impression about software?<br />
+    That it's like architecture or manufacturing, large fixed costs with a</p>
+<p>    heavy process?</p>
+<p>John B: Software is nothing but metaphor. What do we have here<br />
+    (indicates Apple iBook), a chunk of LCDs and a backlight?</p>
+<p>Russ: Is software like a magazine?</p>
+<p>Mark: Like publishing? You can cut a few things out, the quality will</p>
+<p>    suffer, but you can still read the article.</p>
+<p>Russ: Agile software methodologies beg to differ.</p>
+<p>Eric: A literary journal?</p>
+<p>John B: Or a math journal? Where everything is a proof?</p>
+<p>...</p>
+<p>John B: And the bad metaphors for software are based on<br />
+    misunderstandings of the other fields. Even manufacturing isn't like<br />
+    manufacturing, as we learned from reading Lean Software Development.</p>
+<p>Eric: Let's take a break from the metaphors for a while. Just do<br />
+    software development for a while, without saying it's like anything,<br />
+    and see where it takes us.</p>
+<p>Carol: Why do people keep picking terms from other fields?<br />
+    Programmers, analysts, engineers came in at some point.</p>
+<p>Eric: For me, writing this book was like programming.</p>
+<p>Jeff M: Did you have a breakthrough?</p>
+<p>Eric: Yes, I did. Multiple breakthroughs. There was a point where I<br />
+    realized I had to reverse the order of all the pages.</p>
+<p>(wide ranging discussion of metaphors)</p>
+<p>Chris: Shouldn't you write down the list of the top 10 things you hate</p>
+<p>    about software development? These things need breakthroughs.</p>
+<p>Eric: Companies want to produce software with unskilled labor.</p>
+<p>Russ: I was wondering, for people who have had these breakthroughs.<br />
+    Can you remember anything beforehand that led to the breakthrough? I<br />
+    can remember sitting and thinking, "It just can't be this hard."<br />
+    So<br />
+    there was one time I recall looking at two sets of client<br />
+    specifications for two different projects, thinking "these are too</p>
+<p>    similar to be different."</p>
+<p>Bob: I had a time when I was working on a project and that everything</p>
+<p>    seemed much too hard. So what I did was to step away from the<br />
+    framework I was using and started by just sketching out classes. It<br />
+    was a case of constantly running into something, stepping back, and<br />
+    then bringing back my insight back into the system.</p>
+<p>Chris: I've seen that "share pie" example from the other side.<br />
+    ("share<br />
+    pie": referring to dividing up the moneys from a syndicated loan<br />
+    as a<br />
+    somewhat complex domain issue) The domain experts think of everything</p>
+<p>    as special cases, and when you put them together, you find out that<br />
+    they are just slight variations of a strong central theme, and the<br />
+    domain experts are startled.</p>
+<p>John B: Duplication in the code that you can't quite get at, the way</p>
+<p>    it's organized. You can tell they are doing the same thing, but<br />
+    there's no way to put them together.</p>
+<p>Eric: You think there's a deeper model in there?</p>
+<p>John B: Usually I think that it's very annoying. And when I do little</p>
+<p>    refactorings, reducing duplication, bit by bit, finally I often realize</p>
+<p>    that there's a way to fix the problem by introducing a new object,<br />
+    perhaps.</p>
+<p>Chris: It's turned out in my experience that sometimes the domain<br />
+    experts don't themselves have the best understanding of the model.<br />
+    Sometimes there are simplifications and unifications that can be made.</p>
+<p>Eric: I'd draw a distinction between an expert who knows his field but</p>
+<p>    does not have an abstract thinking talent, versus someone who is only</p>
+<p>    borderline competent in the domain... I would work with someone who<br />
+    knows things in detail but doesn't have a clear abstract view, but I<br />
+    would try to avoid working with someone who doesn't have a firm grasp</p>
+<p>    on the field. You lose a lot by not having good give-and-take with<br />
+    someone. Sometimes I turn to books about the field.</p>
+<p>Russ: Has anyone (p.206-7) seen a better explanation than the brief<br />
+    discussion here, of the nouns-as-objects vs. not discussion?</p>
+<p>("hmmms" from around the table)</p>
+<p>Eric: Chapter 9 has something of a discussion for dealing with the case<br />
+    where the local domain expert is not so available, or not so useful to<br />
+    you. Sometimes you have to become a middling expert yourself. But it's<br />
+    a lot harder.</p>
+<p>Tao: We're about halfway through this book. From Chapter 1-9. It sort</p>
+<p>    of dawned on me. I used to be in manufacturing for a while. To be a<br />
+    domain expert, you have to do it yourself. You have to go down to the</p>
+<p>    shop floor, to see the products, to find out for yourself how things<br />
+    are made. Was it worth it, for the shipping example, say, for a<br />
+    developer to try booking a cargo, or to sit beside the people who book</p>
+<p>    the cargo?</p>
+<p>Eric: The people who book cargo don't have a broad understanding. You</p>
+<p>    could learn what you needed from them in a few hours. I went to a port</p>
+<p>    and saw some port operations. It was valuable. I want to draw the<br />
+    difference between a domain expert and a user. The user's point of<br />
+    view is what you get from sitting and booking cargos.</p>
+<p>Chris: You'll learn how it has been done, which is not necessarily how</p>
+<p>    it should be done.</p>
+<p>Eric: I most like to work with a domain expert who has some ideas for<br />
+    new ways to do things.</p>
+<p>Chris: These seem to be on the endangered species list.</p>
+<p>Darlene: How do you deal with a domain expert who is making mistakes<br />
+    in<br />
+    what he tells you?</p>
+<p>Eric: Most of the things in this book assume that what the domain<br />
+    expert says is basically true. That he's not making mistakes.</p>
+<p>John B: Although you would catch inconsistencies pretty quickly.</p>
+<p>Eric: Or you would look at your model, your design, and ask about where</p>
+<p>    there are seeming contradictions or difficult points in the design. So</p>
+<p>    you might go read a book to see if you could get another opinion,<br />
+    another angle on things. You might hear contradictory things from two</p>
+<p>    domain experts that you could resolve in this way. Or you might have<br />
+    to go back and ask for clarification in the light of each others'<br />
+    assertions. So you'd hear, "Oh yeah, I made a little mistake there,</p>
+<p>    it's supposed to be like that." Or you'd hear that you were missing</p>
+<p>    some context. Or occasionally you would get a sense that one is more<br />
+    reliable thn the other.</p>
+<p>John B: It's like a Columbo episode. Eventually he'd tap his forehead</p>
+<p>    and say, "There's just one thing bothering me..."</p>
+<p>Eric: Software development is like a Columbo episode?</p>
+<p>Chris: Refactoring is like a Columbo episode?</p>
+<p>Tim: How often do people end up having to deal with "users"<br />
+    rather than<br />
+    "experts"? So sometimes we have to reverse-engineer the domain<br />
+    out of<br />
+    a usage pattern from a previous generation of application.</p>
+<p>Russ: We've more often had the experience of building the first one of</p>
+<p>    a thing, so we as developers are considered as expert as anyone else on</p>
+<p>    the team. It's a pleasant way to work.</p>
+<p>Tim: So sometimes we've had to lead with a user interface. We walk<br />
+    through them with the UI, and find out what we got wrong in our<br />
+    understanding of what they wanted.</p>
+<p>Eric: So, to do this, to do domain-driven design, you really need a<br />
+    domain expert. I don't say who it is. But not all domains are so<br />
+    approachable that a software developer can be their own domain expert.</p>
+<p>(reference to a glossary entry on "domain expert")</p>
+<p>Eric: The printed-circuit board design case, the example in the<br />
+    beginning of the book. The domain experts were users. But many of the</p>
+<p>    users were narrower in their understanding of the domain. The people I</p>
+<p>    was working with had a somewhat larger vision, that the right tool<br />
+    could help guide other users toward good practices in how they do their</p>
+<p>    work in PCB design. It reminds me a little of our earlier discussion,</p>
+<p>    a previous session, about writing OO code in a non-OO language.</p>
+<p>Jeff M: What would you want first? Maybe long identifiers?</p>
+<p>(laughter)</p>
+<p>Jeff M: Then polymorphic dispatch?</p>
+<p>Russ: Encapsulation first.</p>
+<p>...</p>
+<p>Tracy: You can go through 100 ideas in an hour and a half at the<br />
+    whiteboard, at the level of concepts. If you tried to write up 100<br />
+    ideas, how long would that take to run through the trial-and-errorl</p>
+<p>Eric: Not only would I be at the whiteboard, but I would be speaking</p>
+<p>    out loud, that I would get the immediate feedback to move quickly.</p>
+<p>Tracy: And the idea that it's OK to float 100 ideas, that that's a good</p>
+<p>    thing, that you can go through a lot of ideas to converge on a good one.</p>
+<p>comment: One of the things that takes a lot of the fun out of<br />
+    programming is that if the iterations are too slow, you don't get the</p>
+<p>    reward of the feedback, the sense of progress.</p>
+<p>Eric: You can end up in a local minimum through iterative development.</p>
+<p>    Then you might deliberately destabilize the situation, do a few things</p>
+<p>    to see if there's a better place around.</p>
+<p>(Russ describes annealing in metallurgy for strengthening metal, and</p>
+<p>    simulated annealing in numerical optimization)</p>
+<p>...</p>
+<p>Russ: (smile) Now we know that we aren't getting enough reuse in<br />
+    software because this bucket doesn't show up later when we're mixing<br />
+    paint.</p>
+<p>Eric: Did anyone get into the Specification pattern?</p>
+<p>Russ: We're supposed to read into Chapter 10.</p>
+<p>Tracy: We're ambitious.</p>
+<p>Eric: Specification is supposed to serve as a case study...</p>
+<p>Russ: Do you think you might run into a case where the situation would</p>
+<p>    be too complicated to be satisfied by the simple Specification you<br />
+    describe?</p>
+<p>Russ: Next week's homework: Come in with an inappropriate metaphor for</p>
+<p>    software development.</p>
+<p>(some discussion of the Wiki on domaindrivendesign.org and SVP's wiki).</p>
+<p>Russ: Who's used this? John, raise your hand. ("Constraint")</p>
+<p>(looking at the Warehouse Packer prototype)</p>
+<p>Eric: Sometimes you get into a design logjam, where everyone is waiting</p>
+<p>    for everyone. Just any implementation of one of the subsystems allows</p>
+<p>    everyone to move forward. Even a dumb implementation of the piece that</p>
+<p>    fulfilled the contract gets things going.</p>
+<p>comment: We had a teaching software implementation where the<br />
+    "intelligent" part of the interface started out as a random<br />
+    number<br />
+    generator. And it was surprising how long people thought there was<br />
+    something more intelligent and complex was behind it.</p>
+<p>Russ: We've found out for things like the prototype that it can be hard</p>
+<p>    to move from the simple prototype, beyond to the more complete system.</p>
+<p>    You need more global organization and structures to support where you</p>
+<p>    need to end up.</p>
+<p>Eric: Obviously a lot of optimization problems require global<br />
+    reasoning. That just makes sense. Still, the analysis that goes into<br />
+    doing a thing like having</p>
+<p>Chris: (to Russ) When you needed to back out the constraint code to<br />
+    optimize the packing, did you lose the ability to use the constraints</p>
+<p>    as pure validation? "Does this solution satisfy...?"</p>
+<p>Eric: I think he means, how do you know you're answer is right?</p>
+<p>Chris: Yes, the basis for your tests.</p>
+<p>Tim: Some problems are so hard that the ability to prove it optimal is</p>
+<p>    the same level of difficulty as being able to create the optimal<br />
+    solution.</p>
+<p>John: What you'd do is set some sort of floor.</p>
+<p>Eric: Would you have been able to go directly to the final, optimized</p>
+<p>    solution? Or would the prototype be useful for clarifying the<br />
+    structure of the system?</p>
+<p>...</p>
+<p>Russ: We had a prototype Builder, a complex but low-risk piece of work</p>
+<p>    in full, where the prototype handed back one of three representative<br />
+    structures of the types of things we wanted to work on. Having the<br />
+    prototype helped the rest of the system take shape.</p>
+<p>Tim: It helps for more than just the first pass to break the logjam.</p>
+<p>Russ: The prototype builder actually lasted much longer than we<br />
+    expected.</p>
+<p>Tim: We had a brute-force temporary optimization module that was just</p>
+<p>    supposed to keep us developing until we signed the contract with the<br />
+    optimization engine company. Which never actually happened.</p></p>
+<p>Yahoo! Groups Links</p>
+<p>To visit your group on the web, go to:<br />
+    http://groups.yahoo.com/group/siliconvalleypatterns/</p>
+<p>To unsubscribe from this group, send an email to:<br />
+    siliconvalleypatterns-unsubscribe@yahoogroups.com</p>
+<p>Your use of Yahoo! Groups is subject to:<br />
+    http://docs.yahoo.com/info/terms/
+   </p>
+<p>   <!-- InstanceEndEditable --></p>
+<div id="sidebar">
+ <!-- InstanceBeginEditable name="SideBar" --></p>
+<p> (no attendance list, c. 20 attendees)</p>
+<p>(some notes lost at start)</p>
+</div>
+<p></p>

@@ -1,0 +1,38 @@
+---
+layout: post
+title: Domain-Driven / Model-Driven
+date: 2009-03-30 01:01:28.000000000 -06:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _gcid: '50'
+  _edit_last: '1'
+  _wp_page_template: default
+  _bitly_trim: http://dddcommunity.org/?p=41
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">by Eric Evans<br />
+ February 4, 2004</span></p>
+<p>What is the difference between domain-driven design and model-driven design? Because the names are similar, and because the two concepts travel together, they are often confused. But they are two distinct ways of approaching software development that also reinforce each other.</p>
+<p>Domain-driven design flows from the premise that the heart of software development is knowledge of the subject matter and finding useful ways of understanding that subject matter. The complexity that we should be tackling is the complexity of the domain itself -- not the technical architecture, not the user interface, not even specific features. This means designing everything around our understanding and conception of the most essential concepts of the business and justifying any other development by how it supports that core.</p>
+<p>To accomplish this, domain experts and software experts have to experiment together to find ways of organizing their knowledge of the domain that serve the purpose of software development. They must plunge into their subject matter, letting it lead them, setting your priorities to build software first and foremost to represent and reason about the domain. They must peal away the superficial aspects even of that domain and dig out the core principles. </p>
+<p> That distillation of knowledge into a clear set of concepts is a <em>modeling process</em>. Those models live in the language of the team, and every conversation in that language can be a modeling session. And so domain-driven design leads inevitably to modeling because modeling is the way we grapple with understanding complex domains.</p>
+<p>Now, such a team could write transaction scripts or other forms of non-model-driven software, and their shared understanding of the domain could still be valuable, as long as the programmers themselves share that knowledge.
+ </p>
+<p>But when the models just float in the air, they are not fully earning their keep. Every problem the software addresses still has to be worked out in the design. There is the risk the model will become irrelevant or even misleading. We need to give the model teeth. </p>
+<p>A model-driven design is software actually structured around some set of concepts. For example, a UI framework could have a model-driven design if UI concepts, such as windows and menus, corresponded to actual software constructs. Some UI frameworks have been designed this way, while others have simply provided functions for producing the desired effects. </p>
+<p>So model-driven design can be applied to technical problems in UI and infrastructure. But it is the application of model-driven design to the domain that lets a development project take off. As developers dive into the domain, crunching knowledge with their domain-expert partners, distilling models in their minds and cultivating a shared model through the exercise of a ubiquitous language nurtures a shared model. Model-driven design embeds that model into the very fabric of the software. Finally the feedback loop closes between implementation and domain learning. </p>
+<p>For in model-driven design, the design is not only based on the model, a model is also chosen to suit design and implementation considerations. <em>These two constraints are solved simultaneously through iteration.</em> This reflects, in part, practical limits of our particular hardware or our particular programming languages or infrastructure. This is essential, but something even more fundamental also happens. Programming reveals subtle but important wrinkles in the logic that would never be noticed any other way (at least not cost-effectively). When these are ironed out in the coding of a model-driven design, the programmers refine their ideas about the domain to make the wrinkles fit. Teams who embrace model-driven design are aware that a change to the code <em>is</em> a change to the model. Small anomalies can be clues to big model insights. </p>
+<p>In <cite>Domain-Driven Design</cite>, I wrote of an experience when difficulties assigning leftover pennies in large financial transactions led to profound new insights and major redesign. In procedural programming, this can happen, but it is much less likely because the code doesn’t closely resemble the ideas about the domain in our heads and language, so the two modes of thinking are separated. </p>
+<p>This is why model-driven design is a natural if not indispensable companion to domain-driven design. It allows the deep understanding of the domain to reach all the way from the minds of domain experts and programmers, through their ubiquitous language, through the software itself, even to the end user — and all the way back again. </p>
+<p>©2004, Eric Evans</p>
+<p></p>

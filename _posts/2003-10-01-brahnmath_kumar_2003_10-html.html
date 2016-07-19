@@ -1,0 +1,38 @@
+---
+layout: post
+title: Student Loan Servicing
+date: 2003-10-01 19:53:15.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Case Studies
+tags: []
+meta:
+  _gcid: '48'
+  _edit_last: '3110'
+  _wp_page_template: default
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _dependencies: s:6:"a:0:{}";
+  U_S_C_message: ''
+  _bitly_trim: http://dddcommunity.org/?p=39
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p>
+by Kumar Brahnmath<br />
+<br />October 2003</p>
+<p>Our task on this project at a Fortune 100 company was to build a web-based application for students to manage their student loans, check balances, loan payments etc., and was to be written in Java.</p>
+<p>When we started talking to the company, we found an environment where most of the data lived on a mainframe and the existing websites were all doing their own thing, interpreting the same data in different ways. The business experts seemed to have their own way of describing the domain and the mainframe programmers seemed to speak in a different code of their own. We decided that the best way to bring these differing views together was to create a domain model.</p>
+<p>One of the main problems was that the mainframe was set up with a fixed limit of 20 loans per account. But they have had lots of situations where a borrower had more than 20 loans (we found that the highest was something like 65!). In order to accommodate this, they just created another account for the same borrower, calling it a "suffix" and basing all their business logic on this artificial situation. Needless to say, this posed a problem for us trying to make sense of the system. Our challenge then, was to create an integrated borrower view for the website, while still being able to handle the "multiple account" situation on the mainframe.</p>
+<p>So we started off with a simple model that addressed the relationships between a borrower and his loans, hiding the mainframe implementation of multiple account suffixes. Through a few more iterations it grew to encompass detailed loan information, repayment options, electronic billing and payment processing etc. Before this redesign, the borrowers had a complicated mess to deal with while paying bills online, since they had to deal with the multiple accounts on the mainframe. Using the domain model allowed us to hide all that system created complexity and present an interface that was intuitive and more in tune with the true domain relationships.</p>
+<p>Today this site serves hundreds of thousands of users logging in to check loan balances, make online payments and submit servicing forms. This site is also ranked as one of the top ten destinations on the web for financial information by the Nielsen rankings. Since the launch of the first app, other teams within the company have used the domain model to launch their own applications, and development is more agile than before. Developers and managers (at least a few) do seem to have recognized the power of a domain model.</p>
+<p>©2003, Kumar Brahnmath</p>
+<p></p>

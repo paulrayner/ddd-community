@@ -1,0 +1,78 @@
+---
+layout: post
+title: Glossary of Domain-Driven Design Terms
+date: 2009-04-22 00:15:17.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Learning DDD
+tags:
+- Definitions
+meta:
+  _gcid: '138'
+  _edit_last: '3'
+  _wp_page_template: default
+  custom_permalink: resources/ddd_terms/
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  _bitly_trim: http://dddcommunity.org/?p=69
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p>
+Excerpted from [[Domain-Driven Design Book]]</p>
+<p>[[Aggregate]] A cluster of associated objects that are treated as a unit for the purpose of data changes. External references are restricted to one member of the AGGREGATE, designated as the root. A set of consistency rules applies within the AGGREGATE'S boundaries.</p>
+<p>[[Analysis Pattern]] A group of concepts that represents a common construction in business modeling. It may be relevant to only one domain or may span many domains (Fowler 1997, p. 8).</p>
+<p>[[Assertion]] A statement of the correct state of a program at some point, independent of how it does it. Typically, an ASSERTION specifies the result of an operation or an invariant of a design element.</p>
+<p>[[Bounded Context]] The delimited applicability of a particular model. BOUNDING CONTEXTS gives team members a clear and shared understanding of what has to be consistent and what can develop independently.</p>
+<p>[[Client]] A program element that is calling the element under design, using its capabilities.</p>
+<p>[[Cohesion]] Logical agreement and dependence.</p>
+<p>[[Command]] (a.k.a. modifier) An operation that effects some change to the system (for example, setting a variable). An operation that intentionally creates a side effect.</p>
+<p>[[Context]] The setting in which a word or statement appears that determines its meaning. See [[Bounded Context]].</p>
+<p>[[Conceptual Contour]] An underlying consistency of the domain itself, which, if reflected in a model, can help the design accommodate change more naturally.</p>
+<p>[[Context Map]] A representation of the [[Bounded Context]]s involved in a project and the actual relationships between them and their models.</p>
+<p>[[Core Domain]] The distinctive part of the model, central to the user's goals, that differentiates the application and makes it valuable.</p>
+<p>[[Declarative Design]] A form of programming in which a precise description of properties actually controls the software. An executable specification.</p>
+<p>[[Deep Model]] An incisive expression of the primary concerns of the domain experts and their most relevant knowledge. A deep model sloughs off superficial aspects of the domain and naive interpretations.</p>
+<p>[[Design Pattern]] A description of communicating objects and classes that are customized to solve a general design problem in a particular context. (Gamma et al. 1995, p. 3)</p>
+<p>[[Distillation]] A process of separating the components of a mixture to extract the essence in a form that makes it more valuable and useful. In software design, the abstraction of key aspects in a model, or the partitioning of a larger system to bring the CORE DOMAIN to the fore.</p>
+<p>[[Domain]] A sphere of knowledge, influence, or activity.</p>
+<p>[[Domain-Driven Design]] An approach to software development that suggests that (1) For most software projects, the primary focus should be on the domain and domain logic; and (2) Complex domain designs should be based on a model.</p>
+<p>[[Domain Expert]] A member of a software project whose field is the domain of the application, rather than software development. Not just any user of the software, the domain expert has deep knowledge of the subject.</p>
+<p>[[Domain Layer]] That portion of the design and implementation responsible for domain logic within a LAYERED ARCHITECTURE. The domain layer is where the software expression of the domain model lives.</p>
+<p>[[Entity]] An object fundamentally defined not by its attributes, but by a thread of continuity and identity.</p>
+<p>[[Factory]] A mechanism for encapsulating complex creation logic and abstracting the type of a created object for the sake of a client.</p>
+<p>[[Function]] An operation that computes and returns a result without observable side effects.</p>
+<p>[[Immutable]] The property of never changing observable state after creation. implicit concept A concept that is necessary to understand the meaning of a model or design but is never mentioned.</p>
+<p>[[Intention-Revealing Interface]] A design in which the names of classes, methods, and other elements convey both the original developer's purpose in creating them and their value to a client developer.</p>
+<p>[[Invariant]] An Assertion about some design element that must be true at all times, except during specifically transient situations such as the middle of the execution of a method, or the middle of an uncommitted database transaction.</p>
+<p>[[Iteration]] A process in which a program is repeatedly improved in small steps. Also, one of those steps.</p>
+<p>[[Large-Scale Structure]] A set of high-level concepts, rules, or both that establishes a pattern of design for an entire system. A language that allows the system to be discussed and understood in broad strokes.</p>
+<p>[[Layered Architecture]] A technique for separating the concerns of a software system, isolating a domain layer, among other things.</p>
+<p>[[Life Cycle]] A sequence of states an object can take on between creation and deletion, typically with constraints to ensure integrity when changing from one state to another. May include migration of an [[Entity]] between systems and different [[Bounded Contexts]].</p>
+<p>[[Model]] A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain.</p>
+<p>[[Model-Driven Design]] A design in which some subset of software elements corresponds closely to elements of a model. Also, a process of codeveloping a model and an implementation that stay aligned with each other.</p>
+<p>[[Modeling Paradigm]] A particular style of carving out concepts in a domain, combined with tools to create software analogs of those concepts (for example, object-oriented programming and logic programming).</p>
+<p>[[Repository]] A mechanism for encapsulating storage, retrieval, and search behavior which emulates a collection of objects.</p>
+<p>[[Responsibility]] An obligation to perform a task or know information (Wirfs-Brock et al. 2003, p. 3).</p>
+<p>[[Service]] An operation offered as an interface that stands alone in the model, with no encapsulated state.</p>
+<p>[[Side Effect]] Any observable change of state resulting from an operation, whether intentional or not, even a deliberate update.</p>
+<p>[[Side Effect Free Function]] See [[Function]].</p>
+<p>[[Standalone Class]] A class that can be understood and tested without reference to any others, except system primitives and basic libraries.</p>
+<p>[[Stateless]] The property of a design element that allows a client to use any of its operations without regard to the element's history. A stateless element may use information that is accessible globally and may even change that global information (that is, it may have side effects) but holds no private state that affects its behavior.</p>
+<p>[[Strategic Design]] Modeling and design decisions that apply to large parts of the system. Such decisions affect the entire project and have to be decided at team level.</p>
+<p>[[Supple Design]] A design that puts the power inherent in a deep model into the hands of a client developer to make clear, flexible expressions that give expected results robustly. Equally important, it leverages that same deep model to make the design itself easy for the implementer to mold and reshape to accommodate new insight.</p>
+<p>[[Ubiquitous Language]] A language structured around the domain model and used by all team members to connect all the activities of the team with the software.</p>
+<p>[[Unification]] The internal consistency of a model such that each term is unambiguous and no rules contradict.</p>
+<p>[[Test-Driven Development]] TDD is a lightweight programming methodology that emphasizes fast, incremental development and especially writing tests before writing code. Ideally these follow one another in cycles measured in minutes. (see full definition under [[Test-Driven Development]] topic)</p>
+<p>[[Value Object]] An object that describes some characteristic or attribute but carries no concept of identity.</p>
+<p>[[Whole Value]] An object that models a single, complete concept.</p>
+<p></p>

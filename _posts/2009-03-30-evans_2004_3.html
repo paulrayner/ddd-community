@@ -1,0 +1,60 @@
+---
+layout: post
+title: The challenge of executing DDD
+date: 2009-03-30 01:23:25.000000000 -06:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _gcid: '52'
+  _edit_last: '1'
+  _wp_page_template: default
+  _bitly_trim: http://dddcommunity.org/?p=43
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<br />
+<h2>Kickoff question: Luke Hohmann, Luke Hohmann Consulting</h2>
+<p><em>On the one hand we tell people to put their complex business logic in the domain model. Which makes the data in the database pretty simple, and creates a model in which to "get" to the business value you have to go through the domain model.</em></p>
+<p><em> On the other hand business execs want / crave / require "ad-hoc" reporting, with the degree of "ad-hoc-ness" varying from simple reports to data warehouses. You'd like to simply write some SQL and stuff the results into a report, but this is impossible when you have the domain model supporting all of your complex logic. </em></p>
+<p><em>So, what do you do?</em></p>
+<h2>Dave W. Smith, Post Cognitive Development</h2>
+<p>There are a number of perspectives to approach this from.</p>
+<p>One is consider just how "ad hoc" ad hoc really is. A few representative use cases might show that the report demands follow enough of a pattern that you can provide a handful of query templates and some mechanism for plugging in (bounded) ad hoc WHERE clauses.</p>
+<p>Another perspective is to consider how timely the data subject to ad hoc reporting needs to be. Is it essential to work against up-to-the-moment data, or do the reports need a complete period (day, week, ...) to work against.</p>
+<p>Another perspective is to consider whether the schema is itself a published API, or whether it is best left unpublished. If unpublished, you either have to provide the query framework (as above) or you need to export operational data into some simpler, easier to query schema that you can publish (i.e., a data warehouse).</p>
+<p>Yet another perspective is to consider whether you want people throwing ad hoc queries against your finely tuned operational database. In some situations it isn't a problem, but in others the DBAs will come at you with their entire arsenal of ninja weaponry as soon as the database grinds to a halt and they trace it back to your ad hoc query. (Hi, Chuck). This, again, is a push towards a data warehouse scenario.</p>
+<p>Then you have to consider whether there are any hierarchical structures in the data that need to be unrolled or exploded so that "flat" ad hoc queries are possible. (The Aurigin reporting system would unroll groups and nested groups to get a list of patent ids to for the stored queries to JOIN against. WHERE clauses were generated on-the-fly based on data from the tabbed report dialog.)</p>
+<p>So, no right answer. I recommend working backwards from uses cases, looking for patterns in the types of ad hoc reports that your customers can imagine asking for. This may lead you towards building a separate data warehouse. Or it may lead you towards something like what we did at Aurigin.</p>
+<h2>Jim Haungs</h2>
+<p>This may be what you're already saying, but I'd lean towards one schema used by the domain logic to compute and store results, and a second one in a more flattened form suitable for ad hoc querying. </p>
+<p>Creating a separate reporting database avoids hitting the production database with queries, and keeps you and the queryers off the DBA's radar. </p>
+<p>You may be able to do this with materialized views created on demand, in which case you may not have to create redundant data manually at all.</p>
+<h2>Luke Hohmann</h2>
+<p>I'm definitely leaning towards the data warehouse option, because the only way I can see clear to get the results is to pre-compute them by running them through my domain logic.</p>
+<p>Other voices?</p>
+<h2> Martin Fowler, Thoughtworks</h2>
+<p>I agree with Dave on this. Of all things what really worries me is when people say ad hoc, either for reporting or for (my other favorite) security. When they say that 95% of the time it means they haven't bothered to find out what the actual requirements are. I'm still unconvinced that senior executives fulfill their data needs by typing SQL queries :-)</p>
+<p>I'm a growing fan of a separate reporting database. This can reduce the load of complex queries on the operational database, provide a denormalized schema that makes it easier to write queries, and acts as an encapsulation of the operational schema. The downside is that it will lag the operational database to some degree, but often people are quite happy with yesterday's data rather than todays and messaging systems can be used to keep in sync within minutes if you need to.</p>
+<h2>Chuck Rabb, RDS Software</h2>
+<p>I think Dave's answer is about as spot on as you can get, although I didn't see the original question.</p>
+<p>In any reporting system, you need to start from the requirements and work from there. There is always a desire from management to have all the data right now, as of this second. This is not realistic, however. It is also not very useful in the long run for most scenarios. It's just something they want, but can't really make use of ( unless you are using a real time system of some sort ).</p>
+<p>As for a domain model supporting complex logic...</p>
+<p>If the logic is so complex that you need to go through a set of domain classes to run reports.... Either you missed the boat on the database design portion (allowed the database to be used simply as a data bucket), or... Well... I can't think of another or off the top of my head.</p>
+<p>If this happens, I guess the solution is to get the domain classes to write out a set of data that CAN be queried (eck).</p>
+<h2> Ron Lunde, Aladdin Knowledge Systems</h2>
+<p>I think Dave's and Martin's answers cover the issue, based on my experience.</p>
+<p>I would add that in many cases you don't want some users to be able to run ad-hoc queries - e.g. you might want to allow anyone to get "employee,manager" but not "employee,salary".</p>
+<p>I had a request from one of our marketing managers lately to "anonymize" some of our report data, although I talked him out of it (he really just needed aggregate data). That would be another dandy reason for a reporting database, though.</p>
+<h2>Eric Evans, Domain Language</h2>
+<p>I agree that most of the practical issues have been covered. I'll just throw in another way I would think through it.</p>
+<p>One way to think about the issue is in terms of what model the reports should be based on. Are they based on the same model that the operational systems are? This was the implicit assumption of Luke's original question, and would typically be the case when the reports are summarizing status of operations. </p>
+<p>In this first scenario, we would like the report to draw on the same source of business knowledge as the application, and the current object/relational architectures mean that that much of that is not in the relational database. An object database would make this moot. An architecture that provided access to the domain object layer for some special reporting tool would resolve the delima (we did this on one project I was on). And, of course, if the object model is a relatively thin layer that interprets a relational model, then a conventional tool would be more applicable (still leaving the valid points about "ad hoc" reporting). But in the case where objects carry key business knowledge (as Luke implied for his case) and yet conventional reporting tools are to be used directly against the relational tables, there no other way but to duplicate some of that knowledge in the reports, and hope they stay consistent.</p>
+<p>Then there is the possibility of a separate model context, which may be the case when people are data mining or doing other kinds of analysis where the way they need to reason about the information is substantially different from that needed in operations. In this case, tools such as data warehouses provide the means to define distinct models of the same domain geared to those ends. Translation is manageable in the usual case when there is a strict upstream-downstream relationship between the two models (the production model upstream, the data warehouse downstream). In the separate model scenario, there may be duplication of some business information, but it is a logical consequence of the desire for conceptual freedom, rather than a technical limitation. </p>
+<p></p>

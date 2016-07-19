@@ -1,0 +1,347 @@
+---
+layout: post
+title: Chapter 10 continued
+date: 2009-03-30 20:19:42.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Vlad in progress
+tags: []
+meta:
+  _gcid: '58'
+  _gcuser: Vladimir Gitlevich
+  content_type: book
+  _bitly_trim: http://dddcommunity.org/?p=49
+  _edit_last: '3110'
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="notesblock">Notes 13 Jan 2004<br />
+   Domain Driven Design (VII)<br />
+	Guest Author: Eric Evans </span></p>
+<p>(Ken Scott-Hlebek starts with a discussion of the "Master of Software<br />
+    Arts" program at UIUC. He is part of the group of students involved<br />
+    in a trial run.)</p>
+<p>Russ: Perhaps we could move on to Chapter 10? (starting p.246, Intention-Revealing<br />
+    Interface)</p>
+<p>John B: Smalltalk Best Practice Patterns, "Intention-Revealing Selector."<br />
+    I tend to think of the Java keyword for interfaces.</p>
+<p>Russ: When you are talking about "intention revealing interface",<br />
+    is it the design-by-contract sense of syntax and semantics?</p>
+<p>Eric: Yes, Design By Contract was one of the main factors. I don't see<br />
+    it as just the method signature.</p>
+<p>Tracy: You've gone to the trouble of creating a Ubiquitous Language...I<br />
+    like the way the intention-revealing interface pattern is connected. And<br />
+    your example is good to show how it can be hard. "Paint.paint()",<br />
+    for example.</p>
+<p>Russ: artPaint.GetBlue() vs. artPaint.Blue()? I'm a little surprised<br />
+    you went that way.</p>
+<p>Eric: It's kind of entrenched as a convention in the Java world, and<br />
+    it's not too bad.</p>
+<p>Russ: Having "create" on creational methods... it's useful,<br />
+    sometimes, to have a naming convention that is a common idiom to help<br />
+    prevent surprises.</p>
+<p>Eric: I'd like the user not to care whether they were fetching a variable<br />
+    value or calculating a derived value.</p>
+<p>John B: I've run into that problem. </p>
+<p>Russ: We typically use "get" for retrieving primitive values,<br />
+    like 'int'. We use "get" a lot for accessors.</p>
+<p>Tracy: Whether it's calculated or not.</p>
+<p>Russ: We don't tend to use "compute" or "calculate".</p>
+<p>Mark: It's like J2EE or JavaBeans conventions.</p>
+<p>Phil: Yes. EJBs use the JavaBeans conventions to make introspection easier.<br />
+    You can look at the JavaBean and see what state is accessible.</p>
+<p>John B: They call it a Design Pattern but obviously it isn't.</p>
+<p>Phil: But it's a convention that makes it easier to discover properties.</p>
+<p>Mark: But even Sun, you get String.valueOf(...) etc.</p>
+<p>Eric: But isn't a naming convention an awkward way to put in metadata<br />
+    for a tool?</p>
+<p>Jeff: But it gets used over and over and over again. Custom attributes<br />
+    in Java are the </p>
+<p>Eric: Sometimes "has" is better than "is" for a boolean.</p>
+<p>Mark: I've seen "isHas..." and "getIs..." on accessor<br />
+    methods.</p>
+<p>John C: Were these native English speakers?</p>
+<p>Mark: Yes.</p>
+<p>Mike: You want the convention to extend beyond is/has for your accessors.<br />
+    If you enrich that language for describing, for removing ambiguity of<br />
+    the interfaces, than the current state of things.</p>
+<p>(some discussion of accessors and mutators, including conventions in<br />
+    Java, Smalltalk, and Forté).</p>
+<p>Scott: If you're going to follow a convention that you use get..., you<br />
+    shouldn't have to care whether you fetch a field value or compute it.</p>
+<p>Eric: It would be OK, if it were side-effect free. A lot of "calc"<br />
+    methods actually modify values.</p>
+<p>John C: Truly side-effect free? Or are you willing to have things cached?</p>
+<p>Eric: I define it here, as no observable side effects. So caching is<br />
+    OK if it's appropriate. I don't suppose anyone would like to make the<br />
+    case against an intention-revealing interface?</p>
+<p>John: "Too much typing?"</p>
+<p>Jeff: "It's such a pain to change the name of everything all the<br />
+    time when you change the behavior!"</p>
+<p>Eric: That's the worst case, when someone has chosen a good intention-revealing<br />
+    name, and someone else changes the behavior. The method name is lying<br />
+    to you.</p>
+<p>(question: should the name of iterators or index variables be long/meaningful?)</p>
+<p>Russ: I label an iterator with the type of the instance coming out, so<br />
+    iColor is an iterator over colors.</p>
+<p>Phil: eachColor is the convention I'd use.</p>
+<p>(internal vs. external iteration mentioned)</p>
+<p>Phil: There are things you can do with external iterators you can't do<br />
+    with internal iterators.</p>
+<p>Eric: But 99.9% of the time you don't. You just run down all the items<br />
+    in the collection.</p>
+<p>Russ: But it makes you feel like a real programmer to write an iteration<br />
+    loop.</p>
+<p>(a discussion of iterators and collections, sometimes the application<br />
+    is just lists, and it doesn't matter whether you use iterators or whether<br />
+    you count up via the index...)</p>
+<p>Tim: Iterating over a 2D thing... I find that people do a better job<br />
+    naming when they use iterators than when they index with integers. There<br />
+    was one case where they used i and j to loop over the results, and in<br />
+    one place they had misplaced an i for a j or vice versa, and something<br />
+    that was supposed to be sent to one user was sent to all of them.</p>
+<p>Eric: (discussion of a difficult case refactoring a nested loop with<br />
+    embedded conditional logic)</p>
+<p>Mike: A server test program that opened a number of sockets, one for<br />
+    each thread, and sent for each socket, a number of messages, and waited<br />
+    to see if each one had the proper completion token returned from the server.<br />
+    So there was a loop of bursts ...</p>
+<p>Eric: Wouldn't it have been easier to have an object to manage the threads?<br />
+    Wouldn't it have been quicker:</p>
+<p>Mike: Probably. I just ran out of time, and it worked.</p>
+<p>David V: Do you declare an iterator in the same scope as the loop (so<br />
+    it is out of scope after the loop)? (expanded question: "Do you think<br />
+    it's important to declare a variable as close as possible to its point<br />
+    of use?")</p>
+<p>Show of thumbs: some up, some down, several sideways.</p>
+<p>Mike: You may need it in a larger scope, so you can't declare it right<br />
+    next to use.</p>
+<p>Eric: Sometimes you can have a declarations section up at the top of<br />
+    a method.</p>
+<p>Phil: I put my fields up at the top of a class, certainly. Though I've<br />
+    seen people sprinkle their fields around.</p>
+<p>John: I use IntelliJ to write my iterators. What does it do? </p>
+<p>Phil: So it writes the loop for you.</p>
+<p>John C: There was a "GIST" specification language. They compared<br />
+    'declared once" specifications with "declared plus shown as<br />
+    summaries", and the ones with generated summaries were more useful.</p>
+<p>(some extended discussion of how to organize functions, logical and physical<br />
+    representation of the code, etc.)</p>
+<p>p. 250, "Side-Effect Free Functions"</p>
+<p>John B: So do side-effect free functions take a value object and give<br />
+    you a value object back?</p>
+<p>Eric: Sort of. Often the return value is a value object. But the connection<br />
+    is rather that *every method on a value object must be a side-effect free<br />
+    function*.</p>
+<p>Phil: Couldn't a value object function take an entity, change it and<br />
+    give it back?</p>
+<p>Eric: I wouldn't write it that way. But maybe if the value object was<br />
+    designed for that purpose. But I'd rather pass it to the entity, "change<br />
+    yourself according to this transformation object".</p>
+<p>Tim: More like a service than a value object, that its job is to change<br />
+    things?</p>
+<p>Eric: That alone wouldn't make it a service, but a service might do that<br />
+    sort of thing.</p>
+<p>Russ: Perhaps you could clarify this? You're talking about changing function<br />
+    arguments?</p>
+<p>Tracy: That started with Phil's example.</p>
+<p>Eric: I think it's risky business to change function arguments. A lot<br />
+    about supple design is to be very obvious. Side-effect free methods are<br />
+    easy to test.</p>
+<p>John B: And to combine.</p>
+<p>Eric: And to combine.</p>
+<p>Russ: This kind of lets out the notion of Collecting Parameter.</p>
+<p>Eric: When the design is exactly that, it would be sensible.</p>
+<p>Phil: Collecting Parameter is more like a mechanism than business logic.</p>
+<p>Eric: That might be a way to discuss Collecting Parameter, to try and<br />
+    keep all the business logic out of it and put the meaning in the hands<br />
+    of other objects. I don't want to be too all-encompassing here. But you<br />
+    can make things really easy to understand if you can put the complexities<br />
+    onto side-effect free functions on value objects, and keeping your mutators<br />
+    on your entities really simple. And having assertions (in the design by<br />
+    contract sense, though they could be implemented as unit tests) on the<br />
+    simple state of the entities. So client code will be really easy to understand,<br />
+    as a combination of intention-revealing side-effect free functions. That's<br />
+    why these three patterns work very well together.</p>
+<p>Russ: You've spent a little time thinking about this, then.</p>
+<p>Eric: Yes, a little [spoken heavily].</p>
+<p>John B: Closure of Operations following Standalone Classes?</p>
+<p>Eric: Yes. This last part of the chapter is about trying to reduce the<br />
+    number of dependent concepts. There are two different things here. They<br />
+    both contribute to reducing interdependence. When I talk about dependencies,<br />
+    I don't mean compile-time necessarily, it's a matter of conceptual dependency.<br />
+    If you have a manager class, it doesn't make sense out of the context<br />
+    of an employee class. But perhaps depending on your model, you could understand<br />
+    Employee all by itself. A genuine standalone class is one that you don't<br />
+    have to refer to other classes. Closure of an operation yields a method<br />
+    that can be understand all by itself. Some of the things I talk about<br />
+    here aren't strictly closed, some of the Standalone classes aren't completely<br />
+    standalone. But if you had a class that only referred to system types,<br />
+    strings and ints, these classes aren't strictly standalone, but for practical<br />
+    purposes it doesn't add any intellectual load.</p>
+<p>Mike: If you can move it to the next directory over, and it will still<br />
+    compile and be usable by client code there, that's a good test.</p>
+<p>Eric: At the level of the code. Let's say, often a street address is<br />
+    a standalone class whose state consists of ints and strings.</p>
+<p>John C: Then when you start doing business overseas, you start caring<br />
+    about how an address is composed for use in other postal systems.</p>
+<p>Eric: You could have other approaches, you could have a bunch of smart<br />
+    formatters for various countries' conventions. But most likely, as you<br />
+    say, you'd model an address as a composed object.</p>
+<p>John B: Or one big string.</p>
+<p>Eric: There are two very important points here. Dependency is not a matter<br />
+    of tracking compilation dependencies. In fact, the worst dependencies<br />
+    are often ones which are implicit. For example, a class in one place which<br />
+    operates on an ID, or on some object state which is represented as ints<br />
+    and strings. That sort of &lt;em&gt;implicit&lt;/em&gt; dependency counts.<br />
+    Dependencies are very costly in terms of adding complexity. So these rules<br />
+    talk about (1) Make the dependencies explicit and (2) Make them as few<br />
+    as possible.</p>
+<p>Russ: The conceptual version of coupling and cohesion.</p>
+<p>Eric: Yes.</p>
+<p>Russ: I know about closure of operations from mathematics. But perhaps<br />
+    you could give a clearer sense of what it means here?</p>
+<p>Eric: Operations where you put in one type and get another instance of<br />
+    the same type are examples of closed operations. Selecting from a collection<br />
+    gives you another collection.</p>
+<p>Russ: So the way you wouldn't want to do it would be to mix a pigment<br />
+    and a pigment and get a paint, then pigment would not be closed over mixing,<br />
+    and you'd have to be concerned whether you were dealing with a pigment<br />
+    or a paint.</p>
+<p>John B: So the part of Java's String protocol, toUpper(), substring(),<br />
+    etc. which all return String (not StringBuffer, char[], etc.), would be<br />
+    a set of operations closed under String.</p>
+<p>Eric: Closed operations are much easier to compose, and that makes them<br />
+    easier to work with. The fact that they are instance methods on the same<br />
+    type which they return groups them cohesively together.</p>
+<p>Conceptual Contours (pattern)</p>
+<p>Eric: I feel it's very important, but I have difficulty explaining it.<br />
+    It's too much the product of intuition, I guess. Some of the ways I suggest<br />
+    to find them are sort of circular.</p>
+<p>Mark: So perhaps some of the advice is the right level of detail for<br />
+    your model. Things like atoms are too fine-grained for a model of a car,<br />
+    they're outside the conceptual contour. You'd want steering wheel, tires,<br />
+    etc. Not a monolithic "Car", and not atoms.</p>
+<p>Eric: And not front half/back half.</p>
+<p>Jeff: Unless you're doing finite element modeling of your car.</p>
+<p>Russ: Conceptual distance is something you might want to discuss here.<br />
+    And the sense of what concepts are close to one another. There are interesting<br />
+    things (Kohonen maps) that are self-organizing clusters of concepts, ways<br />
+    to get a more global picture when you're just starting with the sense<br />
+    of a bunch of individual things and their conceptual distance to one another.</p>
+<p>Eric: That sounds like it's the right neighborhood. As long as we don't<br />
+    get too carried away and turn it into another Rational Rose.</p>
+<p>Russ: But a tool that understood conceptual distance could be useful<br />
+    in some sense. Maybe even notifying people who are concerned with issues<br />
+    that are conceptually close.</p>
+<p>Russ: Dirk Riehle has done some work in executable UML. It might be good<br />
+    to have him in to discuss the other side of things.</p>
+<p>David: There's this design that if you attune yourself correctly, it's<br />
+    not necessarily the code, or the diagrams, but you can talk about it.</p>
+<p>Eric; "The model that can be named is not the true model"?</p>
+<p>Mike: Modeling as a distraction rather than a catalytic activity. You<br />
+    want a catalyst but you have a modeling language? So developing a ubiquitous<br />
+    language</p>
+<p>David: I had a professor say: "after a while, your math is in your<br />
+    wrist". But as soon as the diagram becomes "the thing",<br />
+    where it's important, where you're generating things off it, you can get<br />
+    in some very bad places.</p>
+<p>...</p>
+<p>Eric: When I review this chapter (Chapter 10, "Supple Design"),<br />
+    it starts out talking about how good design has this tactile quality (picture<br />
+    of a bicycle), talks about some of the old Smalltalk idioms, moves on<br />
+    to Design by Contract, this vague thing about Conceptual Contours. So<br />
+    by the end of the chapter, the odd assortment of stuff is what you need<br />
+    to accomplish the goal, a supple design that is pleasant to work with.<br />
+    These pieces are not traditionally grouped, but I see a deep connection.<br />
+    Do other people?</p>
+<p>Robert: Some of each. Are they connected? Yes.</p>
+<p>Wayne: I didn't think of them as an odd assortment until you called it<br />
+    out. Then I thought, "yes, this is a mixed bag."</p>
+<p>John B: Like listening to a director's track on a DVD, they note all<br />
+    the inconsistencies that you'd never notice.</p>
+<p>Russ: Wouldn't some other things belong here? Value Objects vs Entities<br />
+    could belong here.</p>
+<p>Eric: They show up in discussion. I didn't want to repeat a pattern definition.<br />
+    I didn't mean it to becomprehensive, to cover all the techniques you would<br />
+    use to make the design supple. But enough to convey the idea.</p>
+<p>Mike: You are at different levels in the practices of good design. The<br />
+    language connecting the pieces may need to be enriched, but the practices<br />
+    are all important.</p>
+<p>Eric: The first three patterns, to me, seem to hang together very well,<br />
+    very closely. Conceptual Contours... that's where the picture of the bicycle<br />
+    comes in. You can see there are some things that are easy to take apart,<br />
+    other things that are tightly bound assemblies. At the level of the designers<br />
+    of a bike, the stack of gears, the gear assembly, was the part, rather<br />
+    than each gear individually.</p>
+<p>Mike: Bikes have these parts which are interchangeable to such a degree<br />
+    because there are standards involved. Tolerances and specifications.</p>
+<p>Mike: The success in communications software is based on standards. TCP/IP,<br />
+    SMTP, etc.</p>
+<p>Eric: I think that's an example of a supple design as well. They're well<br />
+    composed, and well separated as well. The breakdown was one that allowed<br />
+    for growth and adaptation.</p>
+<p>Russ: Isn't that a topic from chapter 14?</p>
+<p>Eric: And those things are related, aren't they. But I think of the Internet<br />
+    protocols as a set of supple designs done right. It's not the first thing<br />
+    they came up with. The initial prototype isn't what we have now.</p>
+<p>Jeff: It took them at least four versions to get it right. (reference<br />
+    to IPv4).</p>
+<p>Eric: If you freeze too early, establish the standard without investigation<br />
+    and practice, you end up with a stiff, awkward kind of design.</p>
+<p>John B: "rough consensus and running code", at least two successful<br />
+    independent implementations of a proposed standard.</p>
+<p>Jeff: And it helps if the two implementations talk to one another.</p>
+<p>Eric: And the OMG is trying to create this standard before anyone has<br />
+    actually implementing anything like it. (refering to UML support for MDA)</p>
+<p>David V: Eric, I'm looking for a way to "sell" supple design.<br />
+    So can I say, "If you use supple design, it's less likely you'll<br />
+    have to throw away an application and rewrite it from scratch?"</p>
+<p>Eric: Yes, it's key to being able to hold onto your program and being<br />
+    able to modify it for a long time.</p>
+<p>David V: I was hoping your chapter conclusion would make a stronger point<br />
+    of it.</p>
+<p>Robert: That's the whole-book benefit, rather than just the Chapter 10<br />
+    benefit, right?</p>
+<p>Russ: Chapter 10 applies even when you're outside the domain part of<br />
+    your application code.</p>
+<p>Mike: I might express it as "Debt-free design" in the words<br />
+    we used last week.</p>
+<p>Eric: I would say that with a supple design, your project may just start<br />
+    taking off at the point a conventional project would be heading for legacy<br />
+    status.</p>
+<p>Eric: Did anyone actually read Chapter 8 and the example at the end of<br />
+    Chapter 10? Chapter 8 is an extended example, and the end of Chapter 10<br />
+    has a more close-up view of the same transformation. Almost, that is.<br />
+    It's more like taking the stiff early version and turning it into something<br />
+    supple. That's a nice combination to get into.</p>
+<p>   <!-- InstanceEndEditable --></p>
+<div id="sidebar">
+ <!-- InstanceBeginEditable name="SideBar" --></p>
+<h2>Attending:</h2>
+<p>     Russ Rufer<br />
+      Dave Smith<br />
+      Robert Benson<br />
+      Tim Huske<br />
+      John Brewer<br />
+      David Vydra<br />
+      Shiva<br />
+      Darlene Wallach<br />
+      Wayne Vucenic<br />
+     Ken Scott-Hlebek<br />
+      Phil Goodwin<br />
+      Eric Evans<br />
+      Mark Taylor<br />
+      Scott Wiiley<br />
+      Tracy Bialik<br />
+      Mike Winter<br />
+      John Corbett
+ </div>
+<p></p>

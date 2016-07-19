@@ -1,0 +1,49 @@
+---
+layout: post
+title: Quicker Frameworks
+date: 2009-05-13 21:27:18.000000000 -06:00
+type: post
+published: true
+status: publish
+categories:
+- Featured
+- Frameworks
+- Library
+tags: []
+meta:
+  _gcid: '148'
+  _gcuser: Vladimir Gitlevich
+  content_type: story
+  Summary: '2'
+  _bitly_trim: http://dddcommunity.org/?p=72
+  _edit_last: '3109'
+  _thumbnail_id: '437'
+  _dependencies: s:6:"a:0:{}";
+  _custom_background: a:5:{s:3:"url";s:0:"";s:16:"background-color";s:0:"";s:17:"background-repeat";s:6:"repeat";s:21:"background-attachment";s:6:"scroll";s:19:"background-position";s:8:"left
+    top";}
+  _intro_text: default
+  _intro_custom_banner: a:1:{s:3:"url";s:0:"";}
+  custom_permalink: library/oberg_2009/
+  U_S_C_message: ''
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+<p><a href="http://www.jroller.com/rickard">By </a><a href="http://www.jroller.com/rickard">Rickard Öberg</a><br />
+May 2009</p>
+<p>You may have noticed that dynamic languages are becoming more and more popular these days. A common explanation for this that I've heard is that “they allow me to express myself with simpler code and to write less”. That's an interesting observation. But maybe that is just the beginning of the story? <!--more-->What if we were to think in this way about not only the details of the code, but also in the bigger picture. This article is about that bigger picture, and how a change of perspective can radically simplify the way we design and code domain models.</p>
+<p>I've written a bunch of frameworks. They do all sorts of stuff. They make it easier to use servlets, they make it easier to generate XML files, and simplify using databases. They make it easier for me to get things done. Having these frameworks certainly makes it possible to do all of those things with less code. But there is a big problem with all of them. They're all about “speed”. Making you write code faster. But “speed” is not necessarily the important thing to achieve. As it so happens, the great warrior Miyamoto Musashi has written about this very topic, but in an entirely different context, in his “Book of Five Rings”. He writes (translated from Japanese):</p>
+<p>“<em>Some schools think that speed is all that is necessary to win fights. If you can make a fast slash and win, all the better. I do not agree with this idea and think that it in fact slows you down. […] What is speed anyway? Speed is relative to the situation in which you are involved. Being fast or being slow has to do with speed. Quickness is what you want in your spirit. A quick spirit is able to overcome any apparent speed with which an enemy is coming at you. Quickness gets inside of speed and enables you to control the situation by killing the enemy. When you advance, you advance quickly and get immediately to the point.</em>”</p>
+<p>Getting to the point sounds good, but what does “be quick” really mean? In martial combat, if you are fast then you can move your body at great speeds. And yet I have watched a few masters perform, and what strikes me (pun intended) about them is that they are not fast at all. They are just very very quick. I have had a martial arts master in his seventies tauntingly tell me to hit him with a stick, and when I tried he invariably moved slightly at the very last moment so that I missed him. “More quickly” he then announced, with a wide grin on his face. At the time I had no idea what he was talking about and tried again and again with little success, until I was sweating like crazy and gave up in perplexion.</p>
+<p>I understand now why I couldn't hit him. He was too quick. His quickness came from removing unnecessary movement, which allowed him to get to the point with minimum effort, not even breaking a sweat, and performing his intended goal without any needless loss of energy. And this is precisely what we should be doing when writing software frameworks as well. Put more directly, instead of letting the developer simply “write less code”, i.e. be faster, the framework should allow the developer to get to the point more quickly.</p>
+<p>So how do we do this? I think it is necessary to start by looking at the reason frameworks look the way they do today. Most of them tend to start off by one or several developers having a grudge against some technology, most often some kind of infrastructure, which they then want to make a layer on top of to make things easier. In essence, they create a new language with which they can deal with this thing more directly. This is a bottom-up approach, where something at the bottom is hidden away under an abstraction layer.</p>
+<p>But this approach is only making the developers using the framework faster, not quicker. How so? The reason is that the end goal of the application developer using it is to implement a domain model in software, but this domain model has not been designed using the terminology of the framework. This forces developers to translate between the domain model terminology and the language of the framework they have chosen. Such translation always causes a loss of precision, and an introduction of additional code. It introduces unnecessary movement. It's a a waste of energy. In other words, using such a framework might be fast, at best, but it is not quick.</p>
+<p>So how can we create frameworks that allow us to be quick? The best way to avoid creating unnecessary code is to minimize the translation needed from thought to action. In other words, you need to find out whether you can express your idea in code with terms that are as close as possible to what you are thinking. The current trend of creating and using domain specific languages (DSL's) is an example of this desire.</p>
+<p>So what language should we use to express our ideas? Within the context of domain modeling we could use the terminology defined and explained by Eric Evans in his book Domain Driven Design. It provides us with a set of terms that are well-defined on their own, and also in relation to each other. In other words, our Ubiquitous Language as framework writers should be DDD itself. This gives us an opportunity to be truly quick rather than just fast.</p>
+<p>And this is precisely what we have done in the <span>Qi4j project</span>, which started over two years ago. The initial idea was to make it easier to write and reuse parts of objects, such as mixins, which in itself is an example of being quick rather than fast. Instead of making it possible to write less code using whatever fancy programming language syntax you can imagine, we thought it would be even better to not write code at all by being able to reuse mixins that were specifically targeted at a single concern. The good old Lego metaphor, where pieces of code are written once and composed endlessly into new combinations. That is an example of being quick, as it doesn't necessarily makes it easier to write code, instead it minimizes the need to write code in the first place.</p>
+<p>But we at that time also realized that being able to reuse mixins as a way to minimize the amount of code needed to construct domain models was not enough. And none of us were particularly impressed with the state of the art in bottom-up frameworks that were available, all of them being very neat but ultimately not helpful for application developers wanting to express their domain models. It was, and is, quite depressing to see all the tutorials and articles that deal with “how to get around problem X” in whatever framework had been chosen, in order to express domain models. “This is how you can be even FASTER!”. Unnecessary movement and a waste of energy.</p>
+<p>We then decided to use the DDD terminology as the foundation in <span>Qi4j</span>. The terms that make sense to put in a framework, such as Entity, Value, Service, Module, Layer, Application, and so on, are all available in the framework using those terms, and with the semantics as defined in the book. This avoids having to translate between the domain modeling language and a framework language. Get to the point more directly. By doing this we hope that application developers can “get things done” not only faster, but ultimately, quicker.</p>
+<p>&nbsp;</p>

@@ -1,0 +1,32 @@
+---
+layout: post
+title: Retrofitting a Domain Model
+date: 2003-09-01 19:53:15.000000000 -06:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _gcid: '49'
+  _edit_last: '1'
+  _wp_page_template: default
+  _bitly_trim: http://dddcommunity.org/?p=40
+author:
+  login: Vladimir Gitlevich
+  email: webmaster@domaindrivendesign.org
+  display_name: Vladimir Gitlevich
+  first_name: Vladimir Gitlevich
+  last_name: ''
+---
+
+<p><span class="articleauthor">by Patrick Logan</span><br />
+ <span class="articledate">October 2003</span> </p>
+<p>I was working on a team at Intel building video conferencing systems. The original product had been pretty literally slammed together for 16-bit windows systems. (Yes, this was some time ago.) I joined the group after the first release had been shipped.</p>
+<p>After working on some not very well designed code for a few months, one of my bosses (had a couple of them) asked if I wanted to work on a new team re-implementing for 32-bit windows. Knowing there was no way much of the existing code could be ported directly (too many "globals" for communicating directly between DLLs), I saw this as a great opportunity.</p>
+<p>I worked on the conference establishment code first. I took bits and pieces of the exiting code or at least logic and embedded it within a domain-specific vocabulary. E.g. seeing in the code several ways to establish a call, and a lot of IF/ELSE and SWITCH to keep those paths separate, I created a Call object. The Call was used to establish a connection, with subclasses for TCP/IP, ISDN, etc. I also separated out the code for where the call comes from (i.e. where do you get the information to make the call?)</p>
+<p>Not long after the benefits of this refactoring paid off. Some marketing guy wanted a demo, and he wanted some new features, in particular to establish a call from an address book, make the connection via TAPI, etc. The 16-bit team just gave up, they did not have the time or people to devote to untangling the code for these new features. In the 32-bit case, two of us did the work in about a day elapsed time.</p>
+<p>A guy new to the project, but familiar with TAPI, was able to create a couple new subclasses with the expected interface. I did some very minor tweaking of the existing interfaces (which then made the subsequent development for the system even more reusable).</p>
+<p>So in this case refactoring with the domain in mind took a project's desired new features from impossible to fit into the schedule to "piece of cake", which got a fair bit of notice in the organization.</p>
+<p> ©2003, Patrick Logan</p>
+<p></p>
