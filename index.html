@@ -5,13 +5,6 @@ author_profile: true
 
 {% include base_path %}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts }}</h3>
-
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
-
-{% include paginator.html %}
 
 
 <a class="twitter-timeline twitter-timeline-error" href="https://twitter.com/DDDesignNews" data-widget-id="305334852734033923" data-twitter-extracted-i1468878143616202256="true">Tweets by @DDDesignNews</a>
@@ -33,3 +26,11 @@ author_profile: true
       </li>
     {% endfor %}
   </ul>
+  
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts }}</h3>
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}
